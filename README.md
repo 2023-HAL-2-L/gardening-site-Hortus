@@ -6,6 +6,9 @@
 
 ## 命名規則
 
+参考資料:
+<https://qiita.com/Ted-HM/items/7dde25dcffae4cdc7923>
+
 ### 共通項目
 
 - **ファイル名は全て一目で意味の通じる英語で記述する**
