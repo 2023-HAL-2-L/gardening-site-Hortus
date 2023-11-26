@@ -5,6 +5,6 @@ import mysql.connector
 
 user = Blueprint("user", __name__)
 
-@user.route("")
+@user.route("/")
 def index():
   return render_template("user/index.html")

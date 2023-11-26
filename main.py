@@ -33,3 +33,18 @@ def login():
 @app.route("/logout/", methods = ["GET"])
 def logout():
   return render_template("logout.html")
+
+@app.route("/top/", methods = ["GET"])
+def top():
+  return render_template("top.html")
+
+
+
+
+
+@app.route("/User-Guide/")
+def userGuide():
+  return render_template("user-guide.html")
+@app.route("/inquiry/")
+def inquiry():
+  return render_template("inquiry.html")
