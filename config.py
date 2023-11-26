@@ -3,10 +3,12 @@ class SystemConfig:
   DEBUG = True
 
   SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{user}:{password}@{host}/{db_name}?charset=utf8'.format(**{
-      'user': '<接続ユーザー>',
-      'password': '<接続パスワード>',
-      'host': '<接続先ホスト>',
+      'user': 'root',
+      'password': 'P@ssw0rd',
+      'host': '127.0.0.1',
       'db_name': '<接続先データベース名>'
   })
+  
+  SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 Config = SystemConfig
