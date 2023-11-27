@@ -2,9 +2,12 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import Column, Integer, String, Boolean
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from api.database import db
+from sqlalchemy_utils import UUIDType
+import uuid
 # base_dir = os.path.dirname(__file__)
 
 # パスワードをハッシュ化
@@ -17,12 +20,14 @@ def check_password(self, password):
 
 class User(UserMixin, db.Model):
   __tablename__ = "user"
-  id = db.Column(db.Integer, primary_key=True)
+  id = db.Column(UUIDType(binary=False), primary_key=True, default= uuid.uuid4)
   name = db.Column(db.String(63), nullable=False)
-  email = db.Column(db.String(100), nullable=False)
-  password = db.Column(db.String(20), nullable=False)
+  email = db.Column(db.String(63), nullable=False)
+  password = db.Column(db.String(63), nullable=False)
+  address = db.Column(db.String(255), nullable=False)
+  is_operator = db.Column(db.Boolean, nullable=False)
   created_at = db.Column(db.DateTime, nullable=False)
-  updated_at = db.Column(db.DateTime, nullable=False)
+  updated_at = db.Column(db.DateTime, default= datatime., nullable=False)
 
   def __init__(self, name, email, password, created_at, updated_at):
     self.name = name
