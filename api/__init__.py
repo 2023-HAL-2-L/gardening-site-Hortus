@@ -13,7 +13,9 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object("config.Config")
     db.init_app(app)
-    login = LoginManager(app)
+    login = LoginManager()
+    login.init_app(app)
+    
     app.register_blueprint(main , url_prefix="/")
     app.register_blueprint(user, url_prefix="/user")
     app.register_blueprint(auth, url_prefix="/auth")
