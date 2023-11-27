@@ -8,8 +8,10 @@ from flask_login import UserMixin
 from api.database import db
 from sqlalchemy_utils import UUIDType
 import uuid
+import datetime
 # base_dir = os.path.dirname(__file__)
 
+tz_jst = datetime.timezone(datetime.timedelta(hours=9))
 # パスワードをハッシュ化
 def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -26,8 +28,8 @@ class User(UserMixin, db.Model):
   password = db.Column(db.String(63), nullable=False)
   address = db.Column(db.String(255), nullable=False)
   is_operator = db.Column(db.Boolean, nullable=False)
-  created_at = db.Column(db.DateTime, nullable=False)
-  updated_at = db.Column(db.DateTime, default= datatime., nullable=False)
+  created_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
+  updated_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
 
   def __init__(self, name, email, password, created_at, updated_at):
     self.name = name
