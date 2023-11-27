@@ -25,13 +25,9 @@ def top():
 def top():
   return render_template("top.html")
 
-
-
-
-
-@app.route("/User-Guide/")
+@main.route("/User-Guide/")
 def userGuide():
   return render_template("user-guide.html")
-@app.route("/inquiry/")
+@main.route("/inquiry/")
 def inquiry():
   return render_template("inquiry.html")
