@@ -11,4 +11,6 @@ class SystemConfig:
   
   SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+  SECRET_KEY = 'arcaeaveryverysecretkey'
+
 Config = SystemConfig
