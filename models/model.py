@@ -21,7 +21,7 @@ def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 # いらないので方法の保留
 # , on_update= db.CASCADE, on_delete= db.CASCADE
-class User(UserMixin, db.Model):
+class Account(UserMixin, db.Model):
   __tablename__ = "user"
   account_id = db.Column(UUIDType(binary=False), primary_key=True, default= uuid.uuid4)
   name = db.Column(db.String(63), nullable=False)
@@ -75,7 +75,7 @@ class shopping_days(db.Model):
 
 class product(db.Model):
   __tablename__ = "product"
-  product_id = db.Column(db.Integer, primary_key=True)
+  product_id = db.Column(UUIDType(binary=False), primary_key=True, default= uuid.uuid4)
   product_name = db.Column(db.String(63), nullable=False)
   product_description = db.Column(db.String(255), nullable=False)
   product_price = db.Column(db.Integer, nullable=False)
@@ -87,3 +87,84 @@ class product(db.Model):
   is_delete = db.Column(db.Boolean, nullable=False, default=False)
   created_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
   updated_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
+
+class image(db.Model):
+  __tablename__ = "image"
+  image_id = db.Column(db.Integer, primary_key=True)
+  image = db.Column(db.String(255), nullable=False)
+  
+class product_image(db.Model):
+  __tablename__ = "product_image"
+  product_image_id = db.Column(db.Integer, primary_key=True)
+  product_id = db.Column(db.String(63), nullable=False), db.ForeignKey("product.product_id")
+  image_id = db.Column(db.Integer, nullable=False), db.ForeignKey("image.image_id")
+
+class barter_propose(db.Model):
+  __tablename__ = "barter_propose"
+  barter_propose_id = db.Column(UUIDType(binary=False), primary_key=True, default= uuid.uuid4)
+  proposer_product_id = db.Column(db.String(63), nullable=False), db.ForeignKey("product.product_id")
+  barter_product_id = db.Column(db.String(63), nullable=False), db.ForeignKey("product.product_id")
+  proposer_account_id = db.Column(db.String(63), nullable=False), db.ForeignKey("account.account_id")
+  barter_account_id = db.Column(db.String(63), nullable=False), db.ForeignKey("account.account_id")
+  created_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
+
+class purchase_history(db.Model):
+  __tablename__ = "purchase_history"
+  purchase_history_id = db.Column(db.Integer, primary_key=True)
+  buy_account_id = db.Column(db.String(63), nullable=False), db.ForeignKey("account.account_id")
+  sell_account_id = db.Column(db.String(63), nullable=False), db.ForeignKey("account.account_id")
+  product_id = db.Column(db.String(63), nullable=False), db.ForeignKey("product.product_id")
+  #送ったかどうか
+  is_send = db.Column(db.Boolean, nullable=False, default=False)
+  #送られたかどうか
+  is_sent = db.Column(db.Boolean, nullable=False, default=False)
+  is_barter = db.Column(db.Boolean, nullable=False, default=False)
+  created_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
+
+class tag(db.Model):
+  __tablename__ = "tag"
+  tag_id = db.Column(db.Integer, primary_key=True)
+  name = db.Column(db.String(63), nullable=False)
+  is_delete = db.Column(db.Boolean, nullable=False, default=False)
+  
+class column(db.Model):
+  __tablename__ = "column"
+  column_id = db.Column(db.Integer, primary_key=True)
+  column_title = db.Column(db.String(127), nullable=False)
+  column_text = db.Column(db.Text, nullable=False)
+  account_id = db.Column(db.String(63), nullable=False), db.ForeignKey("account.account_id")
+  created_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
+  updated_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
+
+class column_image(db.Model):
+  __tablename__ = "column_image"
+  column_image_id = db.Column(db.Integer, primary_key=True)
+  column_id = db.Column(db.Integer, nullable=False), db.ForeignKey("column.column_id")
+  image_id = db.Column(db.Integer, nullable=False), db.ForeignKey("image.image_id")
+
+class column_tag(db.Model):
+  __tablename__ = "column_tag"
+  column_tag_id = db.Column(db.Integer, primary_key=True)
+  column_id = db.Column(db.Integer, nullable=False), db.ForeignKey("column.column_id")
+  tag_id = db.Column(db.Integer, nullable=False), db.ForeignKey("tag.tag_id")
+
+class thread(db.Model):
+  __tablename__ = "thread"
+  thread_id = db.Column(db.Integer, primary_key=True)
+  thread_title = db.Column(db.String(127), nullable=False)
+  account_id = db.Column(db.String(63), nullable=False), db.ForeignKey("account.account_id")
+  created_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
+
+class thread_chat(db.Model):
+  __tablename__ = "thread_chat"
+  thread_chat_id = db.Column(db.Integer, primary_key=True)
+  thread_id = db.Column(db.Integer, nullable=False), db.ForeignKey("thread.thread_id")
+  account_id = db.Column(db.String(63), nullable=False), db.ForeignKey("account.account_id")
+  text = db.Column(db.Text, nullable=False)
+  created_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
+
+class thread_tag(db.Model):
+  __tablename__ = "thread_tag"
+  thread_tag_id = db.Column(db.Integer, primary_key=True)
+  thread_id = db.Column(db.Integer, nullable=False), db.ForeignKey("thread.thread_id")
+  tag_id = db.Column(db.Integer, nullable=False), db.ForeignKey("tag.tag_id")
