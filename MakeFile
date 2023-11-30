@@ -1,0 +1,6 @@
+#create DB
+createDB:
+	python -c "from models.model import db; db.create_all()"
+#run app
+run:
+	python app.py

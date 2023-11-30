@@ -31,3 +31,7 @@ def userGuide():
 @main.route("/inquiry/")
 def inquiry():
   return render_template("inquiry.html")
+
+@main.route("/mypage/", methods = ["GET"])
+def mypage():
+  return render_template("mypage.html")

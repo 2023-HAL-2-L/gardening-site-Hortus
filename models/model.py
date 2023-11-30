@@ -6,6 +6,7 @@ from sqlalchemy import Column, Integer, String, Boolean
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from api.database import db
+from api.__init__ import login
 from sqlalchemy_utils import UUIDType
 import uuid
 import datetime
@@ -26,9 +27,9 @@ class Account(UserMixin, db.Model):
   account_id = db.Column(UUIDType(binary=False), primary_key=True, default= uuid.uuid4)
   name = db.Column(db.String(63), nullable=False)
   email = db.Column(db.String(63), nullable=False)
-  password = db.Column(db.String(63), nullable=False)
+  password = db.Column(db.String(64), nullable=False)
   address = db.Column(db.String(255), nullable=False)
-  payment_method_id = db.Column(db.Integer, nullable=False), db.ForeignKey("payment_method.payment_method_id")
+  payment_method_id = db.Column(db.Integer), db.ForeignKey("payment_method.payment_method_id")
   is_operator = db.Column(db.Boolean, nullable=False)
   created_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
   updated_at = db.Column(db.DateTime, default= datetime.datetime.now(tz_jst), nullable=False)
@@ -42,6 +43,10 @@ class Account(UserMixin, db.Model):
 
   # def __repr__(self):
     # return "<User %r>" % self.name
+    
+@login.user_loader
+def load_user(account_id):
+  return Account.query.get(account_id)
     
 class PaymentMethod(db.Model):
   __tablename__ = "payment_method"
@@ -126,7 +131,7 @@ class tag(db.Model):
   tag_id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(63), nullable=False)
   is_delete = db.Column(db.Boolean, nullable=False, default=False)
-  
+
 class column(db.Model):
   __tablename__ = "column"
   column_id = db.Column(db.Integer, primary_key=True)

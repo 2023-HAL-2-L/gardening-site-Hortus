@@ -1,3 +1,4 @@
+import os
 class SystemConfig:
 
   DEBUG = True
@@ -11,6 +12,6 @@ class SystemConfig:
   
   SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-  SECRET_KEY = 'arcaeaveryverysecretkey'
+  SECRET_KEY = os.urandom(24)
 
 Config = SystemConfig
