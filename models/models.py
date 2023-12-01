@@ -6,7 +6,6 @@ from sqlalchemy import Column, Integer, String, Boolean
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from api import db
-from api.__init__ import login
 from sqlalchemy_utils import UUIDType
 import uuid
 import datetime
@@ -55,11 +54,6 @@ class Account(UserMixin, db.Model):
 
     # def __repr__(self):
     # return "<User %r>" % self.name
-
-
-@login.user_loader
-def load_user(account_id):
-    return Account.query.get(account_id)
 
 
 class PaymentMethod(db.Model):
