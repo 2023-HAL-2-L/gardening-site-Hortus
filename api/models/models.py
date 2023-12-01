@@ -31,7 +31,7 @@ class Account(UserMixin, db.Model):
     __tablename__ = "user"
     account_id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
     name = db.Column(db.String(63), nullable=False)
-    email = db.Column(db.String(63), nullable=False)
+    email = db.Column(db.String(63), nullable=False, unique=True)
     password = db.Column(db.String(64), nullable=False)
     address = db.Column(db.String(255), nullable=False)
     payment_method_id = db.Column(db.Integer), db.ForeignKey(
