@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+/* ----------ここから交渉了承ページ---------- */
+
+main{
+  margin: 0 auto;
+}
+
+/* 商品詳細部 */
+main div.syouhin-syousai{
+  width: 60%;
+  margin: 40px auto 0 auto;
+}
+main div.syouhin-syousai ul{
+  display: flex;
+}
+main div.syouhin-syousai ul li.img1{
+  margin: 0 20px 0 0;
+}
+main div.syouhin-syousai ul li.img1 img{
+  width: 300px;
+}
+main div.syouhin-syousai ul li.syousai{
+  width: 100%;
+}
+
+
+/* 商品名 */
+main div.syouhin-syousai ul li div.syouhin-mei{
+  margin: 0 0 20px 0;
+}
+
+main div.syouhin-syousai ul li div.syouhin-mei h3{
+  font-size: 1.3rem;
+}
+
+/* 商品説明 */
+main div.syouhin-syousai ul li div.syouhin-setumei{
+  margin: 0 0 16px 0;
+}
+main div.syouhin-syousai ul li div.syouhin-setumei h3{
+  font-size: 1.1rem;
+}
+main div.syouhin-syousai ul li div.syouhin-setumei p{}
+
+/* 商品の情報 */
+main div.syouhin-syousai ul li div.syouhin-jyouhou{
+  width: 100%;
+  margin: 0 0 8px 0;
+}
+
+main div.syouhin-syousai ul li div.syouhin-jyouhou h3{
+  /* display: block; */
+  margin: 0 0 8px 0;
+  width: 100%;
+  border-bottom: 1px solid #000;
+
+}
+
+main div.syouhin-syousai ul li div.syouhin-jyouhou div.syousai-naiyou{
+  flex-direction: column;
+}
+/* 出品者 */
+main div.syouhin-syousai ul li div.syuppinsya-jyouhou{
+  width: 100%;
+
+}
+main div.syouhin-syousai ul li div.syuppinsya-jyouhou h3{
+  width: 100%;
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #000;
+}
+main div.syouhin-syousai ul li div.syuppinsya-jyouhou p{}
+
+
+
+/* ボタン（交渉する、交渉しない） */
+main div.botton{
+  text-align: center;
+  margin-bottom: 24px;
+  margin-top: 30px;
+}
+main div.botton a.botton-ketureru{
+  background-color: #37914b;
+  width: 10%;
+  padding: 4px 24px;
+  border-radius: 3px;
+}
+main div.botton a.botton-kousyou{
+  background-color: red;
+  width: 10%;
+  padding: 4px 32px;
+  border-radius: 3px;
+}
+

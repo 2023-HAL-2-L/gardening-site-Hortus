@@ -1,0 +1,120 @@
+@charset "UTF-8";
+/*壁紙*/
+#wallpaper {
+  height: 100vh; /*%が使えないためvhという単位*/
+  background-image: url(../images/top.png);
+  background-size: cover;
+  background-position: 50% 20%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  color: whitesmoke;
+  font-size: 3.6rem;
+  font-weight: 800;
+  letter-spacing: 0.4rem;
+  text-shadow: 0 0 10px rgba(47, 47, 47, 0.8);
+}
+/*全体*/
+main#top div#wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  margin: 0 auto 0 auto;
+  padding: 20px 0 50px 0;
+}
+/*カテゴリー*/
+div#top-category {
+  margin: 0 auto; /* 左右のマージンを自動で調整して中央に配置 */
+  text-align: center; /* テキストも中央に配置 */
+}
+div#top-category table {
+  width: 100%; /* テーブル幅を100%に設定 */
+}
+div#top-category table tr {
+  font-family: serif;
+  text-align: center;
+  font-size: 1.2rem;
+}
+div#top-category table tr img {
+  width: 130px;
+  margin: 10px;
+}
+/*診断に飛ぶ*/
+div#jump-to-sindan {
+  margin: 50px auto;
+}
+div#jump-to-sindan h1 {
+  font-family: serif;
+  font-size: 1.8rem;
+  margin: 20px auto;
+}
+div#jump-to-sindan figure {
+  min-width: 1000px;
+}
+div#jump-to-sindan figure img {
+  width: 100%;
+}
+div#top-startbutton {
+  text-align: center;
+  margin: 20px auto;
+}
+div#top-startbutton a {
+  font-family: serif;
+  display: inline-block; /*下の要素とかぶるから*/
+  padding: 8px 30px;
+  text-decoration: none; /*下線を消す*/
+  color: #fff;
+  font-size: 1.3rem;
+  background-color: rgba(55, 145, 75, 0.9); /*ボタンの緑色*/
+  border-radius: 2px; /*ボタンの緑色の角を丸くする・大きいサイズを入れると半円になる*/
+}
+/*お知らせ*/
+div#top-news h1 {
+  font-family: serif;
+  font-size: 1.8rem;
+  margin: 20px auto;
+}
+div#top-news div#Announcement {
+  background-color: lightgray;
+  padding: 20px 0;
+  margin: 20px auto;
+}
+div#top-news div#Announcement p.date {
+  text-align: left;
+  margin: 15px 0 15px 200px;
+  width: 750px;
+}
+div#top-news div#Announcement p.content {
+  text-align: left;
+  margin: 15px 0 15px 250px;
+  width: 750px;
+}
+/*このサイトについて*/
+div#about h1 {
+  font-size: 1.8rem;
+  font-family: serif;
+  margin: 80px auto 50px auto;
+}
+
+div#about figure {
+  display: flex;
+}
+div#about figure div#catchphrase h2 {
+  font-size: 1.5rem;
+  font-family: serif;
+  margin: 0 auto 40px auto;
+}
+div#about figure div#catchphrase {
+  font-size: 1.1rem;
+  font-family: serif;
+  margin: 50px 20px 0 20px;
+}
+div#about figure div#top-photograph {
+  margin: 0 auto 0 80px;
+}
+div#about figure div#top-photograph img {
+  width: 80%;
+}

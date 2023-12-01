@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>top</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/top.css" />
+  </head>
+
+  <body>
+    <header>
+      <div id="nav-logo"></div>
+      <div id="nav-button">
+        <div class="open-btn"><span></span><span></span><span></span></div>
+      </div>
+    </header>
+    <nav class="nav-disable">
+      <div id="nav-wrap">
+        <div class="nav-text">
+          <a href="login.html">ログイン</a>
+        </div>
+        <div class="nav-text">
+          <a href="item-search-result.html">商品を探す</a>
+        </div>
+        <div class="nav-text">
+          <a href="#">コラム</a>
+        </div>
+        <div class="nav-text">
+          <a href="#">掲示板</a>
+        </div>
+        <div class="nav-text">
+          <a href="top.html">トップに戻る</a>
+        </div>
+      </div>
+    </nav>
+    <div id="wallpaper">Hortus</div>
+
+    <main id="top">
+      <div id="wrap">
+        <div id="top-category">
+          <table>
+            <tr>
+              <td><a href="item-search-result.html"><img src="images/flower.png" alt="花"></a></td>
+              <td><a href="item-search-result.html"><img src="images/homegarden.png" alt="家庭菜園"></a></td>
+              <td><a href="item-search-result.html"><img src="images/foliageplant.png" alt="観葉植物"></a></td>
+              <td><a href="item-search-result.html"><img src="images/succulents.png" alt="多肉植物"></a></td>
+              <td><a href="item-search-result.html"><img src="images/gardenplants.png" alt="園芸用品"></a></td>
+              <td><a href="item-search-result.html"><img src="images/fertilizer.png" alt="肥料"></a></td>
+            </tr>
+            <tr>
+              <td>花</td>
+              <td>家庭菜園</td>
+              <td>観葉植物</td>
+              <td>多肉植物</td>
+              <td>園芸用品</td>
+              <td>肥料</td>
+            </tr>
+          </table>
+        </div><!--top-categoryの終わり-->
+        <div id="jump-to-sindan">
+          <h1>パーソナル植物診断</h1>
+          <table>
+            <tr>
+              <td><figure><img src="images/sindan-jump.jpg" alt="診断に飛ぶ" /></figure></td>
+            </tr>
+          </table>
+          <div id="top-startbutton">
+            <a href="personal-diagnosis-start.html">診断スタート ▶</a>
+          </div>  
+        </div><!--jump-to-sindanの終わり-->
+        <div id="top-news">
+          <h1>お知らせ</h1>
+          <div id="Announcement">
+            <div>
+              <p class="date">2023.09.25</p>
+              <p class="content">お知らせ1---------------------------</p>
+            </div>
+            <div>
+              <p class="date">2023.09.25</p>
+              <p class="content">お知らせ2---------------------------</p>
+            </div>
+            <div>
+              <p class="date">2023.09.25</p>
+              <p class="content">お知らせ3---------------------------</p>
+            </div>
+          </div>
+        </div><!--top-newsの終わり-->
+        <div id="about">
+          <h1>このサイトについて</h1>
+          <figure>
+            <div id="catchphrase">
+              <h2>花と共に彩る、<br>あなたの生活の一部</h2>
+              <tr>
+                <td>
+                  花と庭園の魔法に触れましょう。<br>
+                  植物の育て方、季節のアドバイス、デザインのヒントを提供し、<br>
+                  あなたの生活に自然の美しさを取り入れるお手伝いをします。<br>
+                  庭園があなたの心に豊かさをもたらします。
+                </td>
+              </tr>
+            </div>
+            <div id="top-photograph">
+              <td><img src="images/about.jpg" alt="写真"></td>
+            </div>
+          </figure>
+  
+        </div><!--aboutの終わり-->
+      </div><!--wrapの終わり-->
+    </main>
+    <footer></footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/common.js"></script>
+  </body>
+</html>

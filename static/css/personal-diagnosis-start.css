@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/*start.html*/
+body.start div.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+}
+main.start div#title {
+  text-align: center;
+  font-size: 1.7rem;
+  margin: 40px auto;
+}
+main.start div#title h1 {
+  font-family: serif;
+}
+#year-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+main.start div#year {
+  display: flex;
+  margin: 0 200px;
+  width: 100%;
+}
+main.start section {
+  padding: 10px;
+  margin: 0 auto;
+}
+main.start section figure {
+  margin: 0 auto;
+}
+main.start section figure img {
+  width: 180px;
+  height: 440px;
+}
+main.start div#introduction {
+  font-family: serif;
+  text-align: center;
+}
+main.start div#introduction p {
+  margin: 70px auto 50px auto;
+  font-size: 1.5rem;
+}
+main.start div#startbutton {
+  text-align: center;
+  margin: 50px auto;
+}
+main.start div#startbutton a {
+  font-family: serif;
+  display: inline-block; /*下の要素とかぶるから*/
+  padding: 4px 30px;
+  text-decoration: none; /*下線を消す*/
+  color: #fff;
+  font-size: 1.3rem;
+  background-color: rgba(55, 145, 75, 0.9); /*ボタンの緑色*/
+  border-radius: 2px; /*ボタンの緑色の角を丸くする・大きいサイズを入れると半円になる*/
+  cursor: pointer; /*カーソルを指にする*/
+}
