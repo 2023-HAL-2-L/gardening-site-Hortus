@@ -7,7 +7,8 @@ from api.views.shop import shop
 from api.views.column import column
 from api.views.thread import thread
 from api.views.main import main
-from api.views.authenticate import auth
+from api.views.auth import auth
+# from api import static
 
 def create_app(local_config="config.py"):
     
@@ -18,10 +19,11 @@ def create_app(local_config="config.py"):
     login.login_view = "auth.login"
     login.init_app(app)
     
-    from models.models import Account
+    from api.models.models import Account
     @login.user_loader
     def load_user(account_id):
         return db.query(Account).get(account_id)
+    
     
     app.register_blueprint(main , url_prefix="/")
     app.register_blueprint(user, url_prefix="/user")
