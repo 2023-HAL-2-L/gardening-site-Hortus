@@ -17,10 +17,10 @@ def create_app(local_config="config.py"):
     login = LoginManager()
     login.init_app(app)
     
-    from models.model import Account
-    @login.user_loader
-    def load_user(account_id):
-        return db.query(Account).get(account_id)
+    # from models.model import Account
+    # @login.user_loader
+    # def load_user(account_id):
+    #     return db.query(Account).get(account_id)
     
     app.register_blueprint(main , url_prefix="/")
     app.register_blueprint(user, url_prefix="/user")
