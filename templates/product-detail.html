@@ -15,9 +15,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
+  <title>
+    商品詳細ページ
+  </title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/product-detail.css">
 </head>
 
 <body>
@@ -46,15 +49,43 @@
       </div>
     </div>
   </nav>
-  
+
   <div id="header-space"></div>
-  
-  <main></main>
+
+  <main>
+    <section class="product-details">
+      <div class="product-image">
+        <img src="images/sakurai.jpg" alt="商品画像">
+      </div>
+      <div class="product-info">
+        <h2>商品名</h2><br>
+        <p>￥500(税込み・送料込み)</p><br>
+        <!-- 他の商品情報を表示 -->
+        <button>購入する</button><br><br>
+        <button>物々交換</button><br><br>
+        <h2>商品説明</h2><br>
+        <p>商品の説明などや注意事項など</p><br><br><br>
+        <p>商品の情報</p>
+        <p>---------------------------------</p>
+        <p>・カテゴリー</p>
+        <p>・商品の状態</p>
+        <p>・発送料の状態</p>
+        <p>・発送方法</p>
+        <p>・発送までの日数</p><br><br>
+        <h2>出品者</h2>
+        <p>----------------------------------</p>
+        <p>出品者名</p><br>
+        <p>----------------------------------</p>
+      </div>
+    </section>
+  </main>
   <footer></footer>
+
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <script src="js/common.js"></script>
 </body>
+
 
 </html>

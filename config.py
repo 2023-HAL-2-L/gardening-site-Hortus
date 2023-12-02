@@ -1,3 +1,4 @@
+import os
 class SystemConfig:
 
   DEBUG = True
@@ -6,11 +7,11 @@ class SystemConfig:
       'user': 'root',
       'password': 'P@ssw0rd',
       'host': '127.0.0.1',
-      'db_name': '<接続先データベース名>'
+      'db_name': 'IH'
   })
   
   SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-  SECRET_KEY = 'arcaeaveryverysecretkey'
+  SECRET_KEY = os.urandom(24)
 
 Config = SystemConfig
