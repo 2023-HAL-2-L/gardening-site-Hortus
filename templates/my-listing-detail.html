@@ -15,9 +15,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
+  <title>
+    商品詳細ページ
+  </title>
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/column-details.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/my-listing-detail.css">
 </head>
 
 <body>
@@ -36,54 +39,51 @@
         <a href="item-search-result.html">商品を探す</a>
       </div>
       <div class="nav-text">
-        <a href="#">コラム</a>
+        <a href="column.html">コラム</a>
       </div>
       <div class="nav-text">
-        <a href="#">掲示板</a>
+        <a href="bulletin-board.html">掲示板</a>
       </div>
       <div class="nav-text">
         <a href="top.html">トップに戻る</a>
       </div>
     </div>
   </nav>
-  
+
+
   <main>
-
-
-
-    <div>
-
-
-      <h3>タイトル</h3>        
-
-
-      <p id="time">2023-11-01</p>
-
-      <div id="img">
-        <img src="" alt="">        
+    <section class="product-details">
+      <div class="product-image">
+        <img src="images/sakurai.jpg" alt="商品画像">
       </div>
-
-
-      <div id="main-txt-div">
-      <p id="main-txt">
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-
-      </p>
+      <div class="product-info">
+        <h2>商品名</h2><br>
+        <p>￥500(税込み・送料込み)</p><br>
+        <!-- 他の商品情報を表示 -->
+        <button><a href="Change-details.html">商品を編集する</a></button><br><br>
+        <h2>商品説明</h2><br>
+        <p>商品の説明などや注意事項など</p><br><br><br>
+        <p>商品の情報</p>
+        <p>---------------------------------</p>
+        <p>・カテゴリー</p>
+        <p>・商品の状態</p>
+        <p>・発送料の状態</p>
+        <p>・発送方法</p>
+        <p>・発送までの日数</p><br><br>
+        <h2>出品者</h2>
+        <p>----------------------------------</p>
+        <p>出品者名</p><br>
+        <p>----------------------------------</p>
       </div>
-
-
-
-    </div>
-
+    </section>
   </main>
   <footer></footer>
+
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <script src="js/common.js"></script>
 </body>
+
 
 </html>

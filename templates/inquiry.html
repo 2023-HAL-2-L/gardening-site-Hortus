@@ -17,7 +17,8 @@
 
   <title>top</title>
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/column-details.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/inquiry.css">
 </head>
 
 <body>
@@ -47,37 +48,39 @@
     </div>
   </nav>
   
+  
   <main>
+    <div class="wrapper">
+        <div class="inquiry-all">
 
+            <div class="inquiry-h2">
+                <h2>お問い合わせ</h2>
+            </div>
 
+              <form>
+                
+                <div class="inquiry-form">
+                  <div class="container">
+                      <label for="username"><p>ユーザー名</p></label>
+                      <input type="text" placeholder="" name="username" id="username" required />
+              
+                      <label for="email"><p>メールアドレス</p></label>
+                      <input type="text" placeholder="" name="email" id="email" required />
+              
+                      <label for="inquiry"><p>お問い合わせ内容</p></label>
+                      <textarea cols="30" rows="10" name="inquiry" id="inquiry" ></textarea>
+                  </div>
+                </div>
 
-    <div>
+                <div class="inquiry-change-button">
+                        <button type="submit" onclick="location.href='./inquiry-completion.html'">送信</button>
+                        <button type="button" onclick="location.href='./top.html'">TOP</button>
+                </div>
 
+              </form>
 
-      <h3>タイトル</h3>        
-
-
-      <p id="time">2023-11-01</p>
-
-      <div id="img">
-        <img src="" alt="">        
-      </div>
-
-
-      <div id="main-txt-div">
-      <p id="main-txt">
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-
-      </p>
-      </div>
-
-
-
+        </div>
     </div>
-
   </main>
   <footer></footer>
 

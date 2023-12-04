@@ -6,7 +6,7 @@ from flask_login import (
     
 )
 from werkzeug.security import generate_password_hash, check_password_hash
-# from models.model import Account
+from api.models.models import Account
 from api.database import db
 
 # from __init__ import app, login
