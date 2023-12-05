@@ -15,16 +15,6 @@ import datetime
 tz_jst = datetime.timezone(datetime.timedelta(hours=9))
 
 
-# パスワードをハッシュ化
-def set_password(self, password):
-    self.password_hash = generate_password_hash(password)
-
-
-# 入力されたパスワードが登録されているパスワードハッシュと一致するかを確認
-def check_password(self, password):
-    return check_password_hash(self.password_hash, password)
-
-
 # いらないので方法の保留
 # , on_update= db.CASCADE, on_delete= db.CASCADE
 class Account(UserMixin, db.Model):
@@ -33,17 +23,29 @@ class Account(UserMixin, db.Model):
     name = db.Column(db.String(63), nullable=False)
     email = db.Column(db.String(63), nullable=False, unique=True)
     password = db.Column(db.String(64), nullable=False)
-    address = db.Column(db.String(255), nullable=False)
+    address = db.Column(db.String(255))
     payment_method_id = db.Column(db.Integer), db.ForeignKey(
         "payment_method.payment_method_id"
     )
-    is_operator = db.Column(db.Boolean, nullable=False)
+    is_operator = db.Column(db.Boolean, nullable=False, default=False)
     created_at = db.Column(
         db.DateTime, default=datetime.datetime.now(tz_jst), nullable=False
     )
     updated_at = db.Column(
-        db.DateTime, default=datetime.datetime.now(tz_jst), nullable=False, onupdate=datetime.datetime.now(tz_jst)
+        db.DateTime,
+        default=datetime.datetime.now(tz_jst),
+        nullable=False,
+        onupdate=datetime.datetime.now(tz_jst),
     )
+    # パスワードをハッシュ化
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+
+    # 入力されたパスワードが登録されているパスワードハッシュと一致するかを確認
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
 
     # def __init__(self, name, email, password, created_at, updated_at):
     #   self.name = name
