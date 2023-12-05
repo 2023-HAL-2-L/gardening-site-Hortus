@@ -18,6 +18,9 @@ auth = Blueprint(
     static_url_path="../../static",
 )
 
+@auth.route("/signup/")
+def signup_def():
+    return render_template("registration.html")
 
 @auth.route("/signup/", methods=["POST"])
 def signup():
@@ -26,6 +29,9 @@ def signup():
     form = RegistrationForm()
     if request.method == "POST":
         if form.validate_on_submit():
+            chack = Account.query.filter_by(
+                email=form.email.data
+            ).first()
             hash_password = generate_password_hash(form.password.data, method="sha256")
             account = Account(name=form.name.data, email=form.email.data)
             account.set_password(hash_password)
@@ -33,7 +39,13 @@ def signup():
             db.session.commit()
             flash("登録が完了しました")
             return redirect(url_for("auth.login"))
-        return redirect(url_for("auth.login"), form=form)
+        return redirect(url_for("auth.signup"), form=form)
+
+
+@auth.route("/login/")
+def login_def():
+    form = LoginForm()
+    return render_template("login.html", form=form)
 
 
 @auth.route("/login/", methods=["GET", "POST"])

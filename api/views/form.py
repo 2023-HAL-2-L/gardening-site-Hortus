@@ -4,16 +4,16 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationE
 from api.models.models import Account
 
 class LoginForm(FlaskForm):
-  email = StringField('Email', validators=[DataRequired(), Email()])
-  password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=20)])
+  email = StringField('Email', validators=[DataRequired(message="この項目は入力が必須です"), Email()])
+  password = PasswordField('Password', validators=[DataRequired(message="この項目は入力が必須です"), Length(min=6, max=32)])
   is_keep_login = BooleanField('Keep Login')
-  submit = SubmitField("Login")
+  submit = SubmitField("ログイン")
 
 class RegistrationForm(FlaskForm):
-  name = StringField('Name', validators=[DataRequired(), Length(min=1, max=60)])
-  email = StringField('Email', validators=[DataRequired(), Email()])
-  password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=20)])
-  confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+  name = StringField('Name', validators=[DataRequired(message="この項目は入力が必須です"), Length(min=1, max=60)])
+  email = StringField('Email', validators=[DataRequired(message="この項目は入力が必須です"), Email()])
+  password = PasswordField('Password', validators=[DataRequired(message="この項目は入力が必須です"), Length(min=6, max=20)])
+  confirm_password = PasswordField('Confirm Password', validators=[DataRequired(message="この項目は入力が必須です"), EqualTo('password')])
 
   submit = SubmitField("登録")
   
