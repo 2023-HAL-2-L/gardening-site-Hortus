@@ -11,7 +11,8 @@ class SystemConfig:
   })
   
   SQLALCHEMY_TRACK_MODIFICATIONS = False
-
+  WTF_CSRF_ENABLED = True
+  
   SECRET_KEY = os.urandom(24)
 
 Config = SystemConfig
