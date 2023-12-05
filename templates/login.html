@@ -53,17 +53,31 @@
   <main>
     <div class="form-wrapper">
       <h1>ログイン</h1>
-      <form>
+      <form action="" method="post">
+        {{ form.csrf_token }}
         <div class="form-item">
-          <label for="email"></label>
-          <input type="email" name="email" required="required" placeholder="メールアドレス"></input>
+          <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=64) }}<br>
+            {% for error in form.email.errors %}
+            <span style="color: rgb(217, 57, 57);">[{{ error }}]</span>
+            {% endfor %}
+          </p>
         </div>
         <div class="form-item">
           <label for="password"></label>
-          <input type="password" name="password" required="required" placeholder="パスワード"></input>
+          <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=64) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: rgb(217, 57, 57);">[{{ error }}]</span>
+            {% endfor %}
+          </p>
         </div>
         <div class="button-panel">
-          <input type="submit" class="button" title="Sign In" value="ログイン"></input>
+          <p class="button">
+            {{ form.submit() }}
+          </p>
         </div>
       </form>
       <div class="form-footer">
