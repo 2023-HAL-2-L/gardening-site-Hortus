@@ -61,4 +61,5 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect("login")
+    flash("ログアウトしました。")
+    return redirect("auth.login")
