@@ -6,4 +6,4 @@ user = Blueprint("user", __name__)
 
 @user.route("/")
 def index():
-  return render_template("user/index.html")
+  return render_template("mypage.html")
