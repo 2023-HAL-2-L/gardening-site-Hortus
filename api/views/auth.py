@@ -45,12 +45,6 @@ def signup():
         return redirect(url_for("auth.signup"), form=form)
 
 
-@auth.route("/login/")
-def login_def():
-    form = LoginForm()
-    return render_template("login.html", form=form)
-
-
 @auth.route("/login/", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
