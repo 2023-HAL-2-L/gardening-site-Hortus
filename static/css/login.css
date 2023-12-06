@@ -1,22 +1,24 @@
 @charset "UTF-8";
 /* login */
 /* Simple Reset */
-* { margin: 0; padding: 0;}
+/* * { margin: 0; padding: 0;} */
 
 /* body */
 body {
-background-image: url(../images/login-bg.jpg);
-color: #5e5e5e;
-font: 400 87.5%/1.5em 'Open Sans', sans-serif;
+  background-image: url(../images/login-bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #5e5e5e;
+  font: 400 87.5%/1.5em 'Open Sans', sans-serif;
 }
 
 /* Form Layout */
 .form-wrapper {
   background: #fafafa;
-  margin:  100px auto;
+  margin: 100px auto;
   padding: 0 1em;
   max-width: 600px;
-  
+
 }
 
 h1 {

@@ -139,4 +139,8 @@ nav {
   visibility: hidden;
   transition: all 1s ease;
   background-color: rgba(0, 0, 0, 0);
+}
+
+#header-space {
+  height: 50px;
 }/*# sourceMappingURL=common.css.map */
