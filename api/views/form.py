@@ -21,3 +21,7 @@ class RegistrationForm(FlaskForm):
     mail = Account.query.filter_by(email= email.data).one_or_none()
     if mail is not None:
       raise ValidationError('このメールアドレスは既に登録されています。')
+
+class productSearchForm(FlaskForm):
+  product_name = StringField('商品名', Length(min=1, max=60))
+  submit = SubmitField("検索")
