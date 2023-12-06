@@ -30,10 +30,10 @@ def signup():
     form = RegistrationForm()
     if request.method == "POST":
         if form.validate_on_submit():
-            check = Account.query.filter_by(email=form.email.data).first()
-            if check.email == form.email.data:
-                flash("このメールアドレスは既に登録されています。")
-                return redirect(url_for("auth.signup"), form=form)
+            # check = Account.query.filter_by(email=form.email.data).first()
+            # if check.email == form.email.data:
+            #     flash("このメールアドレスは既に登録されています。")
+            #     return redirect(url_for("auth.signup"), form=form)
             
             hash_password = generate_password_hash(form.password.data, method="sha256")
             account = Account(name=form.name.data, email=form.email.data)
