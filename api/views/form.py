@@ -6,7 +6,7 @@ from api.models.models import Account
 class LoginForm(FlaskForm):
   email = StringField('Email', validators=[DataRequired(message="この項目は入力が必須です"), Email(), Length(min=1, max=63)])
   password = PasswordField('Password', validators=[DataRequired(message="この項目は入力が必須です"), Length(min=6, max=63)])
-  is_keep_login = BooleanField('Keep Login')
+  is_keep_login = BooleanField('ログインを記録する')
   submit = SubmitField("ログイン")
 
 class RegistrationForm(FlaskForm):
