@@ -14,6 +14,10 @@ main{
   min-height: 100vh;
 }
 
+br{
+  user-select: none;
+}
+
 #nav-logo {
   display: inline-block;
   height: 100%;

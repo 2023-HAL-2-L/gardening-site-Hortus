@@ -5,7 +5,7 @@ class SystemConfig:
 
   SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{user}:{password}@{host}/{db_name}?charset=utf8'.format(**{
       'user': 'root',
-      'password': 'P@ssw0rd',
+      'password': 'Passw0rd',
       'host': '127.0.0.1',
       'db_name': 'IH'
   })

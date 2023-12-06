@@ -15,12 +15,13 @@ from api.views.form import RegistrationForm, LoginForm
 auth = Blueprint(
     "auth",
     __name__,
-    static_url_path="../../static",
 )
+
 
 @auth.route("/signup/")
 def signup_def():
     return render_template("registration.html")
+
 
 @auth.route("/signup/", methods=["POST"])
 def signup():
@@ -29,9 +30,7 @@ def signup():
     form = RegistrationForm()
     if request.method == "POST":
         if form.validate_on_submit():
-            chack = Account.query.filter_by(
-                email=form.email.data
-            ).first()
+            chack = Account.query.filter_by(email=form.email.data).first()
             hash_password = generate_password_hash(form.password.data, method="sha256")
             account = Account(name=form.name.data, email=form.email.data)
             account.set_password(hash_password)
@@ -51,22 +50,26 @@ def login_def():
 @auth.route("/login/", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
-        return render_template("login.html")
-    elif request.method == "POST":
+        form = LoginForm()
+        return render_template("login.html", form=form)
+
+    if request.method == "POST":
         if current_user.is_authenticated:
             return redirect(url_for("main.top"))
         # forms.pyで定義するloginフォームを読み込む
         form = LoginForm()
-        
+
         if form.validate_on_submit():
-            account = Account.query.filter_by(
-                email=form.email.data
-            ).one_or_none()
-            if account is None and not check_password_hash(account.password, form.password.data):
+            account = Account.query.filter_by(email=form.email.data).one_or_none()
+            if account is None and not check_password_hash(
+                account.password, form.password.data
+            ):
+                print("アカウントが存在しないかemailかpasswordが間違っています。")
                 flash("アカウントが存在しないかemailかpasswordが間違っています。")
-            
-        login_user(account, remember=form.is_keep_login.data)
-        return redirect(url_for("main.top"))
+                return redirect(url_for("auth.login"), form=form)
+            login_user(account, remember=form.is_keep_login.data)
+            return redirect(url_for("main.top"))
+        return render_template("login.html", form=form)
 
 
 @auth.route("/logout/", methods=["GET"])
