@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Boolean
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from api import db
+from api.database import db
 from sqlalchemy_utils import UUIDType
 import uuid
 import datetime

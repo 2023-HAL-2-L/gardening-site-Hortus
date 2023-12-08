@@ -12,7 +12,8 @@ class SystemConfig:
   
   SQLALCHEMY_TRACK_MODIFICATIONS = False
   WTF_CSRF_ENABLED = True
-  
+  FLASK_ENV="development"
   SECRET_KEY = os.urandom(24)
+  SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 Config = SystemConfig

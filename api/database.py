@@ -1,10 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-db = SQLAlchemy()
+from __init__ import app
 
-def init_db(app, migrate_dir=None):
+db = SQLAlchemy()
+migrate = Migrate(app, db)
+def init_db(app):
+  
   db.init_app(app)
-  Migrate(app, db, migrate_dir) if migrate_dir else Migrate(app, db)
   # ma.init_app(app)
   # with app.app_context():
   #   db.create_all()
