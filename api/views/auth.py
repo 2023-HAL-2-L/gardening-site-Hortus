@@ -58,7 +58,8 @@ def login():
         form = LoginForm()
 
         if form.validate_on_submit():
-            account = Account.query.filter_by(email=form.email.data).one_or_none()
+            account = Account.query.filter_by(email=form.email.data).first()#.one_or_none()
+            print(account)
             if account is None and not check_password_hash(
                 account.password, form.password.data
             ):
