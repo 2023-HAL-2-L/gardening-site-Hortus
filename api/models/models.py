@@ -2,7 +2,6 @@
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, Integer, String, Boolean
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from api.database import db
@@ -14,12 +13,14 @@ import datetime
 
 tz_jst = datetime.timezone(datetime.timedelta(hours=9))
 
+def generate_uuid():
+    return str(uuid.uuid4())
 
 # いらないので方法の保留
 # , on_update= db.CASCADE, on_delete= db.CASCADE
 class Account(UserMixin, db.Model):
     __tablename__ = "user"
-    account_id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
+    id = db.Column(db.String(256), primary_key=True)#, default=generate_uuid())
     name = db.Column(db.String(63), nullable=False)
     email = db.Column(db.String(63), nullable=False, unique=True)
     password = db.Column(db.String(64), nullable=False)

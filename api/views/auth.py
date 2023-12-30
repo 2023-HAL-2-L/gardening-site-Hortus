@@ -30,10 +30,10 @@ def signup():
     form = RegistrationForm()
     if request.method == "POST":
         if form.validate_on_submit():
-            # check = Account.query.filter_by(email=form.email.data).first()
-            # if check.email == form.email.data:
-            #     flash("このメールアドレスは既に登録されています。")
-            #     return redirect(url_for("auth.signup"), form=form)
+            check = Account.query.filter_by(email=form.email.data).one_or_none()
+            if check.email == form.email.data:
+                flash("このメールアドレスは既に登録されています。")
+                return redirect(url_for("auth.signup"), form=form)
             
             hash_password = generate_password_hash(form.password.data, method="sha256")
             account = Account(name=form.name.data, email=form.email.data)
@@ -58,14 +58,13 @@ def login():
         form = LoginForm()
 
         if form.validate_on_submit():
-            account = Account.query.filter_by(email=form.email.data).first()#.one_or_none()
-            print(account)
-            if account is None and not check_password_hash(
-                account.password, form.password.data
-            ):
+            account = Account.query.filter_by(email=form.email.data).one_or_none() #.first()
+            print(account.password)
+            print(form.password.data)
+            if account is None or not account.password == form.password.data: #or not check_password_hash(account.password, form.password.data):
                 print("アカウントが存在しないかemailかpasswordが間違っています。")
-                flash("アカウントが存在しないかemailかpasswordが間違っています。")
-                return redirect(url_for("auth.login"), form=form)
+                flash('Please check your login credentials and try again.')
+                return render_template("login.html", form=form)
             login_user(account, remember=form.is_keep_login.data)
             return redirect(url_for("main.top"))
         return render_template("login.html", form=form)
