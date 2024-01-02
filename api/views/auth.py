@@ -62,8 +62,7 @@ def login():
             account = Account.query.filter_by(email=form.email.data).one_or_none() #.first()
             if account is None or not account.password == form.password.data: #or not check_password_hash(account.password, form.password.data):
                 flash("アカウントが存在しないかemailかpasswordが間違っています。")
-                err = "アカウントが存在しないかEmailかPasswordが間違っています。"
-                return render_template("login.html", form=form, err=err)
+                return render_template("login.html", form=form)
             login_user(account, remember=form.is_keep_login.data)
             return redirect(url_for("main.top"))
         return render_template("login.html", form=form)

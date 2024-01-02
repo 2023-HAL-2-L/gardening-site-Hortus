@@ -10,17 +10,17 @@ class LoginForm(FlaskForm):
   submit = SubmitField("ログイン")
 
 class RegistrationForm(FlaskForm):
-  name = StringField('Name', validators=[DataRequired(message="この項目は入力が必須です"), Length(min=1, max=60)])
+  name = StringField('名前', validators=[DataRequired(message="この項目は入力が必須です"), Length(min=1, max=60)])
   email = StringField('Email', validators=[DataRequired(message="この項目は入力が必須です"), Email()])
   password = PasswordField('Password', validators=[DataRequired(message="この項目は入力が必須です"), Length(min=6, max=20)])
-  confirm_password = PasswordField('Confirm Password', validators=[DataRequired(message="この項目は入力が必須です"), EqualTo('password')])
+  confirm_password = PasswordField('Password再確認', validators=[DataRequired(message="この項目は入力が必須です"), EqualTo('password')])
 
   submit = SubmitField("登録")
   
   def validate_email(self,email):
     mail = Account.query.filter_by(email= email.data).one_or_none()
     if mail is not None:
-      raise ValidationError('このメールアドレスは既に登録されています。')
+      raise ValidationError('このメールアドレスは既に登録されています。f')
 
 class productSearchForm(FlaskForm):
   product_name = StringField('商品名', Length(min=1, max=60))
