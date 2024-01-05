@@ -18,16 +18,14 @@ auth = Blueprint(
 )
 
 
-@auth.route("/signup/")
-def signup_def():
-    return render_template("registration.html")
-
-
-@auth.route("/signup/", methods=["POST"])
+@auth.route("/signup/", methods=["GET","POST"])
 def signup():
     if current_user.is_authenticated:
         return redirect(url_for("main.top"))
     form = RegistrationForm()
+    if request.method == "GET":
+        return render_template("registration.html", form=form)
+
     if request.method == "POST":
         if form.validate_on_submit():
             check = Account.query.filter_by(email=form.email.data).one_or_none()
@@ -35,7 +33,7 @@ def signup():
                 flash("このメールアドレスは既に登録されています。")
                 err = "このメールアドレスは既に登録されています。"
                 return redirect(url_for("auth.signup"), form=form, err=err)
-            
+
             hash_password = generate_password_hash(form.password.data, method="sha256")
             account = Account(name=form.name.data, email=form.email.data)
             account.set_password(hash_password)
@@ -48,19 +46,24 @@ def signup():
 
 @auth.route("/login/", methods=["GET", "POST"])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for("main.top"))
+
     if request.method == "GET":
         form = LoginForm()
         return render_template("login.html", form=form)
 
     if request.method == "POST":
-        if current_user.is_authenticated:
-            return redirect(url_for("main.top"))
         # forms.pyで定義するloginフォームを読み込む
         form = LoginForm()
 
         if form.validate_on_submit():
-            account = Account.query.filter_by(email=form.email.data).one_or_none() #.first()
-            if account is None or not account.password == form.password.data: #or not check_password_hash(account.password, form.password.data):
+            account = Account.query.filter_by(
+                email=form.email.data
+            ).one_or_none()  # .first()
+            if (
+                account is None or not account.password == form.password.data
+            ):  # or not check_password_hash(account.password, form.password.data):
                 flash("アカウントが存在しないかemailかpasswordが間違っています。")
                 return render_template("login.html", form=form)
             login_user(account, remember=form.is_keep_login.data)

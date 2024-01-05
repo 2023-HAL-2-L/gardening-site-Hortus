@@ -14,7 +14,7 @@ class RegistrationForm(FlaskForm):
   email = StringField('Email', validators=[DataRequired(message="この項目は入力が必須です"), Email()])
   password = PasswordField('Password', validators=[DataRequired(message="この項目は入力が必須です"), Length(min=6, max=20)])
   confirm_password = PasswordField('Password再確認', validators=[DataRequired(message="この項目は入力が必須です"), EqualTo('password')])
-
+  # address = StringField('住所', validators=[DataRequired(message="この項目は入力が必須です"), Length(min=1, max=256)])
   submit = SubmitField("登録")
   
   def validate_email(self,email):
