@@ -29,19 +29,18 @@ def signup():
 
     if request.method == "POST":
         if form.validate_on_submit():
-            print("formcheck")
-            # check = Account.query.filter_by(email=form.email.data).one_or_none()
-            # if check.email == form.email.data:
-            #     flash("このメールアドレスは既に登録されています。")
-            #     err = "このメールアドレスは既に登録されています。"
-            #     return redirect(url_for("auth.signup"), form=form, err=err)
             account_id = generate_uuid()
             hash_password = generate_password_hash(form.password.data, method="sha256")
             time = time_now()
-            account = Account(id=account_id, name=form.name.data, email=form.email.data, created_at=time, updated_at=time)
+            account = Account(
+                id=account_id,
+                name=form.name.data,
+                email=form.email.data,
+                password=hash_password,
+                created_at=time,
+                updated_at=time,
+            )
             print(account)
-            account.set_password(hash_password)
-            db.session.add(account)
             db.session.commit()
             flash("登録が完了しました")
             return redirect(url_for("auth.login"))
@@ -65,9 +64,9 @@ def login():
             account = Account.query.filter_by(
                 email=form.email.data
             ).one_or_none()  # .first()
-            if (
-                account is None or not account.password == form.password.data
-            ):  # or not check_password_hash(account.password, form.password.data):
+            if account is None or not check_password_hash(
+                account.password, form.password.data
+            ):
                 flash("アカウントが存在しないかemailかpasswordが間違っています。")
                 return render_template("login.html", form=form)
             login_user(account, remember=form.is_keep_login.data)
