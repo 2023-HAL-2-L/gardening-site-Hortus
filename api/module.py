@@ -7,4 +7,5 @@ def generate_uuid():
 
 
 def time_now():
-    return datetime.timezone(datetime.timedelta(hours=9))
+    tz_jst = datetime.timezone(datetime.timedelta(hours=9))
+    return datetime.datetime.now(tz_jst)
