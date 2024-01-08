@@ -20,10 +20,10 @@ def generate_uuid():
 # , on_update= db.CASCADE, on_delete= db.CASCADE
 class Account(UserMixin, db.Model):
     __tablename__ = "user"
-    id = db.Column(db.String(256), primary_key=True)#, default=generate_uuid())
+    id = db.Column(db.String(63), primary_key=True)#, default=generate_uuid())
     name = db.Column(db.String(63), nullable=False)
     email = db.Column(db.String(63), nullable=False, unique=True)
-    password = db.Column(db.String(64), nullable=False)
+    password = db.Column(db.String(256), nullable=False)
     address = db.Column(db.String(255))
     payment_method_id = db.Column(db.Integer), db.ForeignKey(
         "payment_method.payment_method_id"
