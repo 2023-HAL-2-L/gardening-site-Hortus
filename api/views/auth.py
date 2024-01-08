@@ -9,6 +9,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from api.models.models import Account
 from api.database import db
 from api.views.form import RegistrationForm, LoginForm
+from api.module import generate_uuid, time_now
 
 # from __init__ import app, login
 
@@ -18,7 +19,7 @@ auth = Blueprint(
 )
 
 
-@auth.route("/signup/", methods=["GET","POST"])
+@auth.route("/signup/", methods=["GET", "POST"])
 def signup():
     if current_user.is_authenticated:
         return redirect(url_for("main.top"))
@@ -28,20 +29,23 @@ def signup():
 
     if request.method == "POST":
         if form.validate_on_submit():
-            check = Account.query.filter_by(email=form.email.data).one_or_none()
-            if check.email == form.email.data:
-                flash("このメールアドレスは既に登録されています。")
-                err = "このメールアドレスは既に登録されています。"
-                return redirect(url_for("auth.signup"), form=form, err=err)
-
+            print("formcheck")
+            # check = Account.query.filter_by(email=form.email.data).one_or_none()
+            # if check.email == form.email.data:
+            #     flash("このメールアドレスは既に登録されています。")
+            #     err = "このメールアドレスは既に登録されています。"
+            #     return redirect(url_for("auth.signup"), form=form, err=err)
+            account_id = generate_uuid()
             hash_password = generate_password_hash(form.password.data, method="sha256")
-            account = Account(name=form.name.data, email=form.email.data)
+            time = time_now()
+            account = Account(id=account_id, name=form.name.data, email=form.email.data, created_at=time, updated_at=time)
+            print(account)
             account.set_password(hash_password)
             db.session.add(account)
             db.session.commit()
             flash("登録が完了しました")
             return redirect(url_for("auth.login"))
-        return redirect(url_for("auth.signup"), form=form)
+        return render_template("registration.html", form=form)
 
 
 @auth.route("/login/", methods=["GET", "POST"])
