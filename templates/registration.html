@@ -60,7 +60,7 @@
         </div>
 
         <form action="" method="post">
-
+          {{ form.csrf_token }}
           <div class="regitration-form">
             <div class="container">
               <p>
@@ -116,7 +116,7 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>
