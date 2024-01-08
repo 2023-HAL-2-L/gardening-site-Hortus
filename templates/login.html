@@ -47,27 +47,49 @@
       </div>
     </div>
   </nav>
-  
+
   <div id="header-space"></div>
-  
+
   <main>
     <div class="form-wrapper">
       <h1>ログイン</h1>
-      <form>
+      <form action="" method="post">
+        {{ form.csrf_token }}
         <div class="form-item">
-          <label for="email"></label>
-          <input type="email" name="email" required="required" placeholder="メールアドレス"></input>
+          <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=64) }}<br>
+            {% for error in form.email.errors %}
+            <span style="color: rgb(217, 57, 57);">{{ error }}</span>
+            {% endfor %}
+          </p>
         </div>
         <div class="form-item">
           <label for="password"></label>
-          <input type="password" name="password" required="required" placeholder="パスワード"></input>
+          <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=64) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: rgb(217, 57, 57);">{{ error }}</span>
+            {% endfor %}
+            {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+            <span style="color: rgb(217, 57, 57);">{{ message }}</span>
+            {% endfor %}
+            {% endwith %}
+          </p>
         </div>
+        <p>
+          {{ form.is_keep_login }} {{ form.is_keep_login.label }}
+        </p>
         <div class="button-panel">
-          <input type="submit" class="button" title="Sign In" value="ログイン"></input>
+          <p class="button">
+            {{ form.submit() }}
+          </p>
         </div>
       </form>
       <div class="form-footer">
-        <p><a href="registration.html">新規作成</a></p>
+        <p><a href="{{ url_for('auth.signup') }}">新規作成</a></p>
       </div>
     </div>
   </main>
@@ -75,7 +97,7 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>

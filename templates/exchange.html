@@ -17,7 +17,9 @@
 
   <title>top</title>
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/column-details.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/exchange.css">
+
 </head>
 
 <body>
@@ -46,44 +48,53 @@
       </div>
     </div>
   </nav>
-  
+
+
   <main>
 
+    <h2>交換を提案する</h2>
 
+    <form action="/submit" method="post" enctype="multipart/form-data">
 
-    <div>
-
-
-      <h3>タイトル</h3>        
-
-
-      <p id="time">2023-11-01</p>
-
-      <div id="img">
-        <img src="" alt="">        
+      <div>
+        <label for="itemName">商品名:</label>
+        <p>○○○○○○○○</p>
+        <!-- <input type="text" id="itemName" name="itemName" required> -->
       </div>
 
 
-      <div id="main-txt-div">
-      <p id="main-txt">
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-
-      </p>
+      <div>
+        <label for="itemCondition">提案する商品:</label>
+        <select id="itemCondition" name="itemCondition">
+          <option value="" disabled selected hidden>選択してください</option>
+          <option value="new">出品物１</option>
+          <option value="like_new">出品物２</option>
+          <option value="used_good">出品物３</option>
+          <option value="used">出品物４</option>
+        </select>
       </div>
 
+      <div>
+        <label for="itemDescription">商品の説明:</label>
+        <textarea id="itemDescription" name="itemDescription" rows="4" required></textarea>
+      </div>
+      <div class="exchange-buttun-container">
+            <div class="exchange-button">
+                <input type="submit" onclick="location.href='./product-detail.html'" value="戻る">
+            </div>
+            <div class="inquiry-button2">
+                <input type="submit" onclick="location.href='./exchange-completed.html'" value="提案">
+            </div>
+      </div>  
+    </form>
 
-
-    </div>
 
   </main>
   <footer></footer>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="js/listing.js"></script>
 </body>
 
 </html>

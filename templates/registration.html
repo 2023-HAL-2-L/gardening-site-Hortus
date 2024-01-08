@@ -16,9 +16,9 @@
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
 
   <title>top</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/registration.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css') }}">
 </head>
 
 <body>
@@ -28,6 +28,7 @@
       <div class="open-btn"><span></span><span></span><span></span></div>
     </div>
   </header>
+  <div id="header-space"></div>
   <nav class="nav-disable">
     <div id="nav-wrap">
       <div class="nav-text">
@@ -47,54 +48,75 @@
       </div>
     </div>
   </nav>
-  
+
   <div id="header-space"></div>
-  
+
   <main>
     <div class="wrapper">
-        <div class="registration-all">
+      <div class="registration-all">
 
-            <div class="registration-h2">
-                <h2>アカウントを新規登録</h2>
-            </div>
-
-              <form>
-                
-                <div class="regitration-form">
-                  <div class="container">
-                      <label for="username"><p>ユーザー名</p></label>
-                      <input type="text" placeholder="" name="username" id="username" required />
-              
-                      <label for="email"><p>メールアドレス</p></label>
-                      <input type="text" placeholder="" name="email" id="email" required />
-              
-                      <label for="pwd"><p>パスワード</p></label>
-                      <input type="password" placeholder="" name="pwd" id="pwd" required />
-              
-                      <label for="pwd-repeat"><p>パスワード再入力</p></label>
-                      <input type="password" placeholder="" name="pwd-repeat" id="pwd-repeat" required />
-
-                      <div>
-                        <p>アカウントをお持ちの方は<a href="login.html">こちら</a></p>
-                      </div>
-                  </div>
-                </div>
-
-                
-                <div class="regitration-button">
-                  <button type="submit">登録</button>
-                </div>
-
-              </form>
-
+        <div class="registration-h2">
+          <h2>アカウントを新規登録</h2>
         </div>
+
+        <form action="" method="post">
+          {{ form.csrf_token }}
+          <div class="regitration-form">
+            <div class="container">
+              <p>
+                {{ form.name.label }}<br>
+                {{ form.name(size=64) }}<br>
+                {% for error in form.name.errors %}
+                <span style="color: rgb(217, 57, 57);"> {{ error }}</span>
+                {% endfor %}
+              </p>
+              
+              <p>
+                {{ form.email.label }}<br>
+                {{ form.email(size=64) }}<br>
+                {% for error in form.email.errors %}
+                <span style="color: rgb(217, 57, 57);"> {{ error }}</span>
+                {% endfor %}
+              </p>
+              
+              <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=64) }}<br>
+                {% for error in form.password.errors %}
+                <span style="color: rgb(217, 57, 57);"> {{ error }}</span>
+                {% endfor %}
+              </p>
+              
+              <p>
+                {{ form.confirm_password.label }}<br>
+                {{ form.confirm_password(size=64) }}<br>
+                {% for error in form.confirm_password.errors %}
+                <span style="color: rgb(217, 57, 57);"> {{ error }}</span>
+                {% endfor %}
+              </p>
+
+              <div>
+                <p>アカウントをお持ちの方は<a href="{{ url_for('auth.login') }}">こちら</a></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="regitration-button">
+            {{ form.submit() }}
+            <!-- <button type="submit">登録</button> -->
+          </div>
+
+        </form>
+
+      </div>
     </div>
   </main>
   <footer></footer>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>

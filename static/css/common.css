@@ -13,6 +13,12 @@ main {
   min-height: 100vh;
 }
 
+br {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
 #nav-logo {
   display: inline-block;
   height: 100%;
@@ -133,4 +139,8 @@ nav {
   visibility: hidden;
   transition: all 1s ease;
   background-color: rgba(0, 0, 0, 0);
+}
+
+#header-space {
+  height: 50px;
 }/*# sourceMappingURL=common.css.map */

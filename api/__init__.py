@@ -1,28 +1,34 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
-from api.database import db
+from flask import Flask
 from flask_login import LoginManager
 from config import Config
+from api.database import db
 from api.views.user import user
 from api.views.shop import shop
 from api.views.column import column
 from api.views.thread import thread
 from api.views.main import main
 from api.views.auth import auth
+from api.models.models import Account
+# from database import init_db
 # from api import static
 
 def create_app(local_config="config.py"):
     
     app = Flask(__name__, instance_relative_config=True, template_folder="../templates", static_folder="../static", static_url_path="/")
     app.config.from_object(Config)
+
+    # db = SQLAlchemy(app)
     db.init_app(app)
-    login = LoginManager()
+    with app.app_context():
+        db.create_all()
+        db.session.commit()
+    login = LoginManager(app)
     login.login_view = "auth.login"
     login.init_app(app)
     
-    from api.models.models import Account
     @login.user_loader
     def load_user(account_id):
-        return db.query(Account).get(account_id)
+        return Account.query.get(account_id)
     
     
     app.register_blueprint(main , url_prefix="/")

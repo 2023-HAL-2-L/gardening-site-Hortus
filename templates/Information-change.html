@@ -15,9 +15,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
+  <title>会員登録変更(メールアドレス、ユーザー名)</title>
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/column-details.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/Information-change.css">
 </head>
 
 <body>
@@ -36,10 +37,10 @@
         <a href="item-search-result.html">商品を探す</a>
       </div>
       <div class="nav-text">
-        <a href="#">コラム</a>
+        <a href="column.html">コラム</a>
       </div>
       <div class="nav-text">
-        <a href="#">掲示板</a>
+        <a href="bulletin-board.html">掲示板</a>
       </div>
       <div class="nav-text">
         <a href="top.html">トップに戻る</a>
@@ -47,36 +48,37 @@
     </div>
   </nav>
   
+  
   <main>
+    <div class="wrapper">
+      <div class="Information-change-all">
 
+          <div class="Information-change-h2">
+              <h2>会員登録変更(メールアドレス、ユーザー名)</h2>
+          </div>
 
+            <form>
+              
+              <div class="Information-change-form">
 
-    <div>
+                <div class="container">
+                      <label for="username"><p>ユーザー名</p></label>
+                    <input type="text" placeholder="" name="username" id="username" />
+                </div>
 
+                <div class="container2">
+                    <label for="email"><p>メールアドレス</p></label>
+                    <input type="email" placeholder="" name="email" id="email"  />
+                </div>
+              </div>
 
-      <h3>タイトル</h3>        
+              <div class="Information-change-button">
+                <button type="submit"><a href="Mypage.html">変更</a></button>
+              </div>
 
-
-      <p id="time">2023-11-01</p>
-
-      <div id="img">
-        <img src="" alt="">        
+            </form>
       </div>
-
-
-      <div id="main-txt-div">
-      <p id="main-txt">
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
-
-      </p>
-      </div>
-
-
-
-    </div>
+  </div>
 
   </main>
   <footer></footer>

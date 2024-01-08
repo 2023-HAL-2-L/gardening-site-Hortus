@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
+
+  <title>top</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/change-details.css">
+</head>
+
+<body>
+  <header>
+    <div id="nav-logo"></div>
+    <div id="nav-button">
+      <div class="open-btn"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+  <nav class="nav-disable">
+    <div id="nav-wrap">
+      <div class="nav-text">
+        <a href="login.html">ログイン</a>
+      </div>
+      <div class="nav-text">
+        <a href="item-search-result.html">商品を探す</a>
+      </div>
+      <div class="nav-text">
+        <a href="#">コラム</a>
+      </div>
+      <div class="nav-text">
+        <a href="#">掲示板</a>
+      </div>
+      <div class="nav-text">
+        <a href="top.html">トップに戻る</a>
+      </div>
+    </div>
+  </nav>
+  
+  
+  <main id="logout">
+    <div id="wrap">
+        <h2>出品した商品の内容を変更する</h2>
+
+        <form action="/submit" method="post" enctype="multipart/form-data">
+    
+          <div>
+            <label for="itemImage">画像:</label>
+            <label id="imageUploadLabel" for="itemImage">
+              <img id="imagePreview">
+              <div class="image-upload-text">ドラック＆ドロップ
+                またはファイルを選択</div>
+            </label>
+            <input type="file" id="itemImage" name="itemImage" accept="image/*" required>
+          </div>
+    
+    
+          <div>
+            <label for="itemName">商品名:</label>
+            <input type="text" id="itemName" name="itemName" required>
+          </div>
+    
+          <div>
+            <label for="itemPrice">価格:</label>
+            <div class="price-input">
+              <input type="number" id="itemPrice" name="itemPrice" required pattern="\d+" min="0" placeholder="0">
+            </div>
+          </div>
+    
+          <div class="custom-select">
+            <label for="itemCategory">カテゴリー:</label>
+            <select id="itemCategory" name="itemCategory">
+              <option value="" disabled selected hidden>選択してください</option>
+              <option value="fashion">ファッション</option>
+              <option value="electronics">電子機器</option>
+              <option value="toys">おもちゃ</option>
+              <option value="books">本</option>
+            </select>
+          </div>
+    
+          <div>
+            <label for="itemCondition">商品の状態:</label>
+            <select id="itemCondition" name="itemCondition">
+              <option value="" disabled selected hidden>選択してください</option>
+              <option value="new">新品</option>
+              <option value="like_new">ほぼ新品</option>
+              <option value="used_good">使用感少なめ</option>
+              <option value="used">使用感あり</option>
+            </select>
+          </div>
+    
+          <div>
+            <label for="itemDescription">商品の説明:</label>
+            <textarea id="itemDescription" name="itemDescription" rows="4" required></textarea>
+          </div>
+    
+          <div class="checkbox-group">
+            <div>
+              <label for="exchange">物々交換を許可する:</label>
+              <input type="checkbox" id="exchange" name="exchange">
+            </div>
+          </div>
+    
+          <div>
+            <label for="shippingMethod">発送方法:</label>
+            <select id="shippingMethod" name="shippingMethod">
+              <option value="" disabled selected hidden>選択してください</option>
+              <option value="regular">普通郵便</option>
+              <option value="express">速達</option>
+              <option value="courier">宅急便</option>
+            </select>
+          </div>
+    
+          <div>
+            <label for="shippingDays">発送までの日数:</label>
+            <select id="shippingDays" name="shippingDays">
+              <option value="" disabled selected hidden>選択してください</option>
+              <option value="1">1日</option>
+              <option value="2-3">2-3日</option>
+              <option value="4-7">4-7日</option>
+            </select>
+          </div>
+    
+          <div class="button-cancel">
+            <a href="main.html">変更して出品する</a>
+          </div><!--buttonの終わり-->
+          <div class="button-cancel">
+            <a href="main.html">キャンセル</a>
+          </div><!--buttonの終わり-->
+        </form>
+    
+    </div><!--wrapの終わり-->
+  </main>
+  <footer></footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="js/common.js"></script>
+</body>
+
+</html>
