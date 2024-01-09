@@ -5,5 +5,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 user = Blueprint("user", __name__)
 
 @user.route("/")
+@login_required
 def index():
   return render_template("mypage.html")
