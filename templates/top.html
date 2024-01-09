@@ -41,7 +41,7 @@
         <div class="nav-text">
           <!-- ログインしているユーザー名を返す -->
           {% if current_user.is_authenticated %}
-            <a href="mypage.html">{{ current_user.name }}</a>
+          <a href="{{ url_for('user.index') }}">{{ current_user.name }}</a>
           {% else %}
           <a href="{{ url_for('auth.login') }}">ログイン</a>
           {% endif %}
