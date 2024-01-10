@@ -10,7 +10,7 @@ from wtforms import (
     FileField,
 )
 from flask_wtf.file import FileRequired
-from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
+from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError, NumberRange
 from api.models.models import Account
 
 
@@ -62,10 +62,10 @@ class ProductSearchForm(FlaskForm):
 class ExhibitProductForm(FlaskForm):
     name = StringField("商品名", validators=[DataRequired(message="この項目は入力が必須です"), Length(min=2, max=60)])
     image = FileField("商品画像", validators=[FileRequired(message="この項目は入力が必須です")])
-    price = IntegerField("商品価格", validators=[DataRequired(message="この項目は入力が必須です")])
-    description = TextAreaField("商品説明", validators=[DataRequired(message="この項目は入力が必須です"), Length(min=1, max=256)])
-    category = SelectField("商品カテゴリ", choices=[("1", "食品"), ("2", "日用品"), ("3", "その他")])
+    price = IntegerField("商品価格", validators=[DataRequired(message="この項目は入力が必須です"), NumberRange(min=0, message="有効な値を入れてください。")], render_kw={"placeholder": "0", "min": "0"})
+    description = TextAreaField("商品の説明", validators=[DataRequired(message="この項目は入力が必須です"), Length(min=1, max=256)])
+    category = SelectField("商品カテゴリ", choices=[("1", "生花"), ("2", "種"), ("3", "その他")])
     # condition = SelectField("商品状態", choices=[("1", "つぼみ"), ("2", "咲いている"), ("3", "種"), ("4", "その他")])
-    shopping_days = SelectField("発送までの日数", choices=[("1", "1日〜2日"), ("2", "2日〜3日"), ("3", "4日〜7日"), ("4", "1週間以上")])
+    shipping_days = SelectField("発送までの日数", choices=[("1", "1日〜2日"), ("2", "2日〜3日"), ("3", "4日〜7日"), ("4", "1週間以上")])
     is_barter = BooleanField("物々交換を許可する")
-    submit = SubmitField("出品")
+    submit = SubmitField("出品する")
