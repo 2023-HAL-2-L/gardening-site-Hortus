@@ -25,15 +25,15 @@ def exhibit():
     if form.validate_on_submit():
       product_id = generate_uuid()
       file = form.image.data
-      file_name = secure_filename(file.filename) + "_" + str(time_now())
-      file.save(os.path.join("static/img/product/", file_name))
+      file_name = secure_filename(file.filename)
+      file.save(os.path.join("static/images/product/", file_name))
       productData = product(
         product_id=product_id,
         name=form.name.data,
         price=form.price.data,
         description=form.description.data,
         category_id=form.category.data,
-        shopping_days_id= form.shopping_days.data,
+        shipping_days_id= form.shipping_days.data,
         is_barter = form.is_barter.data,
         created_at=time_now(),
         updated_at=time_now(),
