@@ -56,7 +56,7 @@ class RegistrationForm(FlaskForm):
 
 
 class ProductSearchForm(FlaskForm):
-    name = StringField("商品名", Length(min=1, max=60))
+    name = StringField("商品名", validators=[Length(min=1, max=60)])
     submit = SubmitField("検索")
 
 class ExhibitProductForm(FlaskForm):
