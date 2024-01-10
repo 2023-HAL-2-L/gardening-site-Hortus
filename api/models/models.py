@@ -104,10 +104,10 @@ class product(db.Model):
     # categories = db.relationship("category", backref="category_name", lazy=True)
     condition_id = db.Column(db.Integer, db.ForeignKey("condition.condition_id"), nullable=False, default= 0)
     # conditions = db.relationship("condition", backref="condition_name", lazy=True)
-    # shopping_method_id = db.Column(db.Integer, nullable=False, default=0), db.ForeignKey(
+    # shipping_method_id = db.Column(db.Integer, nullable=False, default=0), db.ForeignKey(
     #     "shopping_method.shopping_method_id"
     # )
-    shopping_days_id = db.Column(db.Integer, db.ForeignKey(
+    shipping_days_id = db.Column(db.Integer, db.ForeignKey(
         "shopping_days.shopping_days_id"
     ), nullable=False)
     is_barter = db.Column(db.Boolean, nullable=False, default=False)
