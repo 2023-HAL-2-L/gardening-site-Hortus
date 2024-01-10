@@ -1,5 +1,4 @@
 # DBの接続の設定
-import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -20,14 +19,12 @@ def generate_uuid():
 # , on_update= db.CASCADE, on_delete= db.CASCADE
 class Account(UserMixin, db.Model):
     __tablename__ = "user"
-    id = db.Column(db.String(63), primary_key=True)#, default=generate_uuid())
+    id = db.Column(db.String(63), primary_key=True)
     name = db.Column(db.String(63), nullable=False)
     email = db.Column(db.String(63), nullable=False, unique=True)
     password = db.Column(db.String(256), nullable=False)
     address = db.Column(db.String(255))
-    payment_method_id = db.Column(db.Integer), db.ForeignKey(
-        "payment_method.payment_method_id"
-    )
+    payment_method_id = db.Column(db.Integer, db.ForeignKey("payment_method.payment_method_id")) 
     is_operator = db.Column(db.Boolean, nullable=False, default=False)
     created_at = db.Column(
         db.DateTime, default=datetime.datetime.now(tz_jst), nullable=False
@@ -96,23 +93,25 @@ class shopping_days(db.Model):
 
 class product(db.Model):
     __tablename__ = "product"
-    product_id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
-    product_name = db.Column(db.String(63), nullable=False)
-    product_description = db.Column(db.String(255), nullable=False)
-    product_price = db.Column(db.Integer, nullable=False)
-    product_image = db.Column(db.String(255), nullable=False)
-    category_id = db.Column(db.Integer, nullable=False), db.ForeignKey(
+    product_id = db.Column(db.String(63), primary_key=True)
+    name = db.Column(db.String(63), nullable=False)
+    images = db.relationship("product_image", backref="product", lazy=True)
+    price = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(255), nullable=False)
+    category_id = db.Column(db.Integer, db.ForeignKey(
         "category.category_id"
-    )
-    condition_id = db.Column(db.Integer, nullable=False), db.ForeignKey(
-        "condition.condition_id"
-    )
-    shopping_method_id = db.Column(db.Integer, nullable=False), db.ForeignKey(
-        "shopping_method.shopping_method_id"
-    )
-    shopping_days_id = db.Column(db.Integer, nullable=False), db.ForeignKey(
+    ), nullable=False)
+    # categories = db.relationship("category", backref="category_name", lazy=True)
+    condition_id = db.Column(db.Integer, db.ForeignKey("condition.condition_id"), nullable=False, default= 0)
+    # conditions = db.relationship("condition", backref="condition_name", lazy=True)
+    # shopping_method_id = db.Column(db.Integer, nullable=False, default=0), db.ForeignKey(
+    #     "shopping_method.shopping_method_id"
+    # )
+    shopping_days_id = db.Column(db.Integer, db.ForeignKey(
         "shopping_days.shopping_days_id"
-    )
+    ), nullable=False)
+    is_barter = db.Column(db.Boolean, nullable=False, default=False)
+    is_sold = db.Column(db.Boolean, nullable=False, default=False)
     is_delete = db.Column(db.Boolean, nullable=False, default=False)
     created_at = db.Column(
         db.DateTime, default=datetime.datetime.now(tz_jst), nullable=False
@@ -131,29 +130,27 @@ class image(db.Model):
 class product_image(db.Model):
     __tablename__ = "product_image"
     product_image_id = db.Column(db.Integer, primary_key=True)
-    product_id = db.Column(db.String(63), nullable=False), db.ForeignKey(
+    product_id = db.Column(db.String(63), db.ForeignKey(
         "product.product_id"
-    )
-    image_id = db.Column(db.Integer, nullable=False), db.ForeignKey("image.image_id")
+    ), nullable=False)
+    image_id = db.Column(db.Integer, db.ForeignKey("image.image_id"), nullable=False)
 
 
 class barter_propose(db.Model):
     __tablename__ = "barter_propose"
-    barter_propose_id = db.Column(
-        UUIDType(binary=False), primary_key=True, default=uuid.uuid4
-    )
-    proposer_product_id = db.Column(db.String(63), nullable=False), db.ForeignKey(
+    barter_propose_id = db.Column(db.String(63), primary_key=True)
+    proposer_product_id = db.Column(db.String(63), db.ForeignKey(
         "product.product_id"
-    )
-    barter_product_id = db.Column(db.String(63), nullable=False), db.ForeignKey(
+    ), nullable=False)
+    barter_product_id = db.Column(db.String(63), db.ForeignKey(
         "product.product_id"
-    )
-    proposer_account_id = db.Column(db.String(63), nullable=False), db.ForeignKey(
-        "account.account_id"
-    )
-    barter_account_id = db.Column(db.String(63), nullable=False), db.ForeignKey(
-        "account.account_id"
-    )
+    ), nullable=False)
+    proposer_account_id = db.Column(db.String(63), db.ForeignKey(
+        "user.id"
+    ), nullable=False)
+    barter_account_id = db.Column(db.String(63), db.ForeignKey(
+        "user.id"
+    ), nullable=False)
     created_at = db.Column(
         db.DateTime, default=datetime.datetime.now(tz_jst), nullable=False
     )
@@ -162,15 +159,15 @@ class barter_propose(db.Model):
 class purchase_history(db.Model):
     __tablename__ = "purchase_history"
     purchase_history_id = db.Column(db.Integer, primary_key=True)
-    buy_account_id = db.Column(db.String(63), nullable=False), db.ForeignKey(
-        "account.account_id"
-    )
-    sell_account_id = db.Column(db.String(63), nullable=False), db.ForeignKey(
-        "account.account_id"
-    )
-    product_id = db.Column(db.String(63), nullable=False), db.ForeignKey(
+    buy_account_id = db.Column(db.String(63), db.ForeignKey(
+        "user.id"
+    ), nullable=False)
+    sell_account_id = db.Column(db.String(63), db.ForeignKey(
+        "user.id"
+    ), nullable=False)
+    product_id = db.Column(db.String(63), db.ForeignKey(
         "product.product_id"
-    )
+    ), nullable=False)
     # 送ったかどうか
     is_send = db.Column(db.Boolean, nullable=False, default=False)
     # 送られたかどうか
@@ -193,9 +190,9 @@ class column(db.Model):
     column_id = db.Column(db.Integer, primary_key=True)
     column_title = db.Column(db.String(127), nullable=False)
     column_text = db.Column(db.Text, nullable=False)
-    account_id = db.Column(db.String(63), nullable=False), db.ForeignKey(
-        "account.account_id"
-    )
+    account_id = db.Column(db.String(63), db.ForeignKey(
+        "user.id"
+    ), nullable=False)
     created_at = db.Column(
         db.DateTime, default=datetime.datetime.now(tz_jst), nullable=False
     )
@@ -207,24 +204,23 @@ class column(db.Model):
 class column_image(db.Model):
     __tablename__ = "column_image"
     column_image_id = db.Column(db.Integer, primary_key=True)
-    column_id = db.Column(db.Integer, nullable=False), db.ForeignKey("column.column_id")
-    image_id = db.Column(db.Integer, nullable=False), db.ForeignKey("image.image_id")
+    column_id = db.Column(db.Integer, db.ForeignKey("column.column_id"), nullable=False)
+    image_id = db.Column(db.Integer, db.ForeignKey("image.image_id"), nullable=False)
 
 
 class column_tag(db.Model):
     __tablename__ = "column_tag"
     column_tag_id = db.Column(db.Integer, primary_key=True)
-    column_id = db.Column(db.Integer, nullable=False), db.ForeignKey("column.column_id")
-    tag_id = db.Column(db.Integer, nullable=False), db.ForeignKey("tag.tag_id")
-
+    column_id = db.Column(db.Integer, db.ForeignKey("column.column_id"), nullable=False)
+    tag_id = db.Column(db.Integer, db.ForeignKey("tag.tag_id"), nullable=False)
 
 class thread(db.Model):
     __tablename__ = "thread"
     thread_id = db.Column(db.Integer, primary_key=True)
     thread_title = db.Column(db.String(127), nullable=False)
-    account_id = db.Column(db.String(63), nullable=False), db.ForeignKey(
-        "account.account_id"
-    )
+    account_id = db.Column(db.String(63), db.ForeignKey(
+        "user.id"
+    ), nullable=False)
     created_at = db.Column(
         db.DateTime, default=datetime.datetime.now(tz_jst), nullable=False
     )
@@ -233,10 +229,10 @@ class thread(db.Model):
 class thread_chat(db.Model):
     __tablename__ = "thread_chat"
     thread_chat_id = db.Column(db.Integer, primary_key=True)
-    thread_id = db.Column(db.Integer, nullable=False), db.ForeignKey("thread.thread_id")
-    account_id = db.Column(db.String(63), nullable=False), db.ForeignKey(
-        "account.account_id"
-    )
+    thread_id = db.Column(db.Integer, db.ForeignKey("thread.thread_id"), nullable=False)
+    account_id = db.Column(db.String(63), db.ForeignKey(
+        "user.id"
+    ), nullable=False)
     text = db.Column(db.Text, nullable=False)
     created_at = db.Column(
         db.DateTime, default=datetime.datetime.now(tz_jst), nullable=False
@@ -246,5 +242,5 @@ class thread_chat(db.Model):
 class thread_tag(db.Model):
     __tablename__ = "thread_tag"
     thread_tag_id = db.Column(db.Integer, primary_key=True)
-    thread_id = db.Column(db.Integer, nullable=False), db.ForeignKey("thread.thread_id")
-    tag_id = db.Column(db.Integer, nullable=False), db.ForeignKey("tag.tag_id")
+    thread_id = db.Column(db.Integer, db.ForeignKey("thread.thread_id"), nullable=False)
+    tag_id = db.Column(db.Integer, db.ForeignKey("tag.tag_id"), nullable=False)
