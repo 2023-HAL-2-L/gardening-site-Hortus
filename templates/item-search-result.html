@@ -101,16 +101,18 @@
     <!-- 商品 -->
     <div class="product-wrap">
       <ul class="item-flex">
+        {% for product in products %}
         <li>
-          <a href="product-detail.html">
+          <a href="{{ url_for('shop.product_detail') }}">
             <figure>
-              <img src="images/flower01.jpg" class="item-images" alt="花1">
+              <img src="/{{product.images[0].image}}" class="item-images" alt="花1">
             </figure>
-            <h3>コップ入り花束</h3>
-            <p>130円</p>
+            <h3> {{ product.name }} </h3>
+            <p> {{ product.price }}円 </p>
           </a>
         </li>
-        <li>
+        {% endfor %}
+        <!-- <li>
           <a href="product-detail.html">
             <figure>
               <img src="images/flower02.jpg" class="item-images" alt="花2">
@@ -127,7 +129,7 @@
             <h3>黄色い花束</h3>
             <p>390円</p>
           </a>
-        </li>
+        </li> -->
       </ul>
     </div>
 
