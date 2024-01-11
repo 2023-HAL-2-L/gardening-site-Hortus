@@ -95,7 +95,7 @@ class product(db.Model):
     __tablename__ = "product"
     product_id = db.Column(db.String(63), primary_key=True)
     name = db.Column(db.String(63), nullable=False)
-    images = db.relationship("product_image", backref="product", lazy=True)
+    images = db.relationship("product_image", backref="images", lazy=True)
     price = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(255), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey(
@@ -120,20 +120,13 @@ class product(db.Model):
         db.DateTime, default=datetime.datetime.now(tz_jst), nullable=False
     )
 
-
-class image(db.Model):
-    __tablename__ = "image"
-    image_id = db.Column(db.Integer, primary_key=True)
-    image = db.Column(db.String(255), nullable=False)
-
-
 class product_image(db.Model):
     __tablename__ = "product_image"
-    product_image_id = db.Column(db.Integer, primary_key=True)
+    product_image_id = db.Column(db.String(63), primary_key=True)
     product_id = db.Column(db.String(63), db.ForeignKey(
         "product.product_id"
     ), nullable=False)
-    image_id = db.Column(db.Integer, db.ForeignKey("image.image_id"), nullable=False)
+    image = db.Column(db.String(255), nullable=False)
 
 
 class barter_propose(db.Model):
@@ -205,8 +198,7 @@ class column_image(db.Model):
     __tablename__ = "column_image"
     column_image_id = db.Column(db.Integer, primary_key=True)
     column_id = db.Column(db.Integer, db.ForeignKey("column.column_id"), nullable=False)
-    image_id = db.Column(db.Integer, db.ForeignKey("image.image_id"), nullable=False)
-
+    image = db.Column(db.String(255), nullable=False)
 
 class column_tag(db.Model):
     __tablename__ = "column_tag"
