@@ -20,10 +20,11 @@ def shop_get():
   if request.method == "POST":
     return render_template("item-search-result.html", form = form)
   
-@shop.route("/<product_id>", methods=["GET"])
-def product_detail():
+@shop.route("/<uuid:product_id>", methods=["GET"])
+def product_detail(product_id):
   if request.method == "GET":
+    print(product_id)
     # product_data = product.query.filter_by(product_id = product_id).first()
-    return render_template("item-detail.html")
+    return render_template("my-listing-detail.html")
   if request.method == "POST":
-    return render_template("item-detail.html")
+    return render_template("my-listing-detail.html")

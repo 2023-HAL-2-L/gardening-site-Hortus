@@ -103,7 +103,7 @@
       <ul class="item-flex">
         {% for product in products %}
         <li>
-          <a href="{{ url_for('shop.product_detail') }}">
+          <a href="{{ url_for('shop.product_detail', product_id = product.product_id) }}">
             <figure>
               <img src="/{{product.images[0].image}}" class="item-images" alt="花1">
             </figure>
