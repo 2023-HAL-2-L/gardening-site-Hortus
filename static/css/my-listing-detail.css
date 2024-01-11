@@ -1,0 +1,67 @@
+/* ページ全体のスタイル */
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif; /* Google Fontsからのフォントを使用 */
+  margin: 0;
+  padding: 0px;
+  font-size: 30px; /* 全体的なフォントサイズを18pxに設定 */
+}
+
+
+
+
+/* メインセクションのスタイル */
+.main {
+  max-width: 800px; /* メインコンテンツの最大幅を設定 */
+  margin: 0 auto;/* メインコンテンツを中央寄せ */
+  padding: 30px;
+}
+
+.product-details {
+  display: flex; /* 商品詳細セクション内の要素を横並びに配置 */
+  align-items: center; /* 要素を垂直方向に中央揃え */
+  justify-content: space-around;
+}
+
+.product-image {
+  width: 40%;
+  /* margin-right: 20px; 左側に写真を配置するために右側のマージンを追加 */
+}
+
+.product-image img {
+  width: 100%; /* 画像の幅を100%に設定して親要素に合わせる */
+  height: auto; /* アスペクト比を保持したまま高さを自動調整 */
+  max-width: 100%; /* 画像の最大幅を100%に設定 */
+  max-height: 100%; /* 画像の最大高さを100%に設定 */
+}
+
+.product-info {
+  margin-top: 70px;
+  padding: 20px;
+  /* padding-left: 370px; */
+}
+
+h2 {
+  font-weight: 400; /* フォントの太さを設定 */
+  font-size: 28px; /* フォントサイズを設定 */
+}
+
+p {
+  font-family: 'M PLUS 1p', sans-serif; /* 商品説明と価格のフォントを設定 */
+  font-weight: 300; /* フォントの太さを設定 */
+  font-size: 18px; /* フォントサイズを設定 */
+}
+
+button {
+  background-color: #008000; /* ボタンの背景色を設定 */
+  color: #fff; /* ボタンのテキスト色を設定 */
+  border: none;
+  padding: 10px 90px 10px 90px;
+  cursor: pointer;
+}
+
+/* ナビゲーションのスタイル（初期状態では非表示） */
+.nav-disable {
+  display: none;
+}
+
+/* 追加のスタイリングをここに追加できます */
