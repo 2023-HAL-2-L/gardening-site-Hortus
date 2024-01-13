@@ -154,7 +154,7 @@ class barter_propose(db.Model):
 
 class purchase_history(db.Model):
     __tablename__ = "purchase_history"
-    purchase_history_id = db.Column(db.Integer, primary_key=True)
+    purchase_history_id = db.Column(db.String(63), primary_key=True)
     buy_account_id = db.Column(db.String(63), db.ForeignKey(
         "user.id"
     ), nullable=False)
