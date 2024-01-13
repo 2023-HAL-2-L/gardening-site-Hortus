@@ -6,6 +6,7 @@ from flask_login import (
     login_user,
 )
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.urls import url_parse
 from api.models.models import Account
 from api.database import db
 from api.views.form import RegistrationForm, LoginForm
@@ -40,7 +41,7 @@ def signup():
                 created_at=time,
                 updated_at=time,
             )
-            print(account)
+            db.session.add(account)
             db.session.commit()
             flash("登録が完了しました")
             return redirect(url_for("auth.login"))
@@ -70,13 +71,16 @@ def login():
                 flash("アカウントが存在しないかemailかpasswordが間違っています。")
                 return render_template("login.html", form=form)
             login_user(account, remember=form.is_keep_login.data)
-            return redirect(url_for("main.top"))
+            next_page = request.args.get("next")
+            if not next_page or url_parse(next_page).netloc != "":
+                next_page = url_for("main.top")
+            return redirect(next_page)
         return render_template("login.html", form=form)
 
 
-@auth.route("/logout/", methods=["GET"])
+@auth.route("/logout")
 @login_required
 def logout():
     logout_user()
     flash("ログアウトしました。")
-    return redirect("auth.login")
+    return redirect(url_for("auth.login"))

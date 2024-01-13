@@ -18,9 +18,9 @@
   <title>
     商品詳細ページ
   </title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/my-listing-detail.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/my-listing-detail.css') }}">
 </head>
 
 <body>
@@ -54,26 +54,25 @@
   <main>
     <section class="product-details">
       <div class="product-image">
-        <img src="images/sakurai.jpg" alt="商品画像">
+        <img src="/{{ product_data.images[0].image }}" alt="商品画像">
       </div>
       <div class="product-info">
-        <h2>商品名</h2><br>
-        <p>￥500(税込み・送料込み)</p><br>
+        <h2>{{ product_data.name }}</h2><br>
+        <p>￥{{product_data.price}}(税込み・送料込み)</p><br>
         <!-- 他の商品情報を表示 -->
-        <button><a href="Change-details.html">商品を編集する</a></button><br><br>
+        <button><a href="{{ url_for('shop.product_payment', product_id = product_data.product_id) }}">商品を購入する</a></button><br><br>
         <h2>商品説明</h2><br>
-        <p>商品の説明などや注意事項など</p><br><br><br>
+        <p> {{product_data.description}} </p><br><br><br>
         <p>商品の情報</p>
         <p>---------------------------------</p>
-        <p>・カテゴリー</p>
-        <p>・商品の状態</p>
-        <p>・発送料の状態</p>
-        <p>・発送方法</p>
-        <p>・発送までの日数</p><br><br>
+        <p>・{{ product_data.category_id }}</p>
+        <!-- <p>・商品の状態</p> -->
+        <!-- <p>・発送料の状態</p> -->
+        <!-- <p>・発送方法</p> -->
+        <p>・発送までの日数: {{product_data.shipping_days}}</p><br><br>
         <h2>出品者</h2>
         <p>----------------------------------</p>
-        <p>出品者名</p><br>
-        <p>----------------------------------</p>
+        <p>出品者名: {{ buy_user.name }}</p>
       </div>
     </section>
   </main>
@@ -82,7 +81,7 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 

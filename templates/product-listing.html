@@ -16,9 +16,9 @@
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
 
   <title>top</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/product-listing.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/product-listing.css') }}">
 
 </head>
 
@@ -55,43 +55,37 @@
 
     <h2>商品出品フォーム</h2>
 
-    <form action="/submit" method="post" enctype="multipart/form-data">
-
+    <form action="" method="post" enctype="multipart/form-data">
+      {{ form.csrf_token }}
       <div>
-        <label for="itemImage">画像:</label>
-        <label id="imageUploadLabel" for="itemImage">
+        {{ form.image.label }}
+        <label id="imageUploadLabel" for="image">
           <img id="imagePreview">
           <div class="image-upload-text">ドラック＆ドロップ
             またはファイルを選択</div>
         </label>
-        <input type="file" id="itemImage" name="itemImage" accept="image/*" required>
+        {{ form.image }}
       </div>
 
 
       <div>
-        <label for="itemName">商品名:</label>
-        <input type="text" id="itemName" name="itemName" required>
+        {{ form.name.label }}
+        {{ form.name }}
       </div>
 
       <div>
-        <label for="itemPrice">価格:</label>
+        {{ form.price.label }}
         <div class="price-input">
-          <input type="number" id="itemPrice" name="itemPrice" required pattern="\d+" min="0" placeholder="0">
+          {{ form.price(type="number", min="0", placeholder="0") }}
         </div>
       </div>
 
       <div class="custom-select">
-        <label for="itemCategory">カテゴリー:</label>
-        <select id="itemCategory" name="itemCategory">
-          <option value="" disabled selected hidden>選択してください</option>
-          <option value="fashion">ファッション</option>
-          <option value="electronics">電子機器</option>
-          <option value="toys">おもちゃ</option>
-          <option value="books">本</option>
-        </select>
+        {{ form.category.label }}
+        {{ form.category }}
       </div>
 
-      <div>
+      <!-- <div>
         <label for="itemCondition">商品の状態:</label>
         <select id="itemCondition" name="itemCondition">
           <option value="" disabled selected hidden>選択してください</option>
@@ -100,21 +94,21 @@
           <option value="used_good">使用感少なめ</option>
           <option value="used">使用感あり</option>
         </select>
-      </div>
+      </div> -->
 
       <div>
-        <label for="itemDescription">商品の説明:</label>
-        <textarea id="itemDescription" name="itemDescription" rows="4" required></textarea>
+        {{ form.description.label }}
+        {{ form.description( rows="4" ) }}
       </div>
 
       <div class="checkbox-group">
         <div>
-          <label for="exchange">物々交換を許可する:</label>
-          <input type="checkbox" id="exchange" name="exchange">
+          {{ form.is_barter.label }}
+          {{ form.is_barter }}
         </div>
       </div>
 
-      <div>
+      <!-- <div>
         <label for="shippingMethod">発送方法:</label>
         <select id="shippingMethod" name="shippingMethod">
           <option value="" disabled selected hidden>選択してください</option>
@@ -122,20 +116,23 @@
           <option value="express">速達</option>
           <option value="courier">宅急便</option>
         </select>
+      </div> -->
+
+      <div>
+        {{ form.shipping_days.label }}
+        {{ form.shipping_days }}
       </div>
 
       <div>
-        <label for="shippingDays">発送までの日数:</label>
-        <select id="shippingDays" name="shippingDays">
-          <option value="" disabled selected hidden>選択してください</option>
-          <option value="1">1日</option>
-          <option value="2-3">2-3日</option>
-          <option value="4-7">4-7日</option>
-        </select>
+        {% with messages = get_flashed_messages() %}
+          {% for message in messages %}
+            <span style="color: rgb(217, 57, 57);">{{ message }}</span>
+          {% endfor %}
+        {% endwith %}
       </div>
 
       <div>
-        <input type="submit" value="出品する">
+        {{ form.submit() }}
       </div>
     </form>
 
@@ -145,7 +142,7 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/listing.js"></script>
+  <script src="{{ url_for('static', filename='js/listing.js') }}"></script>
 </body>
 
 </html>

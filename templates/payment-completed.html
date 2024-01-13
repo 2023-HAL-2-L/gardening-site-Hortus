@@ -24,9 +24,9 @@
     />
 
     <title>payment-completed</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/payment-completed.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/payment-completed.css') }}">
   </head>
 
   <body class="start">
@@ -56,6 +56,8 @@
       </div>
     </nav>
 
+    <div id="header-space"></div>
+
     <main class="pay">
       <div id="wrap">
         <div id="pay-top">
@@ -65,10 +67,10 @@
           <p>
             出品者の発想通知をお待ちください。
           </p>
-          <img src="images/check.png" />
+          <img src="{{ url_for('static', filename='images/check.png') }}" />
         </div><!--pay-topの終わり-->
         <div id="topbutton">
-          <a href="top.html">トップページに戻る</a>
+          <a href="{{ url_for('main.top')}}">トップページに戻る</a>
         </div>  
       </div><!--wrapの終わり-->
     </main>
@@ -79,7 +81,7 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
         crossorigin="anonymous"
       ></script>
-      <script src="js/common.js"></script>
+      <script src="{{ url_for('static', filename='js/common.js') }}"></script>
     </div>
   </body>
 </html>
