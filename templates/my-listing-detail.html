@@ -54,22 +54,22 @@
   <main>
     <section class="product-details">
       <div class="product-image">
-        <img src="images/sakurai.jpg" alt="商品画像">
+        <img src="/{{ product_data.images[0].image }}" alt="商品画像">
       </div>
       <div class="product-info">
-        <h2>商品名</h2><br>
-        <p>￥500(税込み・送料込み)</p><br>
+        <h2>{{ product_data.name }}</h2><br>
+        <p>￥{{product_data.price}}(税込み・送料込み)</p><br>
         <!-- 他の商品情報を表示 -->
         <button><a href="Change-details.html">商品を編集する</a></button><br><br>
         <h2>商品説明</h2><br>
-        <p>商品の説明などや注意事項など</p><br><br><br>
+        <p> {{product_data_description}} </p><br><br><br>
         <p>商品の情報</p>
         <p>---------------------------------</p>
-        <p>・カテゴリー</p>
-        <p>・商品の状態</p>
-        <p>・発送料の状態</p>
-        <p>・発送方法</p>
-        <p>・発送までの日数</p><br><br>
+        <p>・{{ product_data.category_id }}</p>
+        <!-- <p>・商品の状態</p> -->
+        <!-- <p>・発送料の状態</p> -->
+        <!-- <p>・発送方法</p> -->
+        <p>・発送までの日数: {{product_data.shipping_days}}</p><br><br>
         <h2>出品者</h2>
         <p>----------------------------------</p>
         <p>出品者名</p><br>
