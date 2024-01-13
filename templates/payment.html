@@ -52,32 +52,35 @@
 
   <main>
     <div id="wrap">
-      <div id="pay">
-        <h1>お支払方法の選択</h1>
-        <p>
-          クレジットカード、翌月後払い(コンビニ・銀行)・銀行振込・PayPayの中から<br />
-          お好きなお支払方法をお選びいただくことができます。
-        </p>
-        <div class="choice">
-          <input type="radio" id="pay1" name="pay" />
-          <label for="pay1">クレジットカード</label>
+      <form action="{{ url_for('shop.product_buy_complete', product_id = product_data.product_id) }}" method="post">
+        <div id="pay">
+          <h1>お支払方法の選択</h1>
+          <p>
+            クレジットカード、翌月後払い(コンビニ・銀行)・銀行振込・PayPayの中から<br />
+            お好きなお支払方法をお選びいただくことができます。
+          </p>
+          <div class="choice">
+            <input type="radio" id="pay1" name="pay" required/>
+            <label for="pay1">クレジットカード</label>
+          </div>
+          <div class="choice">
+            <input type="radio" id="pay2" name="pay" required/>
+            <label for="pay2">翌月後払い(コンビニ・銀行)</label>
+          </div>
+          <div class="choice">
+            <input type="radio" id="pay3" name="pay" required/>
+            <label for="pay3">銀行振込</label>
+          </div>
+          <div class="choice">
+            <input type="radio" id="pay4" name="pay" required/>
+            <label for="pay4">PayPay</label>
+          </div>
         </div>
-        <div class="choice">
-          <input type="radio" id="pay2" name="pay" />
-          <label for="pay2">翌月後払い(コンビニ・銀行)</label>
+        <div id="button">
+          <input type="submit" value="購入を決定する">
         </div>
-        <div class="choice">
-          <input type="radio" id="pay3" name="pay" />
-          <label for="pay3">銀行振込</label>
-        </div>
-        <div class="choice">
-          <input type="radio" id="pay4" name="pay" />
-          <label for="pay4">PayPay</label>
-        </div>
-      </div>
-      <div id="button">
-        <a href="{{ url_for('shop.product_buy_complete', product_id = product_data.product_id) }}">購入を決定する</a>
-      </div>
+      </form>
+
     </div>
     <!--choiceの終わり-->
   </main>

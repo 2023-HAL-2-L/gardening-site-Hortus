@@ -13,7 +13,7 @@ shop = Blueprint("shop", __name__)
 def shop_get():
     form = ProductSearchForm()
     if request.method == "GET":
-        products = product.query.all()
+        products = product.query.filter_by(is_sold = 0).all()
         print(products)
         # for produc in products:
         # print(produc.product_name)
@@ -44,13 +44,30 @@ def product_payment(product_id):
         )
 
 
-@shop.route("/<string:product_id>/payment/complete", methods=["GET"])
+@shop.route("/<string:product_id>/payment/complete", methods=["GET", "POST"])
 @login_required
 def product_buy_complete(product_id):
     if request.method == "GET":
         product_data = product.query.filter_by(product_id=product_id).one_or_none()
         buy_user = Account.query.filter_by(id=product_data.account_id).one_or_none()
-
+        product_data.is_sold = True
+        # 購入履歴を追加
+        purchase_history_data = purchase_history(
+            purchase_history_id=generate_uuid(),
+            buy_account_id=current_user.id,
+            sell_account_id=buy_user.id,
+            product_id=product_id,
+            created_at=time_now(),
+        )
+        db.session.add(purchase_history_data)
+        db.session.commit()
+        return render_template(
+            "payment-completed.html", product_data=product_data, buy_user=buy_user
+        )
+    if request.method == "POST":
+        product_data = product.query.filter_by(product_id=product_id).one_or_none()
+        buy_user = Account.query.filter_by(id=product_data.account_id).one_or_none()
+        product_data.is_sold = True
         # 購入履歴を追加
         purchase_history_data = purchase_history(
             purchase_history_id=generate_uuid(),
