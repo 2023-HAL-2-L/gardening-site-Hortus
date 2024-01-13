@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from flask_login import LoginManager, login_user, logout_user, login_required, UserMixin
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from api.views.form import ExhibitProductForm
@@ -43,6 +43,7 @@ def exhibit():
         name=form.name.data,
         price=form.price.data,
         description=form.description.data,
+        account_id = current_user.id,
         category_id=form.category.data,
         shipping_days_id= form.shipping_days.data,
         is_barter = form.is_barter.data,
