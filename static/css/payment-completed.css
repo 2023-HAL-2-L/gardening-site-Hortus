@@ -1,0 +1,45 @@
+div.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  /* ↓headerを中央揃え */
+  margin: 0 auto 0 auto;
+  padding: 20px 0 50px 0;
+}
+main.pay div#pay-top {
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+main.pay div#pay-top h1 {
+  font-family: serif;
+  color: #9b7f58;
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 40px 0 10px 0;
+}
+main.pay div#pay-top p {
+  font-family: serif;
+  color: #9b7f58;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0 0 10px 0;
+}
+main.pay div#pay-top img {
+  width: 20%;
+  margin: 0 auto 0 auto;
+}
+main.pay div#topbutton {
+  text-align: center;
+  margin: 50px auto;
+}
+main.pay div#topbutton a {
+  font-family: serif;
+  display: inline-block; /*下の要素とかぶるから*/
+  padding: 4px 30px;
+  text-decoration: none; /*下線を消す*/
+  color: #fff;
+  font-size: 1.3rem;
+  background-color: rgba(55, 145, 75, 0.9); /*ボタンの緑色*/
+  border-radius: 2px; /*ボタンの緑色の角を丸くする・大きいサイズを入れると半円になる*/
+  cursor: pointer; /*カーソルを指にする*/
+}
