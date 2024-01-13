@@ -98,6 +98,9 @@ class product(db.Model):
     images = db.relationship("product_image", backref="images", lazy=True)
     price = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(255), nullable=False)
+    account_id = db.Column(db.String(63), db.ForeignKey(
+        "user.id"
+    ), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey(
         "category.category_id"
     ), nullable=False)
