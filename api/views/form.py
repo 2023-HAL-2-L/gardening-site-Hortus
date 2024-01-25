@@ -61,7 +61,7 @@ class ProductSearchForm(FlaskForm):
 
 class ExhibitProductForm(FlaskForm):
     name = StringField("商品名", validators=[DataRequired(message="この項目は入力が必須です"), Length(min=2, max=60)])
-    image = FileField("商品画像", validators=[FileRequired(message="この項目は入力が必須です")])
+    image = FileField("商品画像", validators=[DataRequired(message="この項目は入力が必須です"),FileRequired(message="この項目は入力が必須です")])
     price = IntegerField("商品価格", validators=[DataRequired(message="この項目は入力が必須です"), NumberRange(min=0, message="有効な値を入れてください。")], render_kw={"placeholder": "0", "min": "0"})
     description = TextAreaField("商品の説明", validators=[DataRequired(message="この項目は入力が必須です"), Length(min=1, max=256)])
     category = SelectField("商品カテゴリ", choices=[("1", "生花"), ("2", "種"), ("3", "その他")])
