@@ -19,7 +19,7 @@ class LoginForm(FlaskForm):
         "Email",
         validators=[
             DataRequired(message="この項目は入力が必須です。"),
-            Email(),
+            Email(message="有効なメールアドレスを入れてください。"),
             Length(min=1, max=63, message = "1から63文字の有効な値を入れてください。"),
         ],
     )
