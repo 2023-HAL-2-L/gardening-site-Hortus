@@ -37,7 +37,7 @@ class RegistrationForm(FlaskForm):
         "名前", validators=[DataRequired(message="この項目は入力が必須です"), Length(min=1, max=60, message="1から60文字の有効な値を入れてください。")]
     )
     email = StringField(
-        "Email", validators=[DataRequired(message="この項目は入力が必須です"), Email()]
+        "Email", validators=[DataRequired(message="この項目は入力が必須です"), Email(message="有効なメールアドレスを入れてください。")]
     )
     password = PasswordField(
         "Password",
