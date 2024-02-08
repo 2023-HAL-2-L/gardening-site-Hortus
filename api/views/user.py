@@ -60,4 +60,5 @@ def exhibit():
       db.session.commit()
       flash("商品を出品しました")
       return redirect(url_for("user.index"))
+    flash("商品を正しく入力してください")
     return render_template("product-listing.html", form=form)
