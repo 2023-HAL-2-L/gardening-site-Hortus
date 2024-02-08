@@ -8,6 +8,7 @@ from api.views.column import column
 from api.views.thread import thread
 from api.views.main import main
 from api.views.auth import auth
+from api.views.diagnosis import diagnosis
 from api.models.models import Account
 # from database import init_db
 # from api import static
@@ -37,6 +38,8 @@ def create_app(local_config="config.py"):
     app.register_blueprint(shop, url_prefix="/shop")
     app.register_blueprint(column, url_prefix="/column")
     app.register_blueprint(thread, url_prefix="/thread")
+    app.register_blueprint(diagnosis, url_prefix="/diagnosis")
+    
     
     return app
 
