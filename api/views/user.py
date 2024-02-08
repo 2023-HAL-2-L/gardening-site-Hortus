@@ -15,7 +15,7 @@ user = Blueprint("user", __name__)
 def index():
   return render_template("mypage.html")
 
-@user.route("/exhibit/" , methods=["GET", "POST"])
+@user.route("/exhibit" , methods=["GET", "POST"])
 @login_required
 def exhibit():
   form = ExhibitProductForm()
@@ -62,3 +62,23 @@ def exhibit():
       return redirect(url_for("user.index"))
     flash("商品を正しく入力してください")
     return render_template("product-listing.html", form=form)
+
+@user.route("/myexhibit")
+@login_required
+def myexhibit():
+  return render_template("myexhibit.html")
+
+@user.route("/order")
+@login_required
+def orders():
+  return render_template("orders.html")
+
+@user.route("/mycolumn")
+@login_required
+def mycolumn():
+  return render_template("mycolumn.html")
+
+@user.route("/trade")
+@login_required
+def trade():
+  return render_template("trade.html")

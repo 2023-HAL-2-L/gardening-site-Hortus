@@ -5,5 +5,5 @@ from werkzeug.security import generate_password_hash, check_password_hash
 diagnosis = Blueprint("diagnosis", __name__)
 
 @diagnosis.route("/", methods=["GET"])
-def diagnosis():
+def top():
     return render_template("diagnosis.html")

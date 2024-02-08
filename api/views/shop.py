@@ -81,3 +81,33 @@ def product_buy_complete(product_id):
         return render_template(
             "payment-completed.html", product_data=product_data, buy_user=buy_user
         )
+@shop.route("/<string:product_id>/trade", methods=["GET", "POST"])
+@login_required
+def product_trade(product_id):
+    if request.method == "GET":
+        product_data = product.query.filter_by(product_id=product_id).one_or_none()
+        buy_user = Account.query.filter_by(id=product_data.account_id).one_or_none()
+        return render_template(
+            "trade.html", product_data=product_data, buy_user=buy_user, product_id=product_id
+        )
+        
+@shop.route("/<string:product_id>/trade/complete", methods=["GET"])
+@login_required
+def product_trade_complete(product_id):
+    if request.method == "GET":
+        product_data = product.query.filter_by(product_id=product_id).one_or_none()
+        buy_user = Account.query.filter_by(id=product_data.account_id).one_or_none()
+        product_data.is_sold = True
+        # 購入履歴を追加
+        purchase_history_data = purchase_history(
+            purchase_history_id=generate_uuid(),
+            buy_account_id=current_user.id,
+            sell_account_id=buy_user.id,
+            product_id=product_id,
+            created_at=time_now(),
+        )
+        db.session.add(purchase_history_data)
+        db.session.commit()
+        return render_template(
+            "trade-completed.html", product_data=product_data, buy_user=buy_user
+        )

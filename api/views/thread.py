@@ -9,6 +9,7 @@ def thread_top():
     return render_template("thread-top.html")
 
 @thread.route("/new" , methods=["GET", "POST"])
+@login_required
 def thread_new():
     if request.method == "GET":
         

@@ -20,7 +20,7 @@ auth = Blueprint(
 )
 
 
-@auth.route("/signup/", methods=["GET", "POST"])
+@auth.route("/signup", methods=["GET", "POST"])
 def signup():
     if current_user.is_authenticated:
         return redirect(url_for("main.top"))
@@ -48,7 +48,7 @@ def signup():
         return render_template("registration.html", form=form)
 
 
-@auth.route("/login/", methods=["GET", "POST"])
+@auth.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for("main.top"))
