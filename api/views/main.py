@@ -5,29 +5,15 @@ from api.models.models import Account
 
 main = Blueprint("main", __name__)
 
-
-
-
-# def connect_db():
-#     conn = mysql.connector.connect(
-#         host="127.0.0.1", user="root", password="P@ssw0rd", db="py23"
-#     )
-
-#     return conn
-
 @main.route("/", methods=["GET"])
 def top():
   if current_user.is_authenticated:
     return render_template("top.html", name = current_user.name)
   return render_template("top.html")
 
-@main.route("/User-Guide/")
+@main.route("/guide")
 def userGuide():
   return render_template("user-guide.html")
-@main.route("/inquiry/")
+@main.route("/inquiry", methods=["GET", "POST"])
 def inquiry():
   return render_template("inquiry.html")
-
-@main.route("/mypage/", methods = ["GET"])
-def mypage():
-  return render_template("mypage.html")
