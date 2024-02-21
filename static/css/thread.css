@@ -1,0 +1,163 @@
+@charset "UTF-8";
+header {
+  display: flex;
+  min-width: 100%;
+  width: 100%;
+  height: 50px;
+  background-color: #37914b;
+}
+
+#nav-logo {
+  display: inline-block;
+  height: 100%;
+  padding-left: 20px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.button {
+  word-break: keep-all;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: rgba(55, 145, 75, 0.9);
+  font-size: 1rem;
+  font-weight: 700;
+  color: whitesmoke;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover {
+  background-color: #366841;
+}
+
+#nav-button {
+  margin: 0 10px 0 auto;
+}
+
+.open-btn {
+  position: relative;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+.open-btn span {
+  display: inline-block;
+  transition: all 0.4s; /*アニメーションの設定*/
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: #2c2c2c;
+  width: 45%;
+}
+.open-btn span:nth-last-of-type(1) {
+  top: 15px;
+}
+.open-btn span:nth-last-of-type(2) {
+  top: 23px;
+}
+.open-btn span:nth-last-of-type(3) {
+  top: 31px;
+}
+.open-btn.active span:nth-of-type(1) {
+  top: 18px;
+  transform: translateY(6px) rotate(-45deg);
+}
+.open-btn.active span:nth-of-type(2) {
+  opacity: 0; /*真ん中の線は透過*/
+}
+.open-btn.active span:nth-of-type(3) {
+  top: 30px;
+  transform: translateY(-6px) rotate(45deg);
+}
+
+nav {
+  height: 100%;
+  width: 30vw;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  /*  display: flex;*/
+  right: 0;
+  position: fixed;
+  display: inline-block;
+  color: white;
+  z-index: 253;
+  visibility: visible;
+  max-width: 30vw;
+  background-color: rgba(55, 145, 75, 0.9);
+  transition: all 0.5s ease;
+  z-index: 3;
+}
+
+#nav-wrap {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-text {
+  height: 10%;
+  vertical-align: middle;
+  text-decoration: none;
+  color: whitesmoke;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  text-shadow: 1px 1px 8px black;
+  margin: 10px;
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.4rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: all 0.5s ease;
+}
+.nav-text a {
+  padding: 5px;
+}
+
+.nav-disable {
+  opacity: 0;
+  /*  max-height: 0px;*/
+  visibility: hidden;
+  transition: all 1s ease;
+  background-color: rgba(0, 0, 0, 0);
+}/*# sourceMappingURL=common.css.map */
+
+
+
+
+/* ----------ここから掲示板一覧ページ---------- */
+
+main{
+  text-align: center;
+}
+
+/* 掲示板 */
+main div.keijiban{
+  width: 55%;
+  margin: 40px auto 0 auto;
+  padding: 20px 20px 20px 20px;
+  background-color: rgb(210, 210, 210);
+}
+main div.keijiban ul.naiyou{
+  text-align: left;
+  margin:  0 0 10px 0;
+  border-bottom: 1px solid #000;
+
+}
+main div.keijiban ul.naiyou li{
+  font-size: 1.1rem;
+}
+main div.keijiban ul.naiyou li.li-t{
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+}
+
+main div.keijiban ul.naiyou:last-child{
+  border: none;
+}

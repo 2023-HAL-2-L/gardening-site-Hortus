@@ -1,0 +1,163 @@
+@charset "UTF-8";
+div.wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    text-decoration: underline;
+    color: rgba(34, 100, 49, 0.9);;
+}
+
+.exchange-completed-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.exchange-completed-h2 {
+    padding-top: 100px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+
+input {
+    margin: 0.25em 0em 1em 0em;
+    outline: none;
+    padding: 15px;
+    border: none;
+    background-color: rgb(225, 225, 225);
+    border-radius: 0.25em;
+    color: black;
+}
+
+button {
+    padding: 10px 80px;
+    border: none;
+    outline: none;
+    background-color: rgba(55, 145, 75, 0.9);
+    color: white;
+    border-radius: 0.25em;
+    margin-top: 100px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(56, 95, 65, 0.9);
+}
+
+
+
+.exchange-completed-h2 {
+    width: 100%;
+    height: 100px;
+}
+
+.exchange-completed-h2 h2 {
+    text-align: center;
+    padding: 40px;
+    font-size: 25px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 400px;
+    margin: 0 auto 0 auto;
+
+}
+
+.exchange-completed-button {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px 150px;
+}
+.exchange-completed-button a{
+    text-decoration: none;
+    color: rgba(34, 100, 49, 0.9);
+}
+
+
+
+
+
+
+/* ウインドウサイズに合わせる1000px以下 */
+@media (max-width: 999px) {
+    div.wrapper {
+        width: 100%;
+        height: 100%;
+    }
+
+    a {
+        text-decoration: underline;
+        color: rgb(21, 199, 140);
+    }
+
+
+
+    .exchange-completed-form {
+        width: 25vw;
+        width: 100%;
+
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    /* p {} */
+
+    input {
+        margin: 0.25em 0em 1em 0em;
+        outline: none;
+        padding: 15px;
+        border: none;
+        background-color: rgb(225, 225, 225);
+        border-radius: 0.25em;
+        color: black;
+    }
+
+    button {
+        padding: 0.75em;
+        border: none;
+        outline: none;
+        background-color: rgba(55, 145, 75, 0.9);
+        color: white;
+        border-radius: 0.25em;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background-color: rgba(56, 95, 65, 0.9);
+    }
+
+    .exchange-completed-h2 {
+        width: 100%;
+        height: 100px;
+    }
+
+    .exchange-completed-h2 h2 {
+        text-align: center;
+        padding: 40px;
+        font-size: 25px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        height: 400px;
+        margin: 0 auto 0 auto;
+
+    }
+
+    .exchange-completed-button {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px 100px;
+    }
+
+}

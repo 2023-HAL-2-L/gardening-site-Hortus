@@ -1,0 +1,42 @@
+main div#wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  margin: 0 auto 0 auto;
+  padding: 20px 0 50px 0;
+}
+main div#title {
+  text-align: center;
+  margin: 80px auto 20px auto;
+}
+main div#title h1 {
+  font-family: serif;
+  font-size: 1.7rem;
+}
+main div#exhibit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+main div#exhibit div#product {
+  display: flex;
+}
+main div#exhibit div#product section {
+  padding: 10px;
+  margin: 0 auto;
+}
+main div#exhibit div#product section figure {
+  margin: 15px auto;
+}
+main div#exhibit div#product section figure img {
+  width: 250px;
+  height: 250px;
+  margin: 0 30px;
+}
+main div#exhibit div#product section figure p {
+  font-family: serif;
+  font-size: 1.2rem;
+  margin: 15px auto 0 10px;
+}

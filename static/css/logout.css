@@ -1,0 +1,30 @@
+div.wrap{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    /* ↓headerを中央揃え */
+    margin: 0 auto 0 auto;
+    padding: 20px 0 50px 0;
+  }
+  div#logoutpage h1{
+    font-family: serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 80px auto;
+  }  
+  div#button {
+    text-align: center;
+    margin: 50px auto;
+  }
+  div#button a {
+    font-family: serif;
+    display: inline-block; /*下の要素とかぶるから*/
+    padding: 4px 30px;
+    text-decoration: none; /*下線を消す*/
+    color: #fff;
+    font-size: 1.3rem;
+    background-color: rgba(55, 145, 75, 0.9); /*ボタンの緑色*/
+    border-radius: 2px; /*ボタンの緑色の角を丸くする・大きいサイズを入れると半円になる*/
+    cursor: pointer; /*カーソルを指にする*/
+  }
+  

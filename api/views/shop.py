@@ -18,9 +18,9 @@ def shop_get():
         # for produc in products:
         # print(produc.product_name)
 
-        return render_template("item-search-result.html", form=form, products=products)
+        return render_template("shop/item-search-result.html", form=form, products=products)
     if request.method == "POST":
-        return render_template("item-search-result.html", form=form)
+        return render_template("shop/item-search-result.html", form=form)
 
 
 @shop.route("/<string:product_id>", methods=["GET"])
@@ -29,7 +29,7 @@ def product_detail(product_id):
         product_data = product.query.filter_by(product_id=product_id).one_or_none()
         buy_user = Account.query.filter_by(id=product_data.account_id).one_or_none()
         return render_template(
-            "my-listing-detail.html", product_data=product_data, buy_user=buy_user
+            "shop/my-listing-detail.html", product_data=product_data, buy_user=buy_user
         )
 
 
@@ -40,7 +40,7 @@ def product_payment(product_id):
         product_data = product.query.filter_by(product_id=product_id).one_or_none()
         buy_user = Account.query.filter_by(id=product_data.account_id).one_or_none()
         return render_template(
-            "payment.html", product_data=product_data, buy_user=buy_user, product_id=product_id
+            "shop/payment.html", product_data=product_data, buy_user=buy_user, product_id=product_id
         )
 
 
@@ -62,7 +62,7 @@ def product_buy_complete(product_id):
         db.session.add(purchase_history_data)
         db.session.commit()
         return render_template(
-            "payment-completed.html", product_data=product_data, buy_user=buy_user
+            "shop/payment-completed.html", product_data=product_data, buy_user=buy_user
         )
     if request.method == "POST":
         product_data = product.query.filter_by(product_id=product_id).one_or_none()
@@ -79,8 +79,11 @@ def product_buy_complete(product_id):
         db.session.add(purchase_history_data)
         db.session.commit()
         return render_template(
-            "payment-completed.html", product_data=product_data, buy_user=buy_user
+            "shop/payment-completed.html", product_data=product_data, buy_user=buy_user
         )
+        
+        
+# todo
 @shop.route("/<string:product_id>/trade", methods=["GET", "POST"])
 @login_required
 def product_trade(product_id):

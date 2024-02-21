@@ -9,11 +9,11 @@ main = Blueprint("main", __name__)
 def top():
   if current_user.is_authenticated:
     return render_template("top.html", name = current_user.name)
-  return render_template("top.html")
+  return render_template("main/top.html")
 
 @main.route("/guide")
 def userGuide():
-  return render_template("user-guide.html")
+  return render_template("main/user-guide.html")
 @main.route("/inquiry", methods=["GET", "POST"])
 def inquiry():
-  return render_template("inquiry.html")
+  return render_template("main/inquiry.html")
