@@ -1,0 +1,70 @@
+/* 見出し */
+
+.heading{
+    height: 80px;
+    text-align: center;
+    margin: 30px auto 20px auto;
+    font-size: 25px;
+}
+/* 日付 */
+.opendata{
+    width: 1000px;
+    margin: 0 auto 0 auto;
+}
+
+/* 内容 */
+.Content{
+    width: 1000px;
+    text-align: left;
+    font-size: 18px;
+    margin: 0 auto 0 auto;
+
+}
+.Content p{
+    margin: 20px auto 20px auto ;
+}
+
+/* リンク色 */
+.moving{
+    text-decoration: underline;
+    color: #15c78c;
+
+}
+/* 大きさが1000以下を下回るとき */
+
+@media (max-width: 999px) {
+/* 見出し */
+
+    .heading{
+        height: 80px;
+        text-align: center;
+        margin: 30px auto 20px auto;
+        font-size: 25px;
+    }
+    /* 日付 */
+    .opendata{
+        width: 1000px;
+        margin: 0 auto 0 auto;
+    }
+
+    /* 内容 */
+    .Content{
+        width: 1000px;
+        text-align: left;
+        font-size: 18px;
+        margin: 0 auto 0 auto;
+
+    }
+    .Content p{
+        margin: 20px auto 20px auto ;
+    }
+
+    /* リンク色 */
+    .moving{
+        text-decoration: underline;
+        color: #15c78c;
+
+    }
+
+
+}
