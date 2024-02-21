@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+
+/* 交換一覧ページ全体 */
+div#exchange-list-wrap {
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+h2 {
+    font-size: 30px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* 交換内容中身 */
+
+
+.exchange-list-container {
+    /* max-width: 1000px; */
+    display: flex;
+    margin-bottom: 40px;
+}
+
+table {
+    table-layout: fixed;
+    max-width: 800px;
+    width: 70%;    
+}
+
+table th {
+    width: 33%; 
+    white-space: nowrap;
+}
+
+table td {
+    white-space: nowrap;
+}
+
+/* マイページへ！ボタン */
+.div-exchange-mypage-button {
+    text-align: right;
+}
+
+
+.exchange-mypage-button {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸 */
+    font-size     : 10pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置 */
+    cursor        : pointer;     /* カーソル */
+    padding       : 15px 13px;   /* 余白 */
+    background    : #37914b;     /* 背景色 */
+    color         : #ffffff;     /* 文字色 */
+    line-height   : 1em;         /* 1行の高さ */
+    opacity       : 1;           /* 透明度 */
+    transition    : .3s;         /* なめらか変化 */
+  }
+.exchange-mypage-button:hover {
+    opacity       : 0.8;         /* カーソル時透明度 */
+  }
+
+/* 交換する！しない！ボタン */
+.exchange-list-container-button {
+    display: flex;
+    flex-flow: column;
+}
+
+.exchange-list-container-button-in {
+    width: 30%;
+}
+
+button {
+    width: 150px;
+    padding: 10px 30px;
+    border: none;
+    outline: none;
+    background-color: rgba(55, 145, 75, 0.9);
+    color: white;
+    border-radius: 0.25em;
+    margin-bottom: 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.yes-button:hover {
+    cursor: pointer;
+    background-color: rgba(56, 95, 65, 0.9);
+}
+.no-button {
+    background-color: #ED1C1C;
+}
+
+.no-button:hover {
+    cursor: pointer;
+    background-color: #ee4c4e;
+}

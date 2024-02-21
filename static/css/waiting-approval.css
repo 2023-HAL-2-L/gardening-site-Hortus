@@ -1,0 +1,43 @@
+div.wrap{
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  /* ↓headerを中央揃え */
+  margin: 0 auto 0 auto;
+  padding: 20px 0 50px 0;
+}
+div#unity h1{
+  font-family: serif;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 40px auto;
+}
+div#unity div#product{
+  width: 65%;
+  margin: 0 auto;
+  padding: 0.5em 1em;
+  border: solid 2px #000000;
+}
+div#unity div#product h2{
+  font-family: serif;
+  font-size: 1.3rem;
+  padding: 20px;
+}
+div#unity div#product figure{
+  display: flex;
+  margin: 0 auto;
+  width: 95%;
+}
+div#unity div#product div#opponent-product{
+  width: 40%;
+}
+div#unity div#product div#opponent-product img{
+  width: 80%;
+}
+div#unity div#product div#own-product h1{
+  font-family: serif;
+  font-size: 1.1rem;
+  padding: 20px;
+  text-align: left;
+  margin: 140px auto 0 100px;
+}
