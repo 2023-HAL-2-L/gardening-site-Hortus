@@ -17,3 +17,14 @@ def userGuide():
 @main.route("/inquiry", methods=["GET", "POST"])
 def inquiry():
   return render_template("main/inquiry.html")
+
+@main.route("/notice/1")
+def notice1():
+  return render_template("main/notice.html")
+@main.route("/notice/2")
+def notice2():
+  return render_template("main/notice2.html")
+
+@main.route("/notice/3")
+def notice3():
+  return render_template("main/notice3.html")
