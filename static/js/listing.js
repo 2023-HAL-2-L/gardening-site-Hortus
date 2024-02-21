@@ -2,7 +2,7 @@ $(".open-btn").click(function () {
   $(this).toggleClass('active');
   $("nav").toggleClass('nav-disable');
 });
-document.getElementById('image').addEventListener('change', function (event) {
+document.getElementById('itemImage').addEventListener('change', function (event) {
   const preview = document.getElementById('imagePreview');
   const file = event.target.files[0];
 
@@ -21,7 +21,7 @@ document.getElementById('image').addEventListener('change', function (event) {
 });
 document.addEventListener('DOMContentLoaded', function () {
   const dropArea = document.getElementById('imageUploadLabel');
-  const fileInput = document.getElementById('image');
+  const fileInput = document.getElementById('itemImage');
   const imagePreview = document.getElementById('imagePreview');
 
   // ドラッグオーバー時のデフォルトの振る舞いを防止
