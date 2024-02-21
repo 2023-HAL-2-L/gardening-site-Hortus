@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>top</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/column-post.css" />
+
+  </head>
+
+  <body>
+    <header>
+      <div id="nav-logo"></div>
+      <div id="nav-button">
+        <div class="open-btn"><span></span><span></span><span></span></div>
+      </div>
+    </header>
+    <nav class="nav-disable">
+      <div id="nav-wrap">
+        <div class="nav-text">
+          <a href="login.html">ログイン</a>
+        </div>
+        <div class="nav-text">
+          <a href="item-search-result.html">商品を探す</a>
+        </div>
+        <div class="nav-text">
+          <a href="#">コラム</a>
+        </div>
+        <div class="nav-text">
+          <a href="#">掲示板</a>
+        </div>
+        <div class="nav-text">
+          <a href="top.html">トップに戻る</a>
+        </div>
+      </div>
+    </nav>
+    <main>
+        <div class="wrapper">
+            <div class="column-post-all">
+    
+                <div class="column-post-h2">
+                    <h2>コラム投稿ページ</h2>
+                </div>
+    
+                  <form>
+                    
+                    <div class="column-post-form">
+                      <div class="container">
+                        <label for="title"><p>タイトル</p></label>
+                        <input type="text" placeholder="" name="username" id="username" required />
+                      </div>
+                      <div class="container3">
+                        <label for="itemImage">画像:</label>
+                        <label id="imageUploadLabel" for="itemImage">
+                          <img id="imagePreview">
+                          <div class="image-upload-text">ドラック＆ドロップ
+                            またはファイルを選択</div>
+                        </label>
+                        <input type="file" id="itemImage" name="itemImage" accept="image/*" required>
+                    </div>
+
+                      <div class="container2">
+                        <label for="message"><p>コラム投稿</p></label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                      </div>
+                    </div>
+                
+    
+                    <div class="column-post-button">
+                      <button type="submit"><a href="top.html">投稿</a></button>
+                    </div>
+    
+                  </form>
+    
+            </div>
+        </div>
+      </main>
+    
+    <footer></footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/column-post.js"></script>
+
+    
+
+
+  </body>
+</html>
+
+
+
