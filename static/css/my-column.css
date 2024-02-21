@@ -1,0 +1,31 @@
+main{
+
+}
+.heading{
+    height: 70px;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+}
+.my-column{
+
+    width: 60%;
+    margin: 15px auto;
+    padding: 20px 20px 20px 20px;
+    background-color: rgb(210, 210, 210);
+    line-height: 1.5;
+    
+
+}
+
+.content{
+    border-bottom: 1px solid #000000;
+    padding: 10px;
+}
+a:hover{
+  background-color: #000000;  
+  opacity: 0.3;
+}
+.column-title{
+    font-size: 25px;
+}
