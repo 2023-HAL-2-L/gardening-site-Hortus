@@ -8,7 +8,7 @@ main = Blueprint("main", __name__)
 @main.route("/", methods=["GET"])
 def top():
   if current_user.is_authenticated:
-    return render_template("top.html", name = current_user.name)
+    return render_template("main/top.html", name = current_user.name)
   return render_template("main/top.html")
 
 @main.route("/guide")
