@@ -13,14 +13,14 @@ user = Blueprint("user", __name__)
 @user.route("/")
 @login_required
 def index():
-  return render_template("mypage.html")
+  return render_template("user/mypage.html")
 
 @user.route("/exhibit" , methods=["GET", "POST"])
 @login_required
 def exhibit():
   form = ExhibitProductForm()
   if request.method == "GET":
-    return render_template("product-listing.html", form=form)
+    return render_template("user/product-listing.html", form=form)
   if request.method == "POST":
     if form.validate_on_submit():
       product_id = generate_uuid()
@@ -36,7 +36,7 @@ def exhibit():
         file_name = generate_uuid() + ".gif"
       else:
         flash("画像の形式が正しくありません")
-        return render_template("product-listing.html", form=form)
+        return render_template("user/product-listing.html", form=form)
       file.save(os.path.join("static/images/product/", file_name))
       productData = product(
         product_id=product_id,
@@ -61,7 +61,7 @@ def exhibit():
       flash("商品を出品しました")
       return redirect(url_for("user.index"))
     flash("商品を正しく入力してください")
-    return render_template("product-listing.html", form=form)
+    return render_template("user/product-listing.html", form=form)
 
 @user.route("/myexhibit")
 @login_required

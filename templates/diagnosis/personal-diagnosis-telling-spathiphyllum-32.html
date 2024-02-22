@@ -14,11 +14,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/mypage.css') }}">
+  <title>診断結果</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/flower-fortune-telling.css">
 </head>
 
 <body>
@@ -50,33 +53,37 @@
 
 
   <main>
-    <div class="container">
-      <div class="icon">
-        <img src="./images/myicon.png" alt="icon">
-      </div>
-      <div class="user-details">
-        <p>名前：山田 太郎</p>
-        <p>email: example@gmail.com</p>
-        <p>pas : ********</p>
-        <p>住所:</p>
-        <p>クレジット:****-****-****-****</p>
-        <p>入会日:2023/01/01</p>
+    <div id="main-wrap">
+      <div class="title-text">診断結果</div>
+      <div class="contents-wrap">
+        <div class="flower-wrap">
+          <div class="flower-image">
+            <img src="./images/32-asupara.jpg" alt="flower">
+          </div>
+          <div class="flower-text">
+            <h1>アスパラガス</h1>
+              <p>
+                アスパラガスの花は、細長い花枝と呼ばれる部分の先端に、花径が1cmにも満たない釣鐘形をした黄緑色の可愛らしい花をつけます。
+              </p>
+              <div>
+                <!-- ページ完成次第変更 -->
+                <a href="item-search-result.html" class="button">検索ページに飛んでみる ></a>
+              </div>
+          </div>
+        </div>
+        <div id="flower-language-wrap">
+            <h1>Language of Flowers</h1>
+            <p>花言葉</p>
+            <p id="flower-language">無変化・敵を除く・私が勝つ・何も変わらない</p>
+        </div>
       </div>
     </div>
-
-    <div>
-      <p class="Listing-button"><a href="???.html">出品物を見る</a></p>
-      <p class="inquiry"><a href="{{ url_for('user.exhibit') }}">出品する</a></p>
-      <p class="inquiry"><a href="???.html">問い合わせはこちら</a></p>
-      <p class="inquiry"><a href="{{ url_for('auth.logout') }}">ログアウト</a></p>
-    </div>
-
   </main>
   <footer></footer>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+  <script src="js/common.js"></script>
 </body>
 
 </html>

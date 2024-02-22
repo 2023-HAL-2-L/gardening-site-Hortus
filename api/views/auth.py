@@ -26,7 +26,7 @@ def signup():
         return redirect(url_for("main.top"))
     form = RegistrationForm()
     if request.method == "GET":
-        return render_template("registration.html", form=form)
+        return render_template("auth/registration.html", form=form)
 
     if request.method == "POST":
         if form.validate_on_submit():
@@ -45,7 +45,7 @@ def signup():
             db.session.commit()
             flash("登録が完了しました")
             return redirect(url_for("auth.login"))
-        return render_template("registration.html", form=form)
+        return render_template("auth/registration.html", form=form)
 
 
 @auth.route("/login", methods=["GET", "POST"])
@@ -55,7 +55,7 @@ def login():
 
     if request.method == "GET":
         form = LoginForm()
-        return render_template("login.html", form=form)
+        return render_template("auth/login.html", form=form)
 
     if request.method == "POST":
         # forms.pyで定義するloginフォームを読み込む
@@ -69,13 +69,13 @@ def login():
                 account.password, form.password.data
             ):
                 flash("アカウントが存在しないかemailかpasswordが間違っています。")
-                return render_template("login.html", form=form)
+                return render_template("auth/login.html", form=form)
             login_user(account, remember=form.is_keep_login.data)
             next_page = request.args.get("next")
             if not next_page or url_parse(next_page).netloc != "":
                 next_page = url_for("main.top")
             return redirect(next_page)
-        return render_template("login.html", form=form)
+        return render_template("auth/login.html", form=form)
 
 
 @auth.route("/logout")

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
+
+  <title>商品検索結果</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/item-search-result2.css">
+</head>
+
+<body>
+  <header>
+    <div id="nav-logo"></div>
+    <div id="nav-button">
+      <div class="open-btn"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+  <nav class="nav-disable">
+    <div id="nav-wrap">
+      <div class="nav-text">
+        <a href="login.html">ログイン</a>
+      </div>
+      <div class="nav-text">
+        <a href="item-search-result.html">商品を探す</a>
+      </div>
+      <div class="nav-text">
+        <a href="#">コラム</a>
+      </div>
+      <div class="nav-text">
+        <a href="#">掲示板</a>
+      </div>
+      <div class="nav-text">
+        <a href="top.html">トップに戻る</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- 検索ボックス・カテゴリ -->
+    <div class="search-flexbox">
+      <form class="search-form" action="自分のサイトURL">
+        <input class="search-box" type="text" placeholder="キーワードを入力" />
+      </form>
+      <div class="modal-001__wrap">
+        <input type="radio" id="modal-001__open" class="modal-001__open-input" name="modal-001__trigger" />
+        <label for="modal-001__open" class="modal-001__open-label">カテゴリ▼</label>
+        <input type="radio" id="modal-001__close" name="modal-001__trigger" />
+        <div class="modal-001">
+          <div class="modal-001__content-wrap">
+            <label for="modal-001__close" class="modal-001__close-label">x</label>
+            <div class="modal-001__content">
+              <h2 class="modal-subheading">カテゴリ一覧</h2>
+              <ul class="category-flex">
+                <a href="#">
+                  <li>花</li>
+                </a>
+                <a href="#">
+                  <li>家庭菜園</li>
+                </a>
+                <a href="#">
+                  <li>観葉植物</li>
+                </a>
+                <a href="#">
+                  <li>多肉植物</li>
+                </a>
+                <a href="#">
+                  <li>園芸用品</li>
+                </a>
+                <a href="#">
+                  <li>肥料</li>
+                </a>
+              </ul>
+            </div>
+          </div>
+          <label for="modal-001__close">
+            <div class="modal-001__background"></div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <!-- ここまで -->
+
+    <hr class="Separator">
+
+    <!-- 商品 -->
+    <div class="item-search-result-wrapper"> <!-- カード全体 --> 
+                
+
+
+      <a href="#" class="item-search-result-card">
+        <div class="item-search-result-card-image-box">
+            <img class="item-search-result-card-image" src="images/flower01.jpg">
+        </div>
+        <div class="item-search-result-card-box">
+            <h2 class="item-search-result-card-title">商品のタイトル</h2>
+            <p class="item-search-result-card-description">テキスト</p>
+            <small>出品日時</small>
+            <small>出品者</small>
+        </div>
+    </a>
+
+    <a href="#" class="item-search-result-card">
+        <div class="item-search-result-card-image-box">
+            <img class="item-search-result-card-image" src="images/flower02.jpg">
+        </div>
+        <div class="item-search-result-card-box">
+            <h2 class="item-search-result-card-title">商品のタイトル</h2>
+            <p class="item-search-result-card-description">テキスト</p>
+            <small>出品日時</small>
+            <small>出品者</small>
+        </div>
+    </a>
+
+    <a href="#" class="item-search-result-card">
+        <div class="item-search-result-card-image-box">
+            <img class="item-search-result-card-image" src="images/flower03.jpg">
+        </div>
+        <div class="item-search-result-card-box">
+            <h2 class="item-search-result-card-title">商品のタイトル</h2>
+            <p class="item-search-result-card-description">テキスト</p>
+            <small>出品日時</small>
+            <small>出品者</small>
+        </div>
+    </a>
+
+
+
+  </main>
+  <a href="#" id="page-top"></a>
+
+  <footer>
+    
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="js/common.js"></script>
+  <script src="js/item-search-result.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+
+/* 商品出品フォームのスタイル */
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label, .image-upload-text {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    appearance: none; 
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: 20px auto;
+    width: auto;
+    background-color: #37914b;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #1e5129;
+}
+
+.price-input {
+    display: flex;
+    align-items: center;
+}
+
+.price-input span {
+    margin-right: 5px;
+}
+
+#itemPrice {
+    flex: 1; 
+}
+
+.custom-select {
+    position: relative;
+    width: 250px; 
+    margin-bottom: 15px;
+}
+
+.custom-select select {
+    appearance: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-group > div {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+
+/* ボタン */
+.exchange-buttun-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.exchange-button {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px 150px;
+}
+.exchange-button a{
+    text-decoration: none;
+    color: rgba(34, 100, 49, 0.9);
+}
+
+.exchange-button2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px 150px;
+}
+.exchange-button2 a{
+    text-decoration: none;
+    color: rgba(34, 100, 49, 0.9);
+}
