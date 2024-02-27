@@ -8,6 +8,18 @@ diagnosis = Blueprint("diagnosis", __name__)
 def top():
     return render_template("diagnosis/personal-diagnosis-start.html")
 
+@diagnosis.route("/q/1")
+def question1():
+    return render_template("diagnosis/personal-diagnosis-content.html")
+
+@diagnosis.route("/q/2")
+def question2():
+    return render_template("diagnosis/personal-diagnosis-content-2.html")
+
+
+
+
+
 @diagnosis.route("/1", methods=["GET"])
 def diagnosis1():
     return render_template("diagnosis/personal-diagnosis-telling-1.html")
