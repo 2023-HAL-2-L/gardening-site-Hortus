@@ -16,6 +16,18 @@ def question1():
 def question2():
     return render_template("diagnosis/personal-diagnosis-content-2.html")
 
+@diagnosis.route("/q/3")
+def question3():
+    return render_template("diagnosis/personal-diagnosis-content-3.html")
+
+@diagnosis.route("/q/4")
+def question4():
+    return render_template("diagnosis/personal-diagnosis-content-4.html")
+
+@diagnosis.route("/q/5")
+def question5():
+    return render_template("diagnosis/personal-diagnosis-content.html")
+
 
 
 
