@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
+  <title>商品検索結果</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/item-search-result.css') }}">
@@ -31,24 +31,31 @@
   <nav class="nav-disable">
     <div id="nav-wrap">
       <div class="nav-text">
-        <a href="login.html">ログイン</a>
+        <!-- ログインしているユーザー名を返す -->
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('user.index') }}">{{ current_user.name }}</a>
+        {% else %}
+        <a href="{{ url_for('auth.login') }}">ログイン</a>
+        {% endif %}
       </div>
       <div class="nav-text">
-        <a href="item-search-result.html">商品を探す</a>
+        <a href="{{ url_for('shop.shop_get') }}">商品を探す</a>
       </div>
       <div class="nav-text">
-        <a href="#">コラム</a>
+        <a href="{{ url_for('column.column_top') }}">コラム</a>
       </div>
       <div class="nav-text">
-        <a href="#">掲示板</a>
+        <a href="{{ url_for('thread.thread_top') }}">掲示板</a>
       </div>
       <div class="nav-text">
-        <a href="top.html">トップに戻る</a>
+        <a href="{{ url_for('main.top') }}">トップに戻る</a>
+      </div>
+      <div class="nav-text">
+        <a href="{{ url_for('main.userGuide') }}">使い方</a>
       </div>
     </div>
   </nav>
-
-  <div id="header-space"></div>
+  <!-- <div id="header-space"></div> -->
 
   <main>
 
@@ -59,31 +66,31 @@
       </form>
       <div class="modal-001__wrap">
         <input type="radio" id="modal-001__open" class="modal-001__open-input" name="modal-001__trigger" />
-        <label for="modal-001__open" class="modal-001__open-label">カテゴリ</label>
+        <label for="modal-001__open" class="modal-001__open-label">カテゴリ▼</label>
         <input type="radio" id="modal-001__close" name="modal-001__trigger" />
         <div class="modal-001">
           <div class="modal-001__content-wrap">
             <label for="modal-001__close" class="modal-001__close-label">x</label>
             <div class="modal-001__content">
-              <h2 class="modal-subheading">カテゴリー一覧</h2>
+              <h2 class="modal-subheading">カテゴリ一覧</h2>
               <ul class="category-flex">
                 <a href="#">
-                  <li>カテゴリ1</li>
+                  <li>花</li>
                 </a>
                 <a href="#">
-                  <li>カテゴリ2</li>
+                  <li>家庭菜園</li>
                 </a>
                 <a href="#">
-                  <li>カテゴリ3</li>
+                  <li>観葉植物</li>
                 </a>
                 <a href="#">
-                  <li>カテゴリ4</li>
+                  <li>多肉植物</li>
                 </a>
                 <a href="#">
-                  <li>カテゴリ5</li>
+                  <li>園芸用品</li>
                 </a>
                 <a href="#">
-                  <li>カテゴリ6</li>
+                  <li>肥料</li>
                 </a>
               </ul>
             </div>
@@ -99,43 +106,26 @@
     <hr class="Separator">
 
     <!-- 商品 -->
-    <div class="product-wrap">
-      <ul class="item-flex">
-        {% for product in products %}
-        <li>
-          <a href="{{ url_for('shop.product_detail', product_id = product.product_id) }}">
-            <figure>
-              <img src="/{{product.images[0].image}}" class="item-images" alt="花">
-            </figure>
-            <h3> {{ product.name }} </h3>
-            <p> {{ product.price }}円 </p>
-          </a>
-        </li>
-        {% endfor %}
-        <!-- <li>
-          <a href="product-detail.html">
-            <figure>
-              <img src="images/flower02.jpg" class="item-images" alt="花2">
-            </figure>
-            <h3>傘っぽい花束</h3>
-            <p>260円</p>
-          </a>
-        </li>
-        <li>
-          <a href="product-detail.html">
-            <figure>
-              <img src="images/flower03.jpg" class="item-images" alt="花3">
-            </figure>
-            <h3>黄色い花束</h3>
-            <p>390円</p>
-          </a>
-        </li> -->
-      </ul>
+    <div class="item-search-result-wrapper"> <!-- カード全体 -->
+
+      {% for product in products %}
+
+      <a href="{{ url_for('shop.product_detail', product_id = product.product_id) }}" class="item-search-result-card">
+        <div class="item-search-result-card-image-box">
+          <img class="item-search-result-card-image" src="/{{product.images[0].image}}">
+        </div>
+        <div class="item-search-result-card-box">
+          <h2 class="item-search-result-card-title">{{ product.name }}</h2>
+          <p class="item-search-result-card-description">{{ product.price }}円</p>
+        </div>
+      </a>
+      {% endfor %}
     </div>
 
 
-  </main>
 
+  </main>
+  <a href="#" id="page-top"></a>
 
   <footer>
 
@@ -144,6 +134,7 @@
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/item-search-result.js') }}"></script>
 </body>
 
 </html>
