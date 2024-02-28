@@ -50,13 +50,19 @@
           <a href="{{ url_for('shop.shop_get') }}">商品を探す</a>
         </div>
         <div class="nav-text">
-          <a href="#">コラム</a>
+          <a href="{{ url_for('shop.shop_get') }}">コラム</a>
         </div>
         <div class="nav-text">
-          <a href="#">掲示板</a>
+          <a href="{{ url_for('shop.shop_get') }}">掲示板</a>
         </div>
         <div class="nav-text">
-          <a href="top.html">トップに戻る</a>
+          <a href="{{ url_for('main.top') }}">トップに戻る</a>
+        </div>
+        <div class="nav-text">
+          <a href="{{ url_for('main.userGuide') }}">使い方</a>
+        </div>
+        <div class="nav-text">
+          <a href="{{ url_for('main.inquiry') }}">お問い合わせ</a>
         </div>
       </div>
     </nav>
