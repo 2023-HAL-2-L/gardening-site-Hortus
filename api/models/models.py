@@ -155,12 +155,14 @@ class barter_propose(db.Model):
 class purchase_history(db.Model):
     __tablename__ = "purchase_history"
     purchase_history_id = db.Column(db.String(63), primary_key=True)
+    products = db.relationship("product", backref="products", lazy=True)
     buy_account_id = db.Column(db.String(63), db.ForeignKey(
         "user.id"
     ), nullable=False)
     sell_account_id = db.Column(db.String(63), db.ForeignKey(
         "user.id"
     ), nullable=False)
+    sell_user = db.relationship("Account", backref="sell_user", lazy=True, foreign_keys=[sell_account_id])
     product_id = db.Column(db.String(63), db.ForeignKey(
         "product.product_id"
     ), nullable=False)

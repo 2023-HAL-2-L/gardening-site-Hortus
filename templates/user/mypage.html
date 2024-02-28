@@ -80,7 +80,7 @@
             <a href="{{ url_for('user.exhibit') }}">出品をする!</a>
           </div>
           <div class="history">
-            <a href="Purchase-history.html"><img src="{{ url_for('static', filename='images/cart.png') }}"
+            <a href="{{ url_for('user.orders') }}"><img src="{{ url_for('static', filename='images/cart.png') }}"
                 alt="購入履歴">購入履歴</a>
           </div>
           <div class="history">
@@ -105,7 +105,7 @@
           <div>
             <p class="Listing-button"><a href="???.html">出品物を見る</a></p>
             <p class="inquiry"><a href="{{ url_for('user.exhibit') }}">出品する</a></p>
-            <p class="inquiry"><a href="???.html">問い合わせはこちら</a></p>
+            <!-- <p class="inquiry"><a href="???.html">問い合わせはこちら</a></p> -->
             <p class="inquiry"><a href="{{ url_for('auth.logout') }}">ログアウト</a></p>
           </div>
 

@@ -22,31 +22,42 @@
   <nav class="nav-disable">
     <div id="nav-wrap">
       <div class="nav-text">
-        <a href="login.html">ログイン</a>
+        <!-- ログインしているユーザー名を返す -->
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('user.index') }}">{{ current_user.name }}</a>
+        {% else %}
+        <a href="{{ url_for('auth.login') }}">ログイン</a>
+        {% endif %}
       </div>
       <div class="nav-text">
-        <a href="item-search-result.html">商品を探す</a>
+        <a href="{{ url_for('shop.shop_get') }}">商品を探す</a>
       </div>
       <div class="nav-text">
-        <a href="#">コラム</a>
+        <a href="{{ url_for('column.column_top') }}">コラム</a>
+      </div>
+      <!-- <div class="nav-text">
+        <a href="{{ url_for('thread.thread_top') }}">掲示板</a>
+      </div> -->
+      <div class="nav-text">
+        <a href="{{ url_for('main.top') }}">トップに戻る</a>
       </div>
       <div class="nav-text">
-        <a href="#">掲示板</a>
-      </div>
-      <div class="nav-text">
-        <a href="top.html">トップに戻る</a>
+        <a href="{{ url_for('main.userGuide') }}">使い方</a>
       </div>
     </div>
   </nav>
+
+  <div id="header-space"></div>
 
   <div id="purchase-history-wrap">
     <main>
 
       <h1>購入履歴</h1>
       <div class="div-purchase-history-button">
-        <a href="mypage.html" class="purchase-history-mypage-button">マイページ</a>
+        <a href="{{ url_for('user.index') }}" class="purchase-history-mypage-button">マイページ</a>
       </div>
       <h2>一覧</h2>
+      {% for order in orders %}
       <div class="purchase-history-container">
         <table>
           <tr>
@@ -56,14 +67,21 @@
             <th>日付</th>
           </tr>
           <tr>
-            <td>チューリップ</td>
-            <td>片岡利幸</td>
-            <td>購入</td>
-            <td>2023/11/16</td>
+            <td>{{ order.products.name }}</td>
+            <td>{{ order.sell_user.name }} </td>
+            <td>
+              {% if order.is_barter %}
+              交換
+              {% else %}
+              購入
+              {% endif %}
+            </td>
+            <td>{{ order.created_at }}</td>
           </tr>
         </table>
       </div>
-      
+      {% endfor %}
+
       <div class="purchase-history-container">
         <table>
           <tr>
@@ -97,7 +115,7 @@
           </tr>
         </table>
       </div>
-      
+
       <footer></footer>
     </main>
   </div>
