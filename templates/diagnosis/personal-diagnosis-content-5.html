@@ -18,7 +18,7 @@
   <title>診断内容</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/personal-diagnosis-content2-5.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/personal-diagnosis-content.css') }}">
 </head>
 
 <body>
@@ -56,21 +56,21 @@
     </div>
     <div id="select-question">
       <div class="question-img-wrap">
-        <img src="./images/question5-1.jpg" alt="test1">
+        <img src="{{ url_for('static', filename='images/question5-1.jpg') }}" alt="test1">
         <div>
-          <a href="personal-diagnosis-telling.html" class="button">トロピカル</a>
+          <a href="{{ url_for('diagnosis.answer', count = count) }}" class="button">トロピカル</a>
         </div>
       </div>
       <div class="question-img-wrap">
-        <img src="./images/question5-2.jpg" alt="test2">
+        <img src="{{ url_for('static', filename='images/question5-2.jpg') }}" alt="test2">
         <div>
-          <a href="personal-diagnosis-telling.html" class="button">ナチュラル</a>
+          <a href="{{ url_for('diagnosis.answer', count = count + 1) }}" class="button">ナチュラル</a>
         </div>
       </div>
       <div class="question-img-wrap">
-        <img src="./images/question5-3.jpg" alt="test2">
+        <img src="{{ url_for('static', filename='images/question5-3.jpg') }}" alt="test2">
         <div>
-          <a href="personal-diagnosis-telling.html" class="button">クール</a>
+          <a href="{{ url_for('diagnosis.answer', count = count + 2) }}" class="button">クール</a>
         </div>
       </div>
     </div>
