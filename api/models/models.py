@@ -181,7 +181,7 @@ class tag(db.Model):
     is_delete = db.Column(db.Boolean, nullable=False, default=False)
 
 
-class column(db.Model):
+class Column(db.Model):
     __tablename__ = "column"
     column_id = db.Column(db.Integer, primary_key=True)
     column_title = db.Column(db.String(127), nullable=False)
@@ -209,7 +209,7 @@ class column_tag(db.Model):
     column_id = db.Column(db.Integer, db.ForeignKey("column.column_id"), nullable=False)
     tag_id = db.Column(db.Integer, db.ForeignKey("tag.tag_id"), nullable=False)
 
-class thread(db.Model):
+class Thread(db.Model):
     __tablename__ = "thread"
     thread_id = db.Column(db.Integer, primary_key=True)
     thread_title = db.Column(db.String(127), nullable=False)
