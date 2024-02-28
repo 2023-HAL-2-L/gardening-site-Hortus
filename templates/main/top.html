@@ -74,12 +74,12 @@
         <div id="top-category">
           <table>
             <tr>
-              <td><a href="item-search-result.html"><img src="images/flower.png" alt="花"></a></td>
-              <td><a href="item-search-result.html"><img src="images/homegarden.png" alt="家庭菜園"></a></td>
-              <td><a href="item-search-result.html"><img src="images/foliageplant.png" alt="観葉植物"></a></td>
-              <td><a href="item-search-result.html"><img src="images/succulents.png" alt="多肉植物"></a></td>
-              <td><a href="item-search-result.html"><img src="images/gardenplants.png" alt="園芸用品"></a></td>
-              <td><a href="item-search-result.html"><img src="images/fertilizer.png" alt="肥料"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/flower.png" alt="花"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/homegarden.png" alt="家庭菜園"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/foliageplant.png" alt="観葉植物"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/succulents.png" alt="多肉植物"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/gardenplants.png" alt="園芸用品"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/fertilizer.png" alt="肥料"></a></td>
             </tr>
             <tr>
               <td>花</td>
@@ -107,15 +107,15 @@
           <div id="Announcement">
             <div>
               <p class="date">2023.09.25</p>
-              <p class="content">お知らせ1---------------------------</p>
+              <p class="content"><a href="{{ url_for('main.notice1') }}">お知らせ1---------------------------</a></p>
             </div>
             <div>
               <p class="date">2023.09.25</p>
-              <p class="content">お知らせ2---------------------------</p>
+              <p class="content"><a href="{{ url_for('main.notice1') }}">お知らせ2---------------------------</a></p>
             </div>
             <div>
               <p class="date">2023.09.25</p>
-              <p class="content">お知らせ3---------------------------</p>
+              <p class="content"><a href="{{ url_for('main.notice1') }}">お知らせ3---------------------------</a></p>
             </div>
           </div>
         </div><!--top-newsの終わり-->
