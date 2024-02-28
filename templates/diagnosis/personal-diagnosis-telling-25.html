@@ -18,10 +18,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/flower-fortune-telling.css">
+  <title>診断結果</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/flower-fortune-telling.css') }}">
 </head>
 
 <body>
@@ -58,12 +58,12 @@
       <div class="contents-wrap">
         <div class="flower-wrap">
           <div class="flower-image">
-            <img src="./images/19-Begonia.jpg" alt="flower">
+            <img src="./images/25-Dracaena.jpg" alt="flower">
           </div>
           <div class="flower-text">
-            <h1>ベゴニア</h1>
+            <h1>ドラセナ </h1>
               <p>
-                豊かな葉と色鮮やかな花が魅力です。陰地でも育ち、観葉植物や庭園で愛され、優雅な美しさを放つ人気のある植物です。
+                明るい場所を好み、最小限のケアで大きく成長するトロピカルな植物
               </p>
               <div>
                 <!-- ページ完成次第変更 -->
@@ -74,7 +74,7 @@
         <div id="flower-language-wrap">
             <h1>Language of Flowers</h1>
             <p>花言葉</p>
-            <p id="flower-language">「幸福な日々」「愛の告白」「片思い」</p>
+            <p id="flower-language">「真実さ」「幸福」</p>
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>

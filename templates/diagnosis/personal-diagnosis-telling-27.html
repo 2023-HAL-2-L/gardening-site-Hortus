@@ -18,10 +18,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/flower-fortune-telling.css">
+  <title>診断結果</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/flower-fortune-telling.css') }}">
 </head>
 
 <body>
@@ -58,12 +58,12 @@
       <div class="contents-wrap">
         <div class="flower-wrap">
           <div class="flower-image">
-            <img src="./images/29-Alocasia.jpg" alt="flower">
+            <img src="./images/27-Sansevieria.jpg" alt="flower">
           </div>
           <div class="flower-text">
-            <h1>アロカシア</h1>
+            <h1>サンセヴィエリア</h1>
               <p>
-                明るい場所で、少ないケアでもクールに成長する大型植物
+                明るい場所でも、少ないケアで長く成長する
               </p>
               <div>
                 <!-- ページ完成次第変更 -->
@@ -74,7 +74,7 @@
         <div id="flower-language-wrap">
             <h1>Language of Flowers</h1>
             <p>花言葉</p>
-            <p id="flower-language">「復縁」「仲直り」</p>
+            <p id="flower-language">「永久」「不滅」</p>
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>

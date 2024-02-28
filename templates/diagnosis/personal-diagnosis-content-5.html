@@ -14,14 +14,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/flower-fortune-telling.css">
+  <title>診断内容</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/personal-diagnosis-content.css') }}">
 </head>
 
 <body>
@@ -51,31 +48,36 @@
     </div>
   </nav>
 
-
   <main>
-    <div id="main-wrap">
-      <div class="title-text">診断結果</div>
-      <div class="contents-wrap">
-        <div class="flower-wrap">
-          <div class="flower-image">
-            <img src="./images/12-marigold.jpg" alt="flower">
-          </div>
-          <div class="flower-text">
-            <h1>マリーゴールド</h1>
-              <p>
-                マリーゴールドは鮮やかな黄色や橙色の花を長期間次々と咲かせます。栽培も容易で、花壇の定番品目ともいえるポピュラーな花です。
-              </p>
-              <div>
-                <!-- ページ完成次第変更 -->
-                <a href="item-search-result.html" class="button">検索ページに飛んでみる ></a>
-              </div>
-          </div>
+    <h1>パーソナル診断</h1>
+    <p class="question-text">Q5</p>
+    <div>
+      <p>求める植物のテイストは？</p>
+    </div>
+    <div id="select-question">
+      <div class="question-img-wrap">
+        <img src="{{ url_for('static', filename='images/question5-1.jpg') }}" alt="test1">
+        <div>
+          <a href="{{ url_for('diagnosis.answer', count = count) }}" class="button">トロピカル</a>
         </div>
-        <div id="flower-language-wrap">
-            <h1>Language of Flowers</h1>
-            <p>花言葉</p>
-            <p id="flower-language">「勇者」「健康」「変わらぬ愛」 </p>
+      </div>
+      <div class="question-img-wrap">
+        <img src="{{ url_for('static', filename='images/question5-2.jpg') }}" alt="test2">
+        <div>
+          <a href="{{ url_for('diagnosis.answer', count = count + 1) }}" class="button">ナチュラル</a>
         </div>
+      </div>
+      <div class="question-img-wrap">
+        <img src="{{ url_for('static', filename='images/question5-3.jpg') }}" alt="test2">
+        <div>
+          <a href="{{ url_for('diagnosis.answer', count = count + 2) }}" class="button">クール</a>
+        </div>
+      </div>
+    </div>
+    <div id="progress-bar-wrap-5">
+      <p>5/5</p>
+      <div id="progress-bar-5">
+        <div></div>
       </div>
     </div>
   </main>
@@ -83,7 +85,7 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>

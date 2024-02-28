@@ -18,10 +18,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/flower-fortune-telling.css">
+  <title>診断結果</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/flower-fortune-telling.css') }}">
 </head>
 
 <body>
@@ -58,12 +58,12 @@
       <div class="contents-wrap">
         <div class="flower-wrap">
           <div class="flower-image">
-            <img src="./images/17-Rosemary.jpg" alt="flower">
+            <img src="./images/23-Bluestar.jpg" alt="flower">
           </div>
           <div class="flower-text">
-            <h1>ローズマリー</h1>
+            <h1>ブルースター</h1>
               <p>
-                強い香りがあり、調理やアロマセラピーに用いられるハーブ。記憶力向上やリラックス効果があり、多彩な使い道で広く愛されています。
+                半日陰でもよく育ち、少ないケアで涼しげな青い花を咲かせる
               </p>
               <div>
                 <!-- ページ完成次第変更 -->
@@ -74,7 +74,7 @@
         <div id="flower-language-wrap">
             <h1>Language of Flowers</h1>
             <p>花言葉</p>
-            <p id="flower-language">「貞節」「静かな力強さ」「思い出」</p>
+            <p id="flower-language">「信じ合う心」「幸福な愛」</p>
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>

@@ -18,10 +18,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/flower-fortune-telling.css">
+  <title>診断結果</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/flower-fortune-telling.css') }}">
 </head>
 
 <body>
@@ -58,12 +58,12 @@
       <div class="contents-wrap">
         <div class="flower-wrap">
           <div class="flower-image">
-            <img src="./images/14-Viola.jpg" alt="flower">
+            <img src="./images/13-Portulaca.jpg" alt="flower">
           </div>
           <div class="flower-text">
-            <h1>ビオラ</h1>
+            <h1>ポーチュラカ</h1>
               <p>
-                赤、青、黄、ピンク、白、紫、オレンジやアンティーク風のくすんだ茶系など多彩な花色があり、花模様やフリル咲きタイプなど種類も豊富です。
+                ポーチュラカは赤やピンク、オレンジ、黄、白、紫などの花をたくさん咲かせます。 草丈は10cm～20cmで、地面に広がるように大きく育っていきます。
               </p>
               <div>
                 <!-- ページ完成次第変更 -->
@@ -74,7 +74,7 @@
         <div id="flower-language-wrap">
             <h1>Language of Flowers</h1>
             <p>花言葉</p>
-            <p id="flower-language">「もの思い」「私を思って」</p>
+            <p id="flower-language">「いつも元気」</p>
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>

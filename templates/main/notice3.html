@@ -18,10 +18,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 
-  <title>STOP詐欺被害 − 違反行為の勧誘を断り、安全な取引を心がけましょう</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/notice.css">
+  <title>登録品種を出品する際の注意事項（種苗法について）</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/notice3.css') }}">
 </head>
 
 <body>
@@ -34,32 +34,41 @@
   <nav class="nav-disable">
     <div id="nav-wrap">
       <div class="nav-text">
-        <a href="login.html">ログイン</a>
+        <!-- ログインしているユーザー名を返す -->
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('user.index') }}">{{ current_user.name }}</a>
+        {% else %}
+        <a href="{{ url_for('auth.login') }}">ログイン</a>
+        {% endif %}
       </div>
       <div class="nav-text">
-        <a href="item-search-result.html">商品を探す</a>
+        <a href="{{ url_for('shop.shop_get') }}">商品を探す</a>
       </div>
       <div class="nav-text">
-        <a href="#">コラム</a>
+        <a href="{{ url_for('column.column_top') }}">コラム</a>
       </div>
       <div class="nav-text">
-        <a href="#">掲示板</a>
+        <a href="{{ url_for('thread.thread_top') }}">掲示板</a>
       </div>
       <div class="nav-text">
-        <a href="top.html">トップに戻る</a>
+        <a href="{{ url_for('main.top') }}">トップに戻る</a>
+      </div>
+      <div class="nav-text">
+        <a href="{{ url_for('main.userGuide') }}">使い方</a>
       </div>
     </div>
   </nav>
+  <div id="header-space"></div>
 
   <main>
     <!-- 見出し -->
     <div class="heading">
-      <h2>STOP詐欺被害 − 違反行為の勧誘を断り、安全な取引を心がけましょう</h2>
+      <h2>登録品種を出品する際の注意事項（種苗法について）</h2>
     </div>
 
     <!-- 日付 -->
     <div class="opendata">
-      <p>公開日 : 2023-9-25</p>
+      <p>公開日 : 2023-9-27</p>
     </div>
     <!-- 内容 -->
     <div class="Content">
@@ -67,37 +76,24 @@
         いつもhortusをご利用いただきありがとうございます。
       </p>
       <p>
-        hortusでは安心安全なマーケットプレイス提供のために、出品から購入・支払いなどhortusが用意した取引の流れに沿わない行為を禁止しています。
+        令和2年の種苗法改正により表示義務が強化され、義務を果たさない出品行為は種苗法違反となります。
+      </p>
+      登録された品種の植物を販売する際は品種登録表示をしてください。栽培地・輸出先の制限がある場合はその旨も表示してください。
+      <p>
+        詳細は<a href="https://www.maff.go.jp/j/shokusan/syubyouhou/attach/pdf/index-23.pdf">農林水産省ホームページ</a>を参照ください。
+      </p>
 
-      </p>
-        hortusが用意した仕組み以外で取引をしたり、直接代金を支払ったりすると、詐欺被害にあう可能性があります。
       <p>
-        また、そのような状況で被害に遭った場合は事務局によるサポートができず、お客さまの被害が増すことも懸念されます。
+        お客さまにhortusを安心・安全にご利用いただくため、ご理解とご協力のほどよろしくお願いいたします。
       </p>
-      <p>
-        hortusの用意した仕組みの中で取引を正しく行い、お客さま自身が詐欺被害に合わないよう注意しましょう。
-      </p>
+
+      <div class="moving">
+        <a href="{{ url_for('main.top') }}">TOPページに戻る</a>
+      </div>
+
     </div>
 
-    <!-- 内容2 -->
-    <div class="Content-heading">
-      <p>
-        <b>・外部サービスへの誘導に注意してください</b>
-      </p>
-    </div>
 
-    <div class="Content2">
-      <p>
-        「手数料を安くするから〇〇（他のアプリ等）で商談しませんか？」「コメントだと確認が遅くなるので連絡先を交換しませんか」等といって、SNSやメッセージングアプリなど、hortusの外部でコミュニケーションを提案する行為は、詐欺の手口として利用されています。
-      </p>
-
-      <p>
-        hortus内で禁止行為としているので、勧誘を断ってください。
-      </p>
-    <div class="moving">
-      <a href="top.html">TOPページに戻る</a>
-    </div>
-      
     </div>
   </main>
 
@@ -105,7 +101,7 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>

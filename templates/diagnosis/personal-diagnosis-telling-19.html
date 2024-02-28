@@ -14,10 +14,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/Bulletin-board-posting.css">
+  <title>診断結果</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/flower-fortune-telling.css') }}">
 </head>
 
 <body>
@@ -46,38 +50,40 @@
       </div>
     </div>
   </nav>
-  
-  
+
+
   <main>
-
-    <div class="taitle">
-      <h3>タイトル</h3>
-      <input type="text" class="T-input">
+    <div id="main-wrap">
+      <div class="title-text">診断結果</div>
+      <div class="contents-wrap">
+        <div class="flower-wrap">
+          <div class="flower-image">
+            <img src="./images/19-Begonia.jpg" alt="flower">
+          </div>
+          <div class="flower-text">
+            <h1>ベゴニア</h1>
+              <p>
+                豊かな葉と色鮮やかな花が魅力です。陰地でも育ち、観葉植物や庭園で愛され、優雅な美しさを放つ人気のある植物です。
+              </p>
+              <div>
+                <!-- ページ完成次第変更 -->
+                <a href="item-search-result.html" class="button">検索ページに飛んでみる ></a>
+              </div>
+          </div>
+        </div>
+        <div id="flower-language-wrap">
+            <h1>Language of Flowers</h1>
+            <p>花言葉</p>
+            <p id="flower-language">「幸福な日々」「愛の告白」「片思い」</p>
+        </div>
+      </div>
     </div>
-
-    <div class="korami-naiyou">
-      <h3>コラム内容</h3>
-      <input type="text" class="C-input">
-    </div>
-
-    <div class="botton">
-      <ul>
-        <li>
-          <a href="">戻る</a>
-        </li>
-        <li>
-          <a href="">投稿</a>
-        </li>
-      </ul>
-    </div>
-
-
   </main>
   <footer></footer>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>

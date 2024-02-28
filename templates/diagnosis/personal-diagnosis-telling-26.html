@@ -18,10 +18,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 
-  <title>登録品種を出品する際の注意事項（種苗法について）</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/notice3.css">
+  <title>診断結果</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/flower-fortune-telling.css') }}">
 </head>
 
 <body>
@@ -51,48 +51,39 @@
     </div>
   </nav>
 
+
   <main>
-    <!-- 見出し -->
-    <div class="heading">
-      <h2>登録品種を出品する際の注意事項（種苗法について）</h2>
+    <div id="main-wrap">
+      <div class="title-text">診断結果</div>
+      <div class="contents-wrap">
+        <div class="flower-wrap">
+          <div class="flower-image">
+            <img src="./images/26-Ficus.jpg" alt="flower">
+          </div>
+          <div class="flower-text">
+            <h1>フィカス </h1>
+              <p>
+                明るい場所で、真面目にケアすると木のように大きく成長する
+              </p>
+              <div>
+                <!-- ページ完成次第変更 -->
+                <a href="item-search-result.html" class="button">検索ページに飛んでみる ></a>
+              </div>
+          </div>
+        </div>
+        <div id="flower-language-wrap">
+            <h1>Language of Flowers</h1>
+            <p>花言葉</p>
+            <p id="flower-language">「夫婦愛」</p>
+        </div>
+      </div>
     </div>
-
-  <!-- 日付 -->
-  <div class="opendata">
-    <p>公開日 : 2023-9-27</p>
-  </div>
-  <!-- 内容 -->
-  <div class="Content">
-    <p>
-      いつもhortusをご利用いただきありがとうございます。
-    </p>
-    <p>
-      令和2年の種苗法改正により表示義務が強化され、義務を果たさない出品行為は種苗法違反となります。
-    </p>
-      登録された品種の植物を販売する際は品種登録表示をしてください。栽培地・輸出先の制限がある場合はその旨も表示してください。
-    <p>
-      詳細は<a href="https://www.maff.go.jp/j/shokusan/syubyouhou/attach/pdf/index-23.pdf">農林水産省ホームページ</a>を参照ください。
-    </p>
-
-    <p>
-      お客さまにhortusを安心・安全にご利用いただくため、ご理解とご協力のほどよろしくお願いいたします。
-    </p>
-
-    <div class="moving">
-      <a href="top.html">TOPページに戻る</a>
-    </div>
-
-  </div>
-
-    
-  </div>
-</main>
-
+  </main>
   <footer></footer>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>

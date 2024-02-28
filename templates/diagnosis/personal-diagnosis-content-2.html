@@ -14,14 +14,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/flower-fortune-telling.css">
+  <title>診断内容</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/personal-diagnosis-content.css') }}">
 </head>
 
 <body>
@@ -51,31 +48,30 @@
     </div>
   </nav>
 
-
   <main>
-    <div id="main-wrap">
-      <div class="title-text">診断結果</div>
-      <div class="contents-wrap">
-        <div class="flower-wrap">
-          <div class="flower-image">
-            <img src="./images/28-palm.jpg" alt="flower">
-          </div>
-          <div class="flower-text">
-            <h1>パーム</h1>
-              <p>
-                明るい場所で真面目にケアすると、クールな大きな葉を持つ植物として成長する
-              </p>
-              <div>
-                <!-- ページ完成次第変更 -->
-                <a href="item-search-result.html" class="button">検索ページに飛んでみる ></a>
-              </div>
-          </div>
+    <h1>パーソナル診断</h1>
+    <p class="question-text">Q2</p>
+    <div>
+      <p>サイズは？</p>
+    </div>
+    <div id="select-question">
+      <div class="question-img-wrap">
+        <img src="{{ url_for('static', filename='images/question2-2.jpg') }}" alt="test1">
+        <div>
+          <a href="{{ url_for('diagnosis.question3', count = count) }}" class="button">大きい</a>
         </div>
-        <div id="flower-language-wrap">
-            <h1>Language of Flowers</h1>
-            <p>花言葉</p>
-            <p id="flower-language">「あなたを見守る」「固い決意」「成功」</p>
+      </div>
+      <div class="question-img-wrap">
+        <img src="{{ url_for('static', filename='images/question2-1.jpg') }}" alt="test2">
+        <div>
+          <a href="{{ url_for('diagnosis.question3', count = count + 12) }}" class="button">小さい</a>
         </div>
+      </div>
+    </div>
+    <div id="progress-bar-wrap-2">
+      <p>2/5</p>
+      <div id="progress-bar-2">
+        <div></div>
       </div>
     </div>
   </main>
@@ -83,7 +79,8 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+  
 </body>
 
 </html>

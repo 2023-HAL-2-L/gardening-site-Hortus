@@ -155,12 +155,14 @@ class barter_propose(db.Model):
 class purchase_history(db.Model):
     __tablename__ = "purchase_history"
     purchase_history_id = db.Column(db.String(63), primary_key=True)
+    products = db.relationship("product", backref="products", lazy=True)
     buy_account_id = db.Column(db.String(63), db.ForeignKey(
         "user.id"
     ), nullable=False)
     sell_account_id = db.Column(db.String(63), db.ForeignKey(
         "user.id"
     ), nullable=False)
+    sell_user = db.relationship("Account", backref="sell_user", lazy=True, foreign_keys=[sell_account_id])
     product_id = db.Column(db.String(63), db.ForeignKey(
         "product.product_id"
     ), nullable=False)
@@ -181,7 +183,7 @@ class tag(db.Model):
     is_delete = db.Column(db.Boolean, nullable=False, default=False)
 
 
-class column(db.Model):
+class Column(db.Model):
     __tablename__ = "column"
     column_id = db.Column(db.Integer, primary_key=True)
     column_title = db.Column(db.String(127), nullable=False)
@@ -209,7 +211,7 @@ class column_tag(db.Model):
     column_id = db.Column(db.Integer, db.ForeignKey("column.column_id"), nullable=False)
     tag_id = db.Column(db.Integer, db.ForeignKey("tag.tag_id"), nullable=False)
 
-class thread(db.Model):
+class Thread(db.Model):
     __tablename__ = "thread"
     thread_id = db.Column(db.Integer, primary_key=True)
     thread_title = db.Column(db.String(127), nullable=False)

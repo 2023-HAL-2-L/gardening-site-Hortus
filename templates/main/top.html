@@ -50,13 +50,16 @@
           <a href="{{ url_for('shop.shop_get') }}">商品を探す</a>
         </div>
         <div class="nav-text">
-          <a href="#">コラム</a>
+          <a href="{{ url_for('column.column_top') }}">コラム</a>
+        </div>
+        <!-- <div class="nav-text">
+          <a href="{{ url_for('thread.thread_top') }}">掲示板</a>
+        </div> -->
+        <div class="nav-text">
+          <a href="{{ url_for('main.top') }}">トップに戻る</a>
         </div>
         <div class="nav-text">
-          <a href="#">掲示板</a>
-        </div>
-        <div class="nav-text">
-          <a href="top.html">トップに戻る</a>
+          <a href="{{ url_for('main.userGuide') }}">使い方</a>
         </div>
       </div>
     </nav>
@@ -68,12 +71,12 @@
         <div id="top-category">
           <table>
             <tr>
-              <td><a href="item-search-result.html"><img src="images/flower.png" alt="花"></a></td>
-              <td><a href="item-search-result.html"><img src="images/homegarden.png" alt="家庭菜園"></a></td>
-              <td><a href="item-search-result.html"><img src="images/foliageplant.png" alt="観葉植物"></a></td>
-              <td><a href="item-search-result.html"><img src="images/succulents.png" alt="多肉植物"></a></td>
-              <td><a href="item-search-result.html"><img src="images/gardenplants.png" alt="園芸用品"></a></td>
-              <td><a href="item-search-result.html"><img src="images/fertilizer.png" alt="肥料"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/flower.png" alt="花"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/homegarden.png" alt="家庭菜園"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/foliageplant.png" alt="観葉植物"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/succulents.png" alt="多肉植物"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/gardenplants.png" alt="園芸用品"></a></td>
+              <td><a href="{{ url_for('shop.shop_get') }}"><img src="images/fertilizer.png" alt="肥料"></a></td>
             </tr>
             <tr>
               <td>花</td>
@@ -93,7 +96,7 @@
             </tr>
           </table>
           <div id="top-startbutton">
-            <a href="personal-diagnosis-start.html">診断スタート ▶</a>
+            <a href="{{ url_for('diagnosis.top') }}">診断スタート ▶</a>
           </div>  
         </div><!--jump-to-sindanの終わり-->
         <div id="top-news">
@@ -101,15 +104,15 @@
           <div id="Announcement">
             <div>
               <p class="date">2023.09.25</p>
-              <p class="content">お知らせ1---------------------------</p>
+              <p class="content"><a href="{{ url_for('main.notice1') }}">お知らせ1---------------------------</a></p>
             </div>
             <div>
               <p class="date">2023.09.25</p>
-              <p class="content">お知らせ2---------------------------</p>
+              <p class="content"><a href="{{ url_for('main.notice2') }}">お知らせ2---------------------------</a></p>
             </div>
             <div>
               <p class="date">2023.09.25</p>
-              <p class="content">お知らせ3---------------------------</p>
+              <p class="content"><a href="{{ url_for('main.notice3') }}">お知らせ3---------------------------</a></p>
             </div>
           </div>
         </div><!--top-newsの終わり-->
