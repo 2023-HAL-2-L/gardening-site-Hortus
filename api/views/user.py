@@ -78,7 +78,9 @@ def orders():
 @user.route("/product")
 @login_required
 def my_products():
-  return render_template("user/my-listing.html")
+  products = product.query.filter_by(account_id=current_user.id).all()
+  print(current_user.id)
+  return render_template("user/my-listing.html", products = products)
 
 # @user.route("/mycolumn")
 # @login_required
@@ -88,4 +90,5 @@ def my_products():
 @user.route("/trade")
 @login_required
 def trade():
+  products = product.query.filter_by(account_id=current_user.id, is_barter = 1).all()
   return render_template("user/Waiting-approval.html")
