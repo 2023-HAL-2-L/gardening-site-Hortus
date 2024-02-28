@@ -3,7 +3,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from api.views.form import ExhibitProductForm
-from api.models.models import product, product_image
+from api.models.models import product, product_image, purchase_history
 from api.module import generate_uuid, time_now
 from api.database import db
 import os
@@ -63,20 +63,22 @@ def exhibit():
     flash("商品を正しく入力してください")
     return render_template("user/product-listing.html", form=form)
 
+
 @user.route("/myexhibit")
 @login_required
 def myexhibit():
-  return render_template("myexhibit.html")
+  return render_template("user/myexhibit.html")
 
 @user.route("/order")
 @login_required
 def orders():
-  return render_template("orders.html")
+  orders = purchase_history.query.filter_by(buy_account_id=current_user.id).all()
+  return render_template("user/purchase-history.html", orders = orders)
 
 @user.route("/mycolumn")
 @login_required
 def mycolumn():
-  return render_template("mycolumn.html")
+  return render_template("user/mycolumn.html")
 
 @user.route("/trade")
 @login_required

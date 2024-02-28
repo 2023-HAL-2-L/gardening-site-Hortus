@@ -34,28 +34,37 @@
   <nav class="nav-disable">
     <div id="nav-wrap">
       <div class="nav-text">
-        <a href="login.html">ログイン</a>
+        <!-- ログインしているユーザー名を返す -->
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('user.index') }}">{{ current_user.name }}</a>
+        {% else %}
+        <a href="{{ url_for('auth.login') }}">ログイン</a>
+        {% endif %}
       </div>
       <div class="nav-text">
-        <a href="item-search-result.html">商品を探す</a>
+        <a href="{{ url_for('shop.shop_get') }}">商品を探す</a>
       </div>
       <div class="nav-text">
-        <a href="#">コラム</a>
+        <a href="{{ url_for('column.column_top') }}">コラム</a>
       </div>
       <div class="nav-text">
-        <a href="#">掲示板</a>
+        <a href="{{ url_for('thread.thread_top') }}">掲示板</a>
       </div>
       <div class="nav-text">
-        <a href="top.html">トップに戻る</a>
+        <a href="{{ url_for('main.top') }}">トップに戻る</a>
+      </div>
+      <div class="nav-text">
+        <a href="{{ url_for('main.userGuide') }}">使い方</a>
       </div>
     </div>
   </nav>
+  <div id="header-space"></div>
 
-<main>
-      <!-- 見出し -->
-      <div class="heading">
-        <h2>公有地や他人の私有地で許可無く採取したものの出品について</h2>
-      </div>
+  <main>
+    <!-- 見出し -->
+    <div class="heading">
+      <h2>公有地や他人の私有地で許可無く採取したものの出品について</h2>
+    </div>
 
     <!-- 日付 -->
     <div class="opendata">
@@ -69,7 +78,7 @@
       <p>
         公有地や他人の私有地で許可無く採掘・採取した鉱物や植物などの出品に関して、ご注意いただきたい点をご案内いたします。
       </p>
-        他人の私有地から許可無く鉱物や植物などを採掘・採取した場合、窃盗にあたる可能性があり、また、公有地から許可無く鉱物や植物などを採掘・採取した場合、自然公園法や森林法などの法令に抵触する可能性があります。
+      他人の私有地から許可無く鉱物や植物などを採掘・採取した場合、窃盗にあたる可能性があり、また、公有地から許可無く鉱物や植物などを採掘・採取した場合、自然公園法や森林法などの法令に抵触する可能性があります。
       <p>
         これらの行為は犯罪にあたり、罰金や懲役等の刑罰を科せられる場合があります。
       </p>
@@ -85,17 +94,17 @@
         お客さまにhortusを安心・安全にご利用いただくため、ご理解とご協力のほどよろしくお願いいたします。
       </p>
       <div class="moving">
-        <a href="top.html">TOPページに戻る</a>
+        <a href="{{ url_for('main.top') }}">TOPページに戻る</a>
       </div>
-  
+
     </div>
 
-      
+
     </div>
   </main>
 
-      
-</main>
+
+  </main>
   <footer></footer>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"

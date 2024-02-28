@@ -1,17 +1,11 @@
 @charset "utf-8";
 
-main {
-    padding-top: 80px;
-
-}
-
 /* 検索フォーム */
 .search-flexbox {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    align-items: baseline;
-    /* justify-content: space-around; */
+    align-items: flex-start;
     margin-top: 50px;
 }
 
@@ -42,7 +36,6 @@ main {
 /* モーダルウィンドウ */
 .modal-001__wrap {
     display: inline-block;
-    padding-left: 20px;
 }
 
 .modal-001__wrap input {
@@ -137,11 +130,10 @@ main {
 .category-flex {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-around;
     align-content: flex-start;
-    white-space: nowrap;
 }
 
 .Separator {
@@ -207,145 +199,6 @@ main {
     }
 }
 
-@media only screen and (max-width: 1000px) {
-    .modal-001__open-label {
-        max-width: 90%;
-        padding: .94em 2.1em .94em 2.6em;
-    }
-
-    .modal-001__close-label {
-        top: -17px;
-        right: -4%;
-    }
-
-    .modal-001__content-wrap {
-        width: 90vw;
-    }
-
-    .modal-001__content {
-        padding: 33px 21px 35px;
-        max-width: 100%;
-    }
-
-    .column-list-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        align-content: space-around;
-        width: 100%;
-    }
-
-    .category-flex li {
-        width: 33%;
-    }
-}
-
-/* コラムカードの設定 */
-.item-search-result-wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 1rem;
-    row-gap: 2rem;
-    padding: 1rem;
-}
-
-.item-search-result-card {
-    display: flex;
-    flex-direction: column;
-    /* flex-basis: 30%; */
-    width: 300px;
-    word-wrap: break-word;
-    background-color: #ffffffda;
-    box-sizing: border-box;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    color: #333;
-    text-decoration: none;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out;
-}
-
-.item-search-result-card-image-box {
-    overflow: hidden;
-}
-
-
-/* コラムの画像設定 */
-.item-search-result-card-image { 
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-
-.item-search-result-card-box {
-    padding: 1rem;
-}
-
-
-/* コラムのタイトル */
-.item-search-result-card-title {
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-
-/* コラムのテキスト */
-.item-search-result-card-description {
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-}
-
-
-/* 作成日 作成者 */
-small {
-    color:darkgray;
-}
-
-/* コラムのホバー時 */
-.item-search-result-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* コラムのカード設定ここまで */
-
-/* ここからボタンのデザイン */
-
-#page-top {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 48px;
-    height: 48px;
-    text-decoration: none;
-    background-color: rgba(55, 145, 75, 0.6);
-    display: block;
-    text-align: center;
-    border-radius: 24px;
-    opacity: 0;
-    transition: opacity 0.4s ease-in;
-}
-
-#page-top::before {
-    content: '▲';
-    font-family: 'Font Awesome 6 Free';
-    font-size: 30px;
-    font-weight: 900;
-    color: #fff;
-    line-height: 48px;
-}
-
-  /* fadeinクラスがついた時だけ表示する */
-#page-top.fadein {
-    opacity: 1;
-}
-
-  /* ここまでボタンのデザイン */
-
 @media only screen and (max-width: 520px) {
     .modal-001__open-label {
         max-width: 90%;
@@ -364,17 +217,5 @@ small {
     .modal-001__content {
         padding: 33px 21px 35px;
         max-width: 100%;
-    }
-
-    .category-flex {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        align-content: space-around;
-        width: 100%;
-    }
-
-    .category-flex li {
-        width: 33%;
     }
 }

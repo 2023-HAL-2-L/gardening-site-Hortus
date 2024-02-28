@@ -66,22 +66,22 @@
           <div id="year">
             <section>
               <figure>
-                <img src="images/spring.jpg" />
+                <img src="{{ url_for('static', filename='images/spring.jpg') }}" />
               </figure>
             </section>
             <section>
               <figure>
-                <img src="images/summer.jpg" />
+                <img src="{{ url_for('static', filename='images/summer.jpg') }}" />
               </figure>
             </section>
             <section>
               <figure>
-                <img src="images/autumn.jpg" />
+                <img src="{{ url_for('static', filename='images/autumn.jpg') }}" />
               </figure>
             </section>
             <section>
               <figure>
-                <img src="images/winter.jpg" />
+                <img src="{{ url_for('static', filename='images/winter.jpg') }}" />
               </figure>
             </section>
           </div>
@@ -94,7 +94,7 @@
           </p>
         </div>
         <div id="startbutton">
-          <a href="personal-diagnosis-content.html">診断スタート ▶</a>
+          <a href="{{ url_for('diagnosis.question1') }}">診断スタート ▶</a>
         </div>
       </main>
       <footer></footer>

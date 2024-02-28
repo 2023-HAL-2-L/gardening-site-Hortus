@@ -58,20 +58,20 @@
     </div>
     <div id="select-question">
       <div class="question-img-wrap">
-        <img src="./images/question1-1.jpg" alt="test1">
+        <img src="{{ url_for('static', filename='images/question1-1.jpg') }}" alt="test1">
         <div>
-          <a href="personal-diagnosis-telling.html" class="button">屋内</a>
+          <a href="{{ url_for('diagnosis.question2', count = 25) }}" class="button">屋内</a>
         </div>
       </div>
       <div class="question-img-wrap">
         <img src="./images/question1-2.jpg" alt="test2">
         <div>
-          <a href="personal-diagnosis-telling.html" class="button">屋外</a>
+          <a href="{{ url_for('diagnosis.question2', count = 1) }}" class="button">屋外</a>
         </div>
       </div>
     </div>
     <div id="progress-bar-wrap">
-      <p>1/6</p>
+      <p>1/5</p>
       <div id="progress-bar">
         <div></div>
       </div>
