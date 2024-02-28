@@ -15,10 +15,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
 
-  <title>top</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/personal-diagnosis-content2-5.css">
+  <title>診断内容</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/personal-diagnosis-content2-5.css') }}">
 </head>
 
 <body>
@@ -50,27 +50,27 @@
 
   <main>
     <h1>パーソナル診断</h1>
-    <p class="question-text">Q2</p>
+    <p class="question-text">Q4</p>
     <div>
-      <p>サイズは？</p>
+      <p>あなたの性格は？</p>
     </div>
     <div id="select-question">
       <div class="question-img-wrap">
-        <img src="./images/question2-2.jpg" alt="test1">
+        <img src="./images/question4-1.jpg" alt="test1">
         <div>
-          <a href="personal-diagnosis-content-3-sunshine.html" class="button">大きい</a>
+          <a href="personal-diagnosis-content-5-taste.html" class="button">真面目</a>
         </div>
       </div>
       <div class="question-img-wrap">
-        <img src="./images/question2-1.jpg" alt="test2">
+        <img src="./images/question4-2.jpg" alt="test2">
         <div>
-          <a href="personal-diagnosis-content-3-sunshine.html" class="button">小さい</a>
+          <a href="personal-diagnosis-content-5-taste.html" class="button">ズボラ</a>
         </div>
       </div>
     </div>
-    <div id="progress-bar-wrap-2">
-      <p>2/5</p>
-      <div id="progress-bar-2">
+    <div id="progress-bar-wrap-4">
+      <p>4/5</p>
+      <div id="progress-bar-4">
         <div></div>
       </div>
     </div>
@@ -79,7 +79,7 @@
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="js/common.js"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 </body>
 
 </html>

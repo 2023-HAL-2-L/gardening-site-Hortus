@@ -8,6 +8,30 @@ diagnosis = Blueprint("diagnosis", __name__)
 def top():
     return render_template("diagnosis/personal-diagnosis-start.html")
 
+@diagnosis.route("/q/1")
+def question1():
+    return render_template("diagnosis/personal-diagnosis-content.html")
+
+@diagnosis.route("/q/2/<int:count>")
+def question2(count):
+    return render_template("diagnosis/personal-diagnosis-content-2.html", count = count)
+
+@diagnosis.route("/q/3/<int:count>")
+def question3(count):
+    return render_template("diagnosis/personal-diagnosis-content-3.html", count = count)
+
+@diagnosis.route("/q/4/<int:count>")
+def question4(count):
+    return render_template("diagnosis/personal-diagnosis-content-4.html", count = count)
+
+@diagnosis.route("/q/5/<int:count>")
+def question5(count):
+    return render_template("diagnosis/personal-diagnosis-content.html", count = count)
+
+
+
+
+
 @diagnosis.route("/1", methods=["GET"])
 def diagnosis1():
     return render_template("diagnosis/personal-diagnosis-telling-1.html")

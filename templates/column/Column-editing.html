@@ -24,9 +24,9 @@
     />
 
     <title>コラム編集ページ</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/column-editing.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/column-editing.css') }}">
 
   </head>
 
@@ -105,10 +105,9 @@
       integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
       crossorigin="anonymous"
     ></script>
-
-    <script src="js/column-editing.js"></script>
+    <script src="{{ url_for('static', filename='js/column-editing.js') }}"></script>
     
-
+    
 
   </body>
 </html>
