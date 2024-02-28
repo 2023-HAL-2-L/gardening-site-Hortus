@@ -31,7 +31,7 @@ def column_page(column_id):
         
         return render_template("column/column-detail.html")
 
-@column.route("/<string:column_id>/edit" , methods=["GET", "POST"])
+@column.route("/<string:column_id>/edit", methods=["GET", "POST"])
 @login_required
 def column_edit():
     if request.method == "GET":
