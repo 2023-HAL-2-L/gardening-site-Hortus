@@ -75,12 +75,17 @@ def orders():
   orders = purchase_history.query.filter_by(buy_account_id=current_user.id).all()
   return render_template("user/purchase-history.html", orders = orders)
 
-@user.route("/mycolumn")
+@user.route("/product")
 @login_required
-def mycolumn():
-  return render_template("user/mycolumn.html")
+def my_products():
+  return render_template("user/my-listing.html")
+
+# @user.route("/mycolumn")
+# @login_required
+# def mycolumn():
+#   return render_template("user/mycolumn.html")
 
 @user.route("/trade")
 @login_required
 def trade():
-  return render_template("trade.html")
+  return render_template("user/Waiting-approval.html")
