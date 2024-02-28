@@ -1,13 +1,14 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import LoginManager, login_user, logout_user, login_required, UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from api.models.models import Column
 
 column = Blueprint("column", __name__)
 
 @column.route("/")
 def column_top():
-    return render_template("column.html")
+    columns_data = Column.query.all()
+    return render_template("column.html", columns_data=columns_data)
 
 @column.route("/new" , methods=["GET", "POST"])
 @login_required
@@ -21,7 +22,7 @@ def new():
         return render_template("column.html")
 
 @column.route("/<string:column_id>" , methods=["GET", "POST"])
-def column_page():
+def column_page(column_id):
     if request.method == "GET":
         
         return render_template("column-detail.html")
