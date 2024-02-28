@@ -12,21 +12,21 @@ def top():
 def question1():
     return render_template("diagnosis/personal-diagnosis-content.html")
 
-@diagnosis.route("/q/2")
-def question2():
-    return render_template("diagnosis/personal-diagnosis-content-2.html")
+@diagnosis.route("/q/2/<int:count>")
+def question2(count):
+    return render_template("diagnosis/personal-diagnosis-content-2.html", count = count)
 
-@diagnosis.route("/q/3")
-def question3():
-    return render_template("diagnosis/personal-diagnosis-content-3.html")
+@diagnosis.route("/q/3/<int:count>")
+def question3(count):
+    return render_template("diagnosis/personal-diagnosis-content-3.html", count = count)
 
-@diagnosis.route("/q/4")
-def question4():
-    return render_template("diagnosis/personal-diagnosis-content-4.html")
+@diagnosis.route("/q/4/<int:count>")
+def question4(count):
+    return render_template("diagnosis/personal-diagnosis-content-4.html", count = count)
 
-@diagnosis.route("/q/5")
-def question5():
-    return render_template("diagnosis/personal-diagnosis-content.html")
+@diagnosis.route("/q/5/<int:count>")
+def question5(count):
+    return render_template("diagnosis/personal-diagnosis-content.html", count = count)
 
 
 
