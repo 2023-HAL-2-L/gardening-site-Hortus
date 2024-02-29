@@ -7,8 +7,8 @@ column = Blueprint("column", __name__)
 
 @column.route("/")
 def column_top():
-    columns_data = Column.query.all()
-    return render_template("column/column.html", columns_data=columns_data)
+    columns_datas = Column.query.all()
+    return render_template("column/column.html", columns_datas=columns_datas)
 
 @column.route("/new" , methods=["GET", "POST"])
 @login_required
