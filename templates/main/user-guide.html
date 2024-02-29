@@ -62,16 +62,16 @@
       <ul id="page-link2">
         <li><a href="#area-4">出品方法</a></li>
         <li><a href="#area-5">購入方法</a></li>
-        <li><a href="#area-6">物々交換</a></li>
+        <!-- <li><a href="#area-6">物々交換</a></li> -->
       </ul>
       <ul id="page-link3">
-        <li><a href="#area-7">コラム</a></li>
-        <li><a href="#area-8">掲示板</a></li>  
+        <!-- <li><a href="#area-7">コラム</a></li>
+        <li><a href="#area-8">掲示板</a></li>   -->
         <li><a href="#area-9">パーソナル植物診断</a></li>
       </ul>
       <ul id="page-link4">  
-        <li><a href="#area-10">お問い合わせ</a></li>
-        <li><a href="#area-11">退会</a></li>
+        <!-- <li><a href="#area-10">お問い合わせ</a></li> -->
+        <li><a href="#area-11">ログアウト</a></li>
       </ul>
       <!-- <ul id="page-link">
       </ul> -->
@@ -159,7 +159,7 @@
         </div>
       </div>
 
-      <div id="area-6">
+      <!-- <div id="area-6">
         <h2>物々交換</h2>
         
         <p id="user-guide-p">
@@ -187,9 +187,9 @@
           <p class="user-guide-img-p">&#9315;提案するボタンをクリックして完了です&#12290;</p>
         </div>
 
-      </div>
+      </div> -->
       
-      <div id="area-7">
+      <!-- <div id="area-7">
         <h2>コラム</h2>
         <p id="user-guide-p">
           画像付きで投稿出来ます&#12290;<br>
@@ -228,15 +228,15 @@
           <p class="user-guide-img"><img src="{{ url_for('static', filename='images/guide-column5.png') }}" alt="物々交換画面"></p>
           <p class="user-guide-img-p">&#9317;自身が投稿したコラムの一覧も見ることが出来ます&#12290;</p>
         </div>
-      </div>
+      </div> -->
 
-      <div id="area-8">
+      <!-- <div id="area-8">
           <h2>掲示板</h2>
           <p id="user-guide-p">
             hortus会員の方々でコミュニケーションが取れる場所です&#12290;<br>
             ここで植物の疑問や質問を入力すれば良い返答がきて交友関係が広がるかもしれません&#12290;
           </p>
-      </div>
+      </div> -->
 
       <div id="area-9">
         <h2>パーソナル植物診断</h2>
@@ -275,23 +275,23 @@
   
       </div>
 
-      <div id="area-10">
+      <!-- <div id="area-10">
         <h2>お問い合わせ</h2>
         <p id="user-guide-p">
             何かご不明点がございましたらお気軽に下記のリンクより送信してください&#12290;
             お客様から頂いたお問い合わせは確認させて頂いたのち堅実に反映させて頂きます&#12290;
         </p>
         <a href="{{ url_for('main.inquiry') }}" id="user-guide-a">お問い合わせはこちらから</a>
-      </div>
+      </div> -->
 
       <div id="area-11">
-        <h2>退会</h2>
+        <h2>ログアウト</h2>
         <p id="user-guide-p">
-            hortus会員を退会される場合は「マイページ」の「ログアウト」にてお手続きください&#12290;<br>
-            手続きが完了しますと、ご登録いただきました情報、購入履歴などの一切が削除されます&#12290;<br>
+            hortusをログアウトされる場合は「マイページ」の「ログアウト」にてお手続きください&#12290;<br>
+            <!-- 手続きが完了しますと、ご登録いただきました情報、購入履歴などの一切が削除されます&#12290;<br> -->
             あらかじめご了承ください&#12290;<br>
         </p>
-        <a href="{{ url_for('main.mypage') }}" id="user-guide-a">マイページはこちらから</a>
+        <a href="{{ url_for('user.index') }}" id="user-guide-a">マイページはこちらから</a>
       </div>
 
     </div>
