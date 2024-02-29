@@ -61,10 +61,10 @@
 
     <!-- 検索ボックス・カテゴリ -->
     <div class="search-flexbox">
-      <form class="search-form" action="自分のサイトURL">
-        <input class="search-box" type="text" placeholder="キーワードを入力" />
+      <form method="get" class="search-form" action="{{ url_for('shop.shop_get') }}">
+        <input class="search-box" name="search" type="text" placeholder="キーワードを入力" />
       </form>
-      <div class="modal-001__wrap">
+      <!-- <div class="modal-001__wrap">
         <input type="radio" id="modal-001__open" class="modal-001__open-input" name="modal-001__trigger" />
         <label for="modal-001__open" class="modal-001__open-label">カテゴリ▼</label>
         <input type="radio" id="modal-001__close" name="modal-001__trigger" />
@@ -99,7 +99,7 @@
             <div class="modal-001__background"></div>
           </label>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- ここまで -->
 
