@@ -44,9 +44,9 @@
       <div class="nav-text">
         <a href="{{ url_for('shop.shop_get') }}">商品を探す</a>
       </div>
-      <div class="nav-text">
+      <!-- <div class="nav-text">
         <a href="{{ url_for('column.column_top') }}">コラム</a>
-      </div>
+      </div> -->
       <!-- <div class="nav-text">
         <a href="{{ url_for('thread.thread_top') }}">掲示板</a>
       </div> -->
@@ -66,7 +66,7 @@
       <div class="contents-wrap">
         <div class="flower-wrap">
           <div class="flower-image">
-            <img src="./images/18-Torenia.jpg" alt="flower">
+            <img src="{{ url_for('static', filename='images/18-Torenia.jpg') }}" alt="flower">
           </div>
           <div class="flower-text">
             <h1>トレニア</h1>
@@ -75,7 +75,7 @@
               </p>
               <div>
                 <!-- ページ完成次第変更 -->
-                <a href="item-search-result.html" class="button">検索ページに飛んでみる ></a>
+                <a href="{{ url_for('shop.shop_get') }}" class="button">検索ページに飛んでみる ></a>
               </div>
           </div>
         </div>
