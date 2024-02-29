@@ -77,7 +77,7 @@
           </tr>
         </table>
         <div class="my-listing-container-button">
-          <div class="my-listing-container-button-in"><button type="submit" class="yes-button">詳細ページ</button></div>
+          <div class="my-listing-container-button-in"><button class="yes-button"><a href="{{ url_for('shop.product_detail', product_id = product.product_id) }}">詳細ページ</a></button></div>
         </div>
       </div>
       {% endfor %}
