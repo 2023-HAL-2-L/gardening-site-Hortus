@@ -1,4 +1,5 @@
 *.map
 *.pyc
+__pycache__
 migrations
 static/images/product
