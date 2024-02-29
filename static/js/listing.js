@@ -2,7 +2,7 @@ $(".open-btn").click(function () {
   $(this).toggleClass('active');
   $("nav").toggleClass('nav-disable');
 });
-document.getElementById('itemImage').addEventListener('change', function (event) {
+document.getElementById('image').addEventListener('change', function (event) {
   const preview = document.getElementById('imagePreview');
   const file = event.target.files[0];
 

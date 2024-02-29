@@ -1,167 +1,130 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>コラム一覧</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/column.css') }}">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コラム一覧</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/column.css') }}">
+</head>
 
-    <body>
-        <header>
-            <div id="nav-logo"></div>
-            <div id="nav-button">
+<body>
+    <header>
+        <div id="nav-logo"></div>
+        <div id="nav-button">
             <div class="open-btn"><span></span><span></span><span></span></div>
-            </div>
-        </header>
-        <nav class="nav-disable">
-            <div id="nav-wrap">
-              <div class="nav-text">
+        </div>
+    </header>
+    <nav class="nav-disable">
+        <div id="nav-wrap">
+            <div class="nav-text">
                 <!-- ログインしているユーザー名を返す -->
                 {% if current_user.is_authenticated %}
                 <a href="{{ url_for('user.index') }}">{{ current_user.name }}</a>
                 {% else %}
                 <a href="{{ url_for('auth.login') }}">ログイン</a>
                 {% endif %}
-              </div>
-              <div class="nav-text">
-                <a href="{{ url_for('shop.shop_get') }}">商品を探す</a>
-              </div>
-              <!-- <div class="nav-text">
-                <a href="{{ url_for('column.column_top') }}">コラム</a>
-              </div> -->
-              <!-- <div class="nav-text">
-                <a href="{{ url_for('thread.thread_top') }}">掲示板</a>
-              </div> -->
-              <div class="nav-text">
-                <a href="{{ url_for('main.top') }}">トップに戻る</a>
-              </div>
-              <div class="nav-text">
-                <a href="{{ url_for('main.userGuide') }}">使い方</a>
-              </div>
             </div>
-          </nav>
-      
-        <main id="column-list-main"> <!-- コラム一覧内容 --> 
+            <div class="nav-text">
+                <a href="{{ url_for('shop.shop_get') }}">商品を探す</a>
+            </div>
+            <div class="nav-text">
+                <a href="{{ url_for('column.column_top') }}">コラム</a>
+            </div>
+            <!-- <div class="nav-text">
+                <a href="{{ url_for('thread.thread_top') }}">掲示板</a>
+            </div> -->
+            <div class="nav-text">
+                <a href="{{ url_for('main.top') }}">トップに戻る</a>
+            </div>
+            <div class="nav-text">
+                <a href="{{ url_for('main.userGuide') }}">使い方</a>
+            </div>
+        </div>
+    </nav>
 
-            <h1 id="column-list-h1">コラム一覧</h1>
+    <main id="column-list-main"> <!-- コラム一覧内容 -->
 
-            <div class="column-list-wrapper"> <!-- カード全体 --> 
-                
+        <h1 id="column-list-h1">コラム一覧</h1>
+
+        <div class="column-list-wrapper"> <!-- カード全体 -->
 
 
-                <a href="#" class="column-list-card">
-                    <div class="column-list-card-image-box">
-                        <img class="column-list-card-image" src="images/1-Hibiscus.jpg">
-                    </div>
-                    <div class="column-list-card-box">
-                        <h2 class="column-list-card-title">カードのタイトル</h2>
-                        <p class="column-list-card-description">テキスト</p>
-                        <small>作成(更新)日時</small>
-                        <small>作成者</small>
-                    </div>
-                </a>
+            {% for columns_data in columns_datas %}
+            <a href="#" class="column-list-card">
+                <div class="column-list-card-image-box">
+                    <img class="column-list-card-image" src="images/1-Hibiscus.jpg">
+                </div>
+                <div class="column-list-card-box">
+                    <h2 class="column-list-card-title">カードのタイトル</h2>
+                    <p class="column-list-card-description">テキスト</p>
+                </div>
+            </a>
+            {% endfor %}
+            <a href="#" class="column-list-card">
+                <div class="column-list-card-image-box">
+                    <img class="column-list-card-image" src="images/2-Bougainvillea.jpg">
+                </div>
+                <div class="column-list-card-box">
+                    <h2 class="column-list-card-title">カードのタイトル</h2>
+                    <p class="column-list-card-description">テキスト</p>
+                    <small>作成(更新)日時</small>
+                    <small>作成者</small>
+                </div>
+            </a>
 
-                <a href="#" class="column-list-card">
-                    <div class="column-list-card-image-box">
-                        <img class="column-list-card-image" src="images/2-Bougainvillea.jpg">
-                    </div>
-                    <div class="column-list-card-box">
-                        <h2 class="column-list-card-title">カードのタイトル</h2>
-                        <p class="column-list-card-description">テキスト</p>
-                        <small>作成(更新)日時</small>
-                        <small>作成者</small>
-                    </div>
-                </a>
+            <a href="#" class="column-list-card">
+                <div class="column-list-card-image-box">
+                    <img class="column-list-card-image" src="images/4-Dahlia.jpg">
+                </div>
+                <div class="column-list-card-box">
+                    <h2 class="column-list-card-title">カードのタイトル</h2>
+                    <p class="column-list-card-description">テキスト</p>
+                    <small>作成(更新)日時</small>
+                    <small>作成者</small>
+                </div>
+            </a>
 
-                <a href="#" class="column-list-card">
-                    <div class="column-list-card-image-box">
-                        <img class="column-list-card-image" src="images/4-Dahlia.jpg">
-                    </div>
-                    <div class="column-list-card-box">
-                        <h2 class="column-list-card-title">カードのタイトル</h2>
-                        <p class="column-list-card-description">テキスト</p>
-                        <small>作成(更新)日時</small>
-                        <small>作成者</small>
-                    </div>
-                </a>
+            <a href="#" class="column-list-card">
+                <div class="column-list-card-image-box">
+                    <img class="column-list-card-image" src="images/5-Agapanthus.jpg">
+                </div>
+                <div class="column-list-card-box">
+                    <h2 class="column-list-card-title">カードのタイトル</h2>
+                    <p class="column-list-card-description">テキスト</p>
+                    <small>作成(更新)日時</small>
+                    <small>作成者</small>
+                </div>
+            </a>
 
-                <a href="#" class="column-list-card">
-                    <div class="column-list-card-image-box">
-                        <img class="column-list-card-image" src="images/5-Agapanthus.jpg">
-                    </div>
-                    <div class="column-list-card-box">
-                        <h2 class="column-list-card-title">カードのタイトル</h2>
-                        <p class="column-list-card-description">テキスト</p>
-                        <small>作成(更新)日時</small>
-                        <small>作成者</small>
-                    </div>
-                </a>
+            <a href="#" class="column-list-card">
+                <div class="column-list-card-image-box">
+                    <img class="column-list-card-image" src="images/6-Nepenthes.jpg">
+                </div>
+                <div class="column-list-card-box">
+                    <h2 class="column-list-card-title">カードのタイトル</h2>
+                    <p class="column-list-card-description">テキスト</p>
+                    <small>作成(更新)日時</small>
+                    <small>作成者</small>
+                </div>
+            </a>
 
-                <a href="#" class="column-list-card">
-                    <div class="column-list-card-image-box">
-                        <img class="column-list-card-image" src="images/6-Nepenthes.jpg">
-                    </div>
-                    <div class="column-list-card-box">
-                        <h2 class="column-list-card-title">カードのタイトル</h2>
-                        <p class="column-list-card-description">テキスト</p>
-                        <small>作成(更新)日時</small>
-                        <small>作成者</small>
-                    </div>
-                </a>
 
-                <a href="#" class="column-list-card">
-                    <div class="column-list-card-image-box">
-                        <img class="column-list-card-image" src="images/7-Canna.jpg">
-                    </div>
-                    <div class="column-list-card-box">
-                        <h2 class="column-list-card-title">カードのタイトル</h2>
-                        <p class="column-list-card-description">テキスト</p>
-                        <small>作成(更新)日時</small>
-                        <small>作成者</small>
-                    </div>
-                </a>
+        </div> <!-- カード全体ここまで -->
 
-                <a href="#" class="column-list-card">
-                    <div class="column-list-card-image-box">
-                        <img class="column-list-card-image" src="images/8-Cleome.jpg">
-                    </div>
-                    <div class="column-list-card-box">
-                        <h2 class="column-list-card-title">カードのタイトル</h2>
-                        <p class="column-list-card-description">テキスト</p>
-                        <small>作成(更新)日時</small>
-                        <small>作成者</small>
-                    </div>
-                </a>
+    </main> <!-- コラム一覧内容ここまで -->
 
-                <a href="#" class="column-list-card">
-                    <div class="column-list-card-image-box">
-                        <img class="column-list-card-image" src="images/9-Hosta.jpg">
-                    </div>
-                    <div class="column-list-card-box">
-                        <h2 class="column-list-card-title">カードのタイトル</h2>
-                        <p class="column-list-card-description">テキスト</p>
-                        <small>作成(更新)日時</small>
-                        <small>作成者</small>
-                    </div>
-                </a>
-                
-            </div> <!-- カード全体ここまで -->
+    <a href="#" id="page-top"></a> <!-- ページのトップへ戻る -->
 
-        </main> <!-- コラム一覧内容ここまで --> 
+    <footer></footer>
 
-        <a href="#" id="page-top"></a> <!-- ページのトップへ戻る -->
-
-        <footer></footer>
-
-        <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-        <script src="{{ url_for('static', filename='js/common.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/column.js') }}"></script>
-        
-    </body>
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/column.js') }}"></script>
+
+</body>
 
 </html>
