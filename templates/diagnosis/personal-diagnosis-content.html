@@ -64,7 +64,7 @@
         </div>
       </div>
       <div class="question-img-wrap">
-        <img src="./images/question1-2.jpg" alt="test2">
+        <img src="{{ url_for('static', filename='images/question1-2.jpg') }}" alt="test2">
         <div>
           <a href="{{ url_for('diagnosis.question2', count = 1) }}" class="button">屋外</a>
         </div>
