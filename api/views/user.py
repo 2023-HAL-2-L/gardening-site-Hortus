@@ -90,4 +90,4 @@ def my_products():
 @login_required
 def trade():
   products = product.query.filter_by(account_id=current_user.id, is_barter = 1).all()
-  return render_template("user/Waiting-approval.html")
+  return render_template("user/exchange-list.html")
