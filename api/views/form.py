@@ -70,3 +70,9 @@ class ExhibitProductForm(FlaskForm):
     shipping_days = SelectField("発送までの日数", choices=[("1", "1日〜2日"), ("2", "2日〜3日"), ("3", "4日〜7日"), ("4", "1週間以上")])
     is_barter = BooleanField("物々交換を許可する")
     submit = SubmitField("出品する")
+    
+class ColumnForm(FlaskForm):
+    title = StringField("タイトル", validators=[DataRequired(message="この項目は入力が必須です"), Length(min=2, max=60, message="2から60文字の有効な値を入れてください。")])
+    image = FileField("商品画像", validators=[DataRequired(message="この項目は入力が必須です"),FileRequired(message="この項目は入力が必須です")])
+    content = TextAreaField("コラム内容", validators=[DataRequired(message="この項目は入力が必須です"), Length(max=1023, message="1023文字までの有効な値を入れてください。")])
+    submit = SubmitField("投稿する")
