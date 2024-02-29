@@ -13,12 +13,16 @@ shop = Blueprint("shop", __name__)
 def shop_get():
     form = ProductSearchForm()
     if request.method == "GET":
-        products = product.query.filter_by(is_sold = 0).all()
-        print(products)
+        search = request.args.get("search")
+        print(search)
+        if search:
+            products = product.query.filter(product.name.like(f"%{search}%"), product.is_sold == 0).all()
+        else:
+            products = product.query.filter_by(is_sold = 0).all()
         # for produc in products:
         # print(produc.product_name)
 
-        return render_template("shop/item-search-result.html", form=form, products=products)
+        return render_template("shop/item-search-result.html", form=form, products=products, search=search)
     if request.method == "POST":
         return render_template("shop/item-search-result.html", form=form)
 
