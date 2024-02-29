@@ -34,19 +34,27 @@
   <nav class="nav-disable">
     <div id="nav-wrap">
       <div class="nav-text">
-        <a href="login.html">ログイン</a>
+        <!-- ログインしているユーザー名を返す -->
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('user.index') }}">{{ current_user.name }}</a>
+        {% else %}
+        <a href="{{ url_for('auth.login') }}">ログイン</a>
+        {% endif %}
       </div>
       <div class="nav-text">
-        <a href="item-search-result.html">商品を探す</a>
+        <a href="{{ url_for('shop.shop_get') }}">商品を探す</a>
       </div>
       <div class="nav-text">
-        <a href="column.html">コラム</a>
+        <a href="{{ url_for('column.column_top') }}">コラム</a>
+      </div>
+      <!-- <div class="nav-text">
+        <a href="{{ url_for('thread.thread_top') }}">掲示板</a>
+      </div> -->
+      <div class="nav-text">
+        <a href="{{ url_for('main.top') }}">トップに戻る</a>
       </div>
       <div class="nav-text">
-        <a href="bulletin-board.html">掲示板</a>
-      </div>
-      <div class="nav-text">
-        <a href="top.html">トップに戻る</a>
+        <a href="{{ url_for('main.userGuide') }}">使い方</a>
       </div>
     </div>
   </nav>
