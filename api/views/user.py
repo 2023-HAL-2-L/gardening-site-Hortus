@@ -78,8 +78,7 @@ def orders():
 @user.route("/product")
 @login_required
 def my_products():
-  products = product.query.filter_by(account_id=current_user.id).all()
-  print(current_user.id)
+  products = product.query.filter_by(account_id=current_user.id, is_sold = 0).all()
   return render_template("user/my-listing.html", products = products)
 
 # @user.route("/mycolumn")
