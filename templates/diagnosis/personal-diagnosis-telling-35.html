@@ -70,25 +70,26 @@
         <!-- <div class="nav-text">
         <a href="{{ url_for('thread.thread_top') }}">掲示板</a>
       </div> -->
-        <div class="nav-text">
-          <a href="{{ url_for('main.top') }}">トップに戻る</a>
-        </div>
-        <div class="nav-text">
-          <a href="{{ url_for('main.userGuide') }}">使い方</a>
-        </div>
+      <div class="nav-text">
+        <a href="{{ url_for('main.top') }}">トップに戻る</a>
       </div>
-    </nav>
+      <div class="nav-text">
+        <a href="{{ url_for('main.userGuide') }}">使い方</a>
+      </div>
+    </div>
+  </nav>
 
-    <main>
-      <div id="main-wrap">
-        <div class="title-text">診断結果</div>
-        <div class="contents-wrap">
-          <div class="flower-wrap">
-            <div class="flower-image">
-              <img src="./images/35-Gomunoki.jpg" alt="flower" />
-            </div>
-            <div class="flower-text">
-              <h1>ゴムの木</h1>
+
+  <main>
+    <div id="main-wrap">
+      <div class="title-text">診断結果</div>
+      <div class="contents-wrap">
+        <div class="flower-wrap">
+          <div class="flower-image">
+            <img src="{{ url_for('static', filename='images/35-Gomunoki.jpg') }}" alt="flower">
+          </div>
+          <div class="flower-text">
+            <h1>ゴムの木</h1>
               <p>
                 しなやかに伸びる品種やくねくねとユニークな樹形のものも多く、インテリアとしても人気があります。
               </p>
