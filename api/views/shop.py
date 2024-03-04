@@ -13,7 +13,7 @@ shop = Blueprint("shop", __name__)
 def shop_get():
     form = ProductSearchForm()
     if request.method == "GET":
-        search = request.args.get("search")
+        search = request.args.get("search", type=str)
         print(search)
         if search:
             products = product.query.filter(product.name.like(f"%{search}%"), product.is_sold == 0).all()
