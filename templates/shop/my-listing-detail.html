@@ -68,9 +68,11 @@
         <h2>{{ product_data.name }}</h2><br>
         <p>￥{{product_data.price}}(税込み・送料込み)</p><br>
         <!-- 他の商品情報を表示 -->
+        {% if current_user.name != buy_user.name %}
         <button><a href="{{ url_for('shop.product_payment', product_id = product_data.product_id) }}">商品を購入する</a></button><br><br>
+        {% endif %}
         <h2>商品説明</h2><br>
-        <p> {{product_data.description}} </p><br><br><br>
+        <p> {{product_data.description}}</p><br><br><br>
         <p>商品の情報</p>
         <p>---------------------------------</p>
         <p>・{{ product_data.category_id }}</p>
